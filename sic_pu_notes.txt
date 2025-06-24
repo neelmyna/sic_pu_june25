@@ -1,0 +1,89 @@
+SIC TRAINING PRESIDENCY UNIVERSITY BENGALURU
+
+DAY1 MONDAY 23-06-2025
+Github Repo creation
+	Login to github
+	On top mid screen Click +
+	Click New Repository
+	In new window, name of the repo, description, keep the repo public and select add readme file and click create repo green button
+	
+We are going to link our Git Repo on our system.
+We are going to create a copy of the Git Repo in our system which we shall call as local Repo.
+Now to work on the local Repo, we have to 1st link our Git Account with our computer (configuration)
+Now we can work on the Local Repo. However, if we have to update the Remote Repo (server) w.r.t. the local Repo we have top authenticate everytime.
+To avoid authentication for every PUSH, we can use PAT (Personal Access Token).
+
+STEPS TO CREATE PAT:
+Right top corner of logged-in page, click the profile icon
+Scroll down and click settings
+next page, scroll down and click developer settings (left bottyom)
+next page, left top, click personal access token (select tokens classic)
+next page, click generate new token, select classic
+next page, add note (this PAT is created for my personal learning during my engg days)
+Click Expiration, select No Expiry
+Now select the top check box named Repo
+Now fully scroll down and click generate PAT button
+Next page, copy the PAT and Mail it to yourself (mail subject: git pat). So that the PAT is always with you and also safely.
+--------------------------------------------------
+DAY2 TUESDAY 24-06-2025
+
+TOPICS FOR THE DAY
+Git, Python shell
+
+APP INSTALATIONS:
+Note: Always prefer Downloading installer/setup file (.msi)
+1. vs code
+Google search: Download vs code
+Link: https://code.visualstudio.com/download
+Click on respective OS
+
+2. git
+Google search: Download vs code
+Link: https://git-scm.com/downloads
+Click on respective OS
+
+3. notepad++
+Google search: Download vs code
+Link: https://git-scm.com/downloads
+Click 8.7.7 or 8.8 version
+in new page, click the Box shaped download link.
+
+4. python
+Google search: Download python
+Link: https://www.python.org/downloads/
+Click the yellow button if your OS is Windows else select the OS
+
+Note:
+Now CUT and PASTE all the .msi files into their respective folders inside the software folder in C drive.
+
+ORGANISING(ARRANGING FILES AND FOLDERS):
+Create software folder in C drive and create one folder for every software or app you download.
+Now cut and paste the installer files in to their respective folder inside the software folder in C drive.
+Now from here doubl click and install the Apps.
+
+Create a folder named "learning" in D or E drive. (if not available in C drive)
+Now, inside the learning folder we create respective folders for java, python, cpp, cyber_security etc.
+
+GIT CONFIGURATION:
+$ git config --global user.name "neelmyna"
+$ git config --global user.email "EMAIL-ID"
+
+CLONING A REPO:
+$ git clone https://github.com/neelmyna/sic_pu_june25
+
+By running the above command, we get a copy(clone) of our repo in our system.
+
+$ git clone https://PAT@github.com/neelmyna/sic_pu_june25
+
+git clone https://3kjflrwkjljfdkjvskjvbsjkd@github.com/neelmyna/sic_pu_june25
+
+IMPORTANT GIT COMMANDS:
+To update my remote repo w.r.t. local repo:
+
+1. Let the git add the files that need to updated
+2. Let the git commit the changes (Here, git creates an object inside which it copies all the files that need to be updated into the server. Also this object is cyber secured with encription. This copy is called as soft copy)
+3. Copy the commited object from the laptop/system to github server (to this last step, we need internet)
+
+1. stage	2. commit 	3. push
+
+$ git add 
