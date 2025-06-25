@@ -86,4 +86,160 @@ To update my remote repo w.r.t. local repo:
 
 1. stage	2. commit 	3. push
 
-$ git add 
+$ git add .
+$ git commit -m "relavant message"
+$ git push origin main
+---------------------------------------------
+PYTHON
+
+In every language, there 2 stages of a program (Compile time and runtime)
+
+C/C++:
+editing -> compilation -> execution
+compilatiion: pre-processing (macro expansion) -> Compilation (syntax checking -> translation) -> interpretation -> execution
+
+Operators in Python:
+Arithmetic Operators:
++ - * / // ** %
+
+-> All the Arithmetic operators are binary operators, i.e. they take 2 i/p (operands)
+25 + 3
+-> i/p are numbers. o/p is number
+-> The arithmetic operations are performed from L to R in an expression. Associtivity
+23 - 45 + 12 (Here 23 - 45 is performed 1st. the difference is stored in Accumalator and it is added to 12 immediately by the ALU).
+-> + and - have least precedence
+-> % / // * have higher precdedence
+-> ** has the highest precedence
+-> Arithmetic operators have higher precedence than relational operators and logical operators.
+
+TYPES OF MEMORY
+Secondary memory (hdd/ssd)
+RAM
+cache, buffers (unbuffered, line buffers and user customised delimited buffers), registers (general purpose, special purpose)
+Special Purpose registers: MAR, MDR, SP, FP, IR, PC, Accumalator
+
+scanf("%s", str); // space and newline are delimiters
+gets_s("%s", str, 32); 
+scanf("%[$^]s", str);
+kbhit()
+
+-> + and - have least precedence
+-> % / // * have higher precdedence
+-> ** has the highest precedence
+
+34 + 45 * 5 ** 2
+Here the power operation is performed 1st. Then multiplication and lastly the addition.
+
+2 + 5 + 9 - 11 + 13
+7 + 9 - 11 + 13
+16 - 11 + 13
+5 + 13
+18
+
+1 ** 2 ** 3 ** 2
+1 ** 2 ** 9
+1 ** 512
+1
+
+2.5 + 25
+Here the sum operation cannot be performed unless 25 is casted to 25.0
+
+Positive Integers are stored by converting them from decimal/octal/hexadecimal to binary
+Negative numbers are stored by converting the number to binary and then to 2s compliment.
+Floating point numbers are stored in binary using IEEE standards.
+
+25 - (-13) + 4.5
+
+13
+0000 1101
+1111 0010
+1111 0011
+-1*2(7) + 1*2(6) + 32 + 16 + 3
+-128 + 64 + 32 + 19
+-64 + 51
+= -13
+
+n = 0o25
+
+0000
+1111
+15
+f
+
+ff
+11111111
+240 + 15 = 255
+
+RELATIONAL OPERATORS:
+> < >= <= != ==
+
+-> All are binary operators
+-> i/p are numbers. o/p is boolean
+-> The >= and <= operators are looks redundant, but are required.
+
+size = 20
+Do the THIS size times
+for i = 1 and i <= size, keep doing:
+	THIS
+
+for i = 1 and i < size+1, keep doing:
+	THIS
+
+for i = 1 and i <= 20, keep doing:
+	THIS
+
+for i = 1 and i < 21, keep doing:
+	THIS
+
+Thus the operators >= and <= increases the readability. Hence we use it.
+
+***IMPORTANT: In programming the 1st priority (overall) is always simplicity (readability, maintainability)
+
+[20, 40]	Closed interval The range is from 20 to 40 (both inclusive)
+(15, 35)	Open Interval. The nd points are not included. So the range is 16 to 34
+[25, 50)	Right Open. Range is 25 to 49
+
+value >= 20 and value <= 40
+value > 15 and value < 35
+value >= 25 and value < 50
+
+Relational operators have lesser precedence than Arithmetic but higher than logical operators.
+
+LOGICAL OPERATORS:
+and or not !
+
+There is only short circuited "and" and "or" in Python
+
+In C/C++/Java
+C1 & C2 && C3
+
+c1 and c2 and c3 ... c10
+
+C:
+int n = 10, m = 20, k = 15;
+if(n++ >= m && k-- != m)
+	print Goa
+else
+	print Bali
+print n m k 
+// Bali  11 20 15
+
+int n = 20, m = 20, k = 15;
+if(n++ <= m | k-- != m) T or F
+	print Goa
+else
+	print Bali
+print n m k 
+// Goa 21 20 14
+	
+'3' - 48
+51 - 48 = 3
+
+str input()
+str input(str)
+NOTE: There is no function overloading in Python.
+
+
+
+
+

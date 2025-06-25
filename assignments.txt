@@ -1,0 +1,10 @@
+1. add files in remote repo and also in local repo. Then sync them
+2. Learn to undo the 3 commands required to push (git add, git commit, git push)
+3. What happens when we have 2 commits and we try to push? Discuss in detail.
+4. How floating point number is stored in memory.
+5. Find out why there are no ++ and -- operators in Python.
+6. Check if a year is Leap year
+7. Check if a +ve integer is Perfect square
+8. Find smallest of 3 distinct numbers
+9. Farmer Problem
+10. Taxation problem.
