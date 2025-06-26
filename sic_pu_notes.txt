@@ -238,8 +238,29 @@ print n m k
 str input()
 str input(str)
 NOTE: There is no function overloading in Python.
+--------------------------------------------------------
+DAY4 THURSDAY 26-06-2025
 
+Mantra:
+The code we define/implement must be understandable by any programmer in the world.
 
+The O/P (execution) must be understandable by any common person in the world.
 
+range() is a function in Python which takes a range of values and YIELDS the values one by one from the range depending on the increment.
 
+range(10)
+values the range yields are 0 to 9 with increment of +1
+range(1, 20)
+values the range yields are 1 to 19 with increment of +1
+range(1, 20, 3)
+values the range yields are 1 to 19 with increment of +3
+range(21, 2, -3)
+values the range yields are 21 to 3 with increment of -3
 
+range()
+input()
+print()
+len()
+min()
+max()
+sorted()

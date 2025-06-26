@@ -8,3 +8,30 @@
 8. Find smallest of 3 distinct numbers
 9. Farmer Problem
 10. Taxation problem.
+
+Check from which of the Python module the following functions come from.
+range()
+input()
+print()
+len()
+min()
+max()
+sorted()
+
+Assignments on Loops
+1. Find biggest digit in a number
+2. Find 2nd smallest digit in a number
+3. Count number of Prime digits in a number
+4. Print the Prime numbers in decreasing order between m and n (m < n)
+5. Find the Nth Fibo (HemaChandra) term. Assume 1st 2 terms are 1 and 2
+6. Find sum of thye series n - n2/3 + n4/5 - n8/7 .... m terms (1<=n<=4 and 2<=m<=10)
+7. Print the following shapes by accepting number of lines
+A. Right Angled Triangle
+B. Equi lateral Triangle
+C. Hollow Square
+D. howllow Rhombus
+E. Pascal's Triangle
+F. X shape
+G. X shape inside hollow Square
+H. Benzene Ring (C6H6) Hexagon
+
