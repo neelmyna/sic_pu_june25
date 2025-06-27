@@ -268,3 +268,48 @@ sorted()
 Students Repo Links:
 https://docs.google.com/spreadsheets/d/1iUklq9hEl6KcluwuOU18ECfiK45syp4NLX0EDcVMnTA/edit?gid=0#gid=0
 
+https://github.com/neelmyna/sic_pu_june25
+-----------------------------------------------------------------
+DAY5 FRIDAY 27-06-2025
+
+ARRAY/LIST:
+-> It is a data structure in which all elements of the array are stored in continuous memory locations. i.e. there is no gap between any 2 consecutive elements of the array.
+-> What is a Data Structure?
+Ans: Storage + Arrangement of data in memory.
+-> In the array usually all elements will be of the same DT. However, this need not true in the case of Python.
+-> An array is time efficient DS. Because the look-up is O(1). i.e. it takes 1 unit time to access any element in an array.
+-> Assuming size of an array is fixed, there is always wastage or shortage of memory. Hence fixed size arrays are always memory inefficient.
+-> When ever we pass an array to a function/method we pass only reference (address of 1st element) of the rray. This kind of call to the function is called as call by reference.
+
+List in Python:
+-> It is an ordered DS (where we can use the indexing)
+-> Mutable
+
+List class in Python
+
+Problems:
+1. Find smallest and biggest elements in an list of n numbers.
+2. Find the frequency an element in a list of n elements.
+3. Remove the duplicates in a list of size n
+**4. Given a number, find very next possible bigger number that has all the digits of the given number.
+5. Accpet a number from the user (4 digit number where a digit can repeat at most 2 times )and print the coutn of recursions reqired to arrive at Karpekar's Constant.
+Recursive Problems:
+1. Find Factorial of a number
+2. Print N Fibo terms with 1 and 2 as 1st 2 terms.
+3. Find sum of list elements
+-----------------------------------------------------------------
+DAY6 SATURDAY 28-06-2025
+
+List example programs 
+l1 = [1, 2, 5, 2, 4, 3]
+print(sorted(l1))
+print(l1)
+print(l1.remove(2))
+--------------------------
+List Slicing:
+
+----------------------------------------
+Implement Stack using list, insert and delete from rear of the list
+Implement Stack using list, insert and delete from front of the list
+Implement Queue using list, insert at rear delete from front the list
+Implement Queue using list, insert front, delete from rear of the list

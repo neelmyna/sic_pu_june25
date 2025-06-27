@@ -29,10 +29,19 @@ Assignments on Loops
 A. Right Angled Triangle
 B. Equi lateral Triangle
 C. Hollow Square
-D. howllow Rhombus
+D. Howllow Rhombus
 E. Pascal's Triangle
 F. X shape
-G. X shape inside hollow Square
+G. X shape inside hollow Square with 0 at middle/center
 H. Benzene Ring (C6H6) Hexagon
 8. Find sum of the Even placed digits in the given number.
 9. Find sum of the Odd placed Even digits in the given number.
+
+IMPORTANT SOURCES OF LEARNING:
+1. Official Documentation (java: oracle docs, Front-End: Dev.mozilla, PythonL Python docs, C/C++: MSDN or IBM)
+2. Youtube: MIT Open University, Stanford
+3. Certification: NPTEL, Company Certification (AWS, GCP, Java-1Z0830, PyhtonInstitute.org PCAP, PCEP, PCED)
+CDAC is the best
+--------------------
+1. Which modules(s) are automatically loaded/imported by python interpretor
+2. In which module does print(), input(), len() functions come from?
