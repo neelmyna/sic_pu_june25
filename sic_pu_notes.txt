@@ -313,3 +313,37 @@ Implement Stack using list, insert and delete from rear of the list
 Implement Stack using list, insert and delete from front of the list
 Implement Queue using list, insert at rear delete from front the list
 Implement Queue using list, insert front, delete from rear of the list
+-------------------------
+int num;
+size = scanner.nextInt();
+int[] numbers = new int[size];
+
+void myFunction(Car car) {
+	car.closeWindow();
+	
+	NewCar myCar = new Car();
+}
+----------------------------------------------
+DAY-7 Monday 30-06-2025 
+
+How inheritance is technically implemented?
+Why a constructor cannot be final abstract and static?
+Why main() is public static and void?
+Explain runtime polymorphism (method over-riding).
+What is collection and explain its use and memory mapping.
+
+List Comprehension:
+list is a DS in Python (pre defined). list is a class
+list is ordered
+list is mutable
+
+l1 = [1, 43, 3, 2, 5]
+
+l2 = [1, 2, 5, 4, 3]
+
+name = 'shanmugha'
+
+name.find('u')
+name.find('mu', 2)
+name.find('uu', 2, 7)
+name.index('mugha', 3, 7)

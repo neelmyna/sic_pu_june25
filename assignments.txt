@@ -45,3 +45,10 @@ CDAC is the best
 --------------------
 1. Which modules(s) are automatically loaded/imported by python interpretor
 2. In which module does print(), input(), len() functions come from?
+
+WEEK2:
+1. Name the Ultimate Parent class in Python (And its important methods and members)
+2. What are the double underscore methods (functions)
+3. How to define explicitly the main function in Python
+4. Try to know as many methods of list and str classes as possible.
+5. Why the command line Args are stored in a list and why not in tuple?
