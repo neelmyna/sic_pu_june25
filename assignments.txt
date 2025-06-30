@@ -52,3 +52,4 @@ WEEK2:
 3. How to define explicitly the main function in Python
 4. Try to know as many methods of list and str classes as possible.
 5. Why the command line Args are stored in a list and why not in tuple?
+6. What is Pythonic and pep3 ?
