@@ -347,3 +347,36 @@ name.find('u')
 name.find('mu', 2)
 name.find('uu', 2, 7)
 name.index('mugha', 3, 7)
+------------------------------------------
+original_str = 'college'
+
+i++
+j--
+a[i] = b[j]
+b[j]++
+
+a[++i] = b[--j]++ // low cohesive
+----------------------------------
+2 servers
+2 types of requests
+allocation +ve number
+deallocation -ve number
+
+N
+45  -13  -30  -10  50  35  -5  5  8
+0         2         4
+
+45 + (-30) + 50 + (-5) + 8
+68 units of memory is allocated by server1
+----------------------------------- 
+Read N,  X  and Y
+X + Y = N
+
+numbers = []
+Read N numbers in to numbers
+
+sort numbers (ascending)
+p = numbers[y] - nunmbers[y-1] - 1
+print p
+
+
