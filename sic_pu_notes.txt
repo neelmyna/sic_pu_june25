@@ -526,3 +526,8 @@ for i from 2 to N do:
 			element = list[j]
 			position = j
 	swap list[position] with list[i-1]
+---------------------------------------
+Quick Sort
+
+CLASS_SIZE = 50
+total_training_amount = training_fee * CLASS_SIZE
