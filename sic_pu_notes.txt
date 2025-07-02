@@ -383,16 +383,14 @@ print p
 def check_arrangement(b, g)
 	arrangment = true
 	for i in range(1, n):
-		if girls[i] >= girls[i-1] and boys[i] >= girls[i-1]:
+		if girls[i] >= boys[i-1] and boys[i] >= girls[i-1]:
 			continue # go to the next iteration
 		else:
 			arrangment = False
 			break # Once we know such arrangment is not possible, quit
 	if arrangment and (g[0] >= b[0] and g[-1] >= b[-1]) or (b[0] >= g[0] and b[-1] >= g[-1])
 		return "yes"
-	
-	
-	
+
 Read T
 output[]
 	for T times do:
@@ -406,3 +404,125 @@ output[]
 		result = check_arrangement(b, g)
 		output.append(result)
 print output
+----------------------------------------
+DAY9 WEDNESDAY 02-07-2025
+
+Bubble Sort:
+In this sorting technique we start from any of the 2 ends of the list and compare consecutive elements.
+Assuming we start from Left and wish to sort in scaending order, we swap the elements if the left element is bigger than the right one.
+Continue doing so upto the end of UNSORTED ARRAY and thus we have put the biggest element in the unsorted array in its final position.
+Thus the element is taken from the unsorted array into the sorted array.
+
+RUN: Accessing all the elements in an array exactly once from one end of the array to the other.
+In Bubble sort, we bring the element into its final position in one Run over the unsorted array.
+
+Bubble sort doesnt predict anything before starting the sort algorithm nor it knows if the list is already sorted (i.e. after the 1st Run)
+
+The biggest element of the specific Run is moved to its final position. This is called as BUBBLING the element to a corner.
+
+While comparing the elements if we observe that there are no Swaps in a Run, then the list is already sorted.
+Thus we have a way to optimize the Bubble Sort. The optimzed Bubble sort has an improved efficiency of O(n).
+
+The Bubble Sort Algorithm:
+Start from one end and move towards other end of unsorted array
+	compare consecutive elements
+	if left element is bigger than the right
+		swap the elements
+
+With each iteration of the Run, the size of sorted list increases by one while the size of unsorted array decreases by one element.
+
+Pseudocode
+
+Assume input size to be N
+for i from 1 to N-1 do:
+	for j from 1 to N-1-i do:
+		if list[j] > list[j+1]
+			swap list[j], list[j+1]
+
+The outer loop Runs through the list (Accessing elements of the list exactly once)
+The inner loop compares consecutive elements of the unsorted list
+
+Optimized Bubble Sort:
+for i from 1 to N-1 do:
+	sorted = True # Assume the list is already sorted
+	for j from 1 to N-1-i do:
+		if list[j] > list[j+1]
+			swap list[j], list[j+1]
+			sorted = False
+	if(sorted)
+		break outer loop
+
+BCE of improved(optimised) Bubble sort is O(n)
+WCE of Bubble sort O(n2)
+
+
+1 2 3 4 5 6 7 8 9 10
+1  + 10 = 11
+2  + 9  = 11
+
+(1 + n) * (n / 2)
+= 11 * 5 = 55
+
+1 2 3 4 5 6 7 8 9.... 50
+1 + 50 = 51
+2 + 49 = 51
+
+25+ 26 = 51
+(1+50)*25 = 1275
+----------------------------------
+n-1 times the outer loop works
+i=1  n-2 times
+i=2  n-3 times
+i=3  n-4
+
+i=n-1  n=1
+1 + 2 + 3 + .... n-3 + n-2 + n-1
+n(n-1)/2
+n2/2 - n/2
+= n2/2
+= n2
+
+8000
+3_20_00_000 - 4_000
+= 3_20_00_000
+
+The Bubble sort doesnt follow any specific mathematical formula or technique.
+Its solution is what we find on day to day basis.
+Thus it has come from centuries of commonly used problem solving technique (Trivial way of problem solving)
+Which is said to come under BRUTE FORCE TECHNIQUE.
+Thus In Brute Force technique there is Inventor Name.
+---------------------------------------------
+Selection Sort (Brute Force Technique)
+
+23   4    1    33    22   19   50    25
+i=1
+element  = 23  4   1
+position = 1   2   3
+After the loop has excited, swap the elements at positions position and i
+1   4    23    33    22   19   50    25
+i=2
+element  = 4 
+position = 2
+1   4    23    33    22   19   50    25
+i=3
+element  = 23  22  19 
+position = 3   5    6
+1  4  19  33  22  23  50  25
+
+In each iteration of i, we SELECT the ith smallest element and put in its final position.
+
+Thus, there are N-1 iterations for i
+And N-1-i comparisons in each iteration of i
+
+Assignment: Can we optimize Selection Sort the way we did with Bubble sort and thus bring the BCE of Selection sort from O(n2) to O(n)
+
+NOTE: We need not apply any sorting on the given array when (when we know the given array is already sorted)
+
+for i from 2 to N do:
+	element = list[i-1]
+	position = i-1
+	for j = i-1 to N do:
+		if list[j] < element then:
+			element = list[j]
+			position = j
+	swap list[position] with list[i-1]

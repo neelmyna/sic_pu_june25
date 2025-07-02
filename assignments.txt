@@ -53,3 +53,7 @@ WEEK2:
 4. Try to know as many methods of list and str classes as possible.
 5. Why the command line Args are stored in a list and why not in tuple?
 6. What is Pythonic and pep3 ?
+DSA
+1. Implement Binary search using Recursion
+2. Print N terms of Fibo series using Recursion
+3. Find Sum of digits of a number using Recursion
