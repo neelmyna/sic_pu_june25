@@ -556,3 +556,10 @@ insert into employees()
 5 rows do not add some of the values
 5 rows do not add all the values that we can skip
 5 rows as you wish
+
+CRUD OPERATIONS:
+Create one row			post		
+Read/Retrieve one/all	get  	(with id or without)
+Update					put		(with id)
+Delete					delete	(with id)
+

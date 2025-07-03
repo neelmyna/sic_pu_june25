@@ -1,0 +1,1420 @@
+The typical way of storing data is in files.
+We always store data in files.
+
+However, if we ourselves manage the files, then we come across the following issues:
+1. File Type
+2. Simultaneous file access is not possible.
+3. Saving of data in the file from a 2nd source.
+4. Security to the data is not possible.
+5. Redundancy (Duplicate files)
+6. Data can be inaccurate
+7. Remote access is difficult
+
+We go for DataBase Approach
+1. Easy access of data
+2. Reducdancy can be reduced (May not be possible to remove)
+3. Inconsistency of data can be removed.
+4. Data can be shared
+5. Standards can be enforced
+6. Security is applied
+7. Integrity is maintained
+8. Abstract view of Data (Meta Data)
+9. Multiple and simultaneuous access of data
+
+DataBase: is the Data + the data about the data (Meta data)
+DBMS: is the s/w that manages the DB
+Creating (Defining)
+Constructing the DB (process of storing data in the DB)
+Reading (OLAP) - 
+Writing (Mutating / manipulating / updating) (OLTP)
+
+Sub-languages of SQL:
+DDL: (create, alter, drop, truncate)
+DML: (insert, update, delete, merge)
+DCL: (grant, revoke)
+TCL: (savepoint, rollback, commit)
+DRL: (select)
+
+One DB may have one or more tables.
+
+Breaking up a table into many - Normalization
+
+File System
+Hierarchical DB (Acyclic)
+Network DB (Cyclic)
+1970s With the help of Mathematical Set theory, RDBMS
+The logical view of data was as a Table (Rows and Columns)
+Each Row is an instance of the Relation/Table (Tuple)
+The columns are the Fields/ Attributes
+EF Codd - 12 Codd Rules 
+Any DB which satisfies about 8 CR, is said to be a RDBMS
+
+
+DADA MODELING TERMINOLOGIES:
+Entity -> Relation (Table)
+Attributes
+Relationship -> (A STUDENT belongs to a particular DEPARTMENT)
+
+Relation: Table
+Tuple: A row (Record / Object)
+Attribute: A column in a Table
+Degree: Number of Attributes
+Cardinality: Number of Tuples
+Primary Key: An Identifier to uniquely represent a Row
+
+KEY: one or more columns used to search rows
+Primary Key: One or More columns which uniquely Identify a row
+
+In DBs, the Primary Key must be (Unique and Not Null)
+
+CONSTRAINTS:
+not null
+unique
+auto increment
+foreign key
+
+Super keys, Candidate keys, Secondary keys
+
+RDBMS:
+Data represented in terms of Tables
+E-R diagrams for the design (similar to UML diagrams)
+It has a SQL to query the DB
+
+RDBMS limitations:
+1. Must be implemented with a good design. Otherwise, it will have performance issues or data redundancy
+2. Redundancy cannot be removed fully.
+3. Implimentations are not easy.
+4. Industry standard DBMS consume more disk and memory space.
+
+NORMALIZATION:
+It is a way/tool to improve and validate the logical design of a DB.
+
+* It simplifies the complicated large sized DB into smaller chuks of DB which are simple to read and understand.
+* It helps in implementation of HIGH-COHESION and thus the tables created become easy to maintain.
+* It reduces the redundancy.
+
+Normalization when applied extensively, it may reduce the redundancy, but it will create efficiency issues.
+
+1NF: If every cell in a table is having one data (Atomic)
+
+2NF: Any Table which doesn't exhibit Partial Functional Dependency, then the table is said to be in 2NF.
+
+FUNCTIONAL DEPENDENCY:
+It is relationship between the Non-Primary key attributes with the Primary Key attributes.
+
+If the Non-Primary key attributes are directly dependent on the Primary key attribute, then it is functionally dependent.
+
+Composite PK: A PK that is made up of 2 or more attributes in a table.
+
+If the PK is not a composite PK, then there is no question of the table failing 2NF.
+
+PK (A1) <- Attr (A4)   (Non composite PK)
+Full FD
+No FD
+
+PK (A1, A2) <- A3		(Composite PK)
+Full FD
+Partial FD
+No FD
+
+Table: Certification
+NAME	FATHER-NAME		ADDRESS		EXAM	SUBJECT		MARKS
+
+PK: Name and Exam
+The Attribute "Subject" is directly dependent on both Name and Exam.
+However, the attribute "Address" depends on Name but not on Exam.
+
+TRANSITIVE DEPENDENCY:
+The relationship between the non primary key attributes
+
+Marks is dependent on Subject, and both the MARKS and SUBJECT are non PK attributes.
+Thus we say that the Transitive dependency exists on the PK.
+
+eg2: The Non PK Attr.. "Age" depends on the non PK Attr.. DoB. Thus the Transitive dependency exist.
+
+When we get to know that the table has Transitive dependency, then the table is said to be in 2NF but n ot in 3NF.
+
+To bring the table into 3NF, remove the Attributes that are causing the TD and create and put them into a seperate table.
+
+1NF: All values must be atomic in nature
+2NF: Table in 1NF, No Partial FD
+3NF: Table in 2NF, No TD
+
+ACID PROPERTIES: One of the characteristic that makes the DB Reliable. (Transactions)
+Atomicity: Each Transaction is seen as atomic. Though the transaction has several steps, even if one step is not complete, then the STATE of the DB is brought back to its previous or original state.
+
+TRANSACTION: It is a set of inter-related activites on the data base.
+
+Consistency: It guarantees that the data in the DB is always consistent with the RULES that have been set on the DB.
+
+Isolation: It is like Locking the DB.
+When I am doing any c hanges to the DB, others are not able to see the changes but they see the original state of the DB.
+Once the Transaction completes (COMMIT), only the the state of the DB changes FOR ALL.
+
+If the Manager is changing the salary of an employee, say from 35,000 to 38,000 then, the employee is still seeing 35,000 while the Manager is seeing 38,000.
+Once the Manager SAVES the new state then both of them will see 38,000
+
+Durability:
+Once a user is notified of success in his transaction, the action on the DB will persist.
+
+SELECT * FROM dept;
+Select all columns from the dept table 
+* means all
+
+SELECT dept_name FROM dept;
+SELECT ALL dept_name FROM dept;
+To select a specific column
+This displays all the department names
+By default, ALL keyword is always added.
+
+SELECT dept_name, location FROM  dept;
+To select specific columns from a table.
+
+DISTINCT: To select unique rows from the table.
+SELECT DISTINCT location FROM dept;
+
+FILTERING ROWS using WHERE clause:
+
+SELECT emp_name, phone_num FROM employee WHERE location="BENGALURU";
+
+OPERATORS WE CAN USE WITH WHERE CLUASE:
+<, >, <=, >=, =, != or <> 	 Relational operators
+
+IN 			It selects from a list of values
+BETWEEN		Selects from a range of values
+NULL 		Compares with null values
+LIKE		Compares with a pattern (It is used with WILD CARDS)
+
+select name from employee where salary > 50000;
+select name from employee where location != "Mysuru"
+select name, dept_name employee where location in("mumbai", "pune")
+select name from employee where salary between 20000 AND 30000
+select name from employee where location="Bhopal" or location="Indore"
+
+There are 2 types of WildCards:
+%		This wildcard matches multiple characters
+_		This wildcard matches exactlty one character
+
+S%		Data strating from 'S' and having any number of characters
+%A		Data ending with 'A' and having any number of characters
+M_H%H	Data strating with 'M' and 3rd character must be 'H' and there after any number of characters but the last character is 'H'
+__S_P	Data having exactly 5 characters and the 3rd and 5th characters must be 'S' and 'P' repectively.
+
+select emp_number, name from employee where name like 'S%';
+
+LOGICAL OPERATORS:
+AND
+OR
+Not		Used usually with IN, BETWEEN and LIKE operators.
+
+select emp_number, name, salary from employee where job="Analyst" OR name like "N%S%"
+
+select emp_number, name from employee where name NOT LIKE "P%"
+
+IS NULL:
+To check empty or missing information.
+
+select emp_number, emp_name from employee where commission IS NULL;
+select name from employee where commission IS NOT NULL;
+
+USE OF ARITHMETIC OPERATORS:
+To print the salary plus commision of the employees as a single column:
+
+select emp_number, emp_name salary+commision TOTAL_SALARY from employee;
+
+select emp_number, emp_name TOTAL_SALARY(salary+commision) FROM employee;
+
+select emp_name salary+commision AS total_salary from employee;
+
+select emp_number, emp_name salary+commision "TOTAL SALARY" from employee where commision is not null;
+
+USING ALIASES for column (Attribute) names:
+It helps us in readability and also in cross Naming standards.
+
+select emp_number EMPLOYEE_NUMBER, name "EMPLOYEE NAME", sal SALARY from employee where sal > 22000;
+
+ORDER BY CLAUSE:
+It is used to list the table data in either Ascending order or Descending order
+
+select emp_number, name from employee where job="Programmer" ORDER BY name;
+By default, it sorts oin ascending order.
+
+SELECT name, job FROM EMPLOYEE where sal > 15000 ORDER BY name DESC;
+To list the contents in descending order
+
+select name, job from employee where dept_num in(12, 15) orderby 2, 1 desc;
+
+1st sort the data on job in ascending order and if room is left to sort the name in descending order then do it.
+
+select name, dept_name from employee where commision between 3000 and 12000 order by desc 1, 2;
+
+select name, commission from employee where commission is null;
+
+This displays all the records with name and commission and in the column of commission, we see all values as Null
+
+USE OF NVL FUNCTION: It converts a null value to a non-null value.
+Syntax:
+NVL(arg1, arg2)
+
+If arg1 is not null, then NVL function displays it.
+If arg1 is null, then NVL function displays the arg2.
+
+select name, NVL(commission, 0) from employee;
+
+select name, NVL(to_char(comm), "No Commission") as COMMISSION from employee;
+
+DECODE FUNCTION:
+Used as switch-case
+choice here is a table column
+case is the value of the column in the table
+result is what we replace the value with.
+AS in switch-case, we can OPTIONALLY provide a default value.
+
+SYNTAX:
+select decode(column_name, search1 result1, search2, result2,.... default);
+
+select emp_number decode(job, 'Analyst', 'A', 'Clerk', 'C', 'Manager', 'M', 'Employee') as DESIGNATION from employees;
+
+select emp_name decode(job, 'Analyst', 'A', 'Clerk', 'C', 'Manager', 'M') from employee;
+
+select emp_name decode(Address, '%mumbai%', 'Mumbai', '%Amaravati%' 'Amaravati') from employee;
+
+select iif (5 < 2,'Om', 'Jenit')
+select iif (5 != 2,'Om', 'Jenit')
+select choose(2, 'One', 'Two', 'Three', 'Four')
+select isnull(choose(12, 'One', 'Two', 'Three', 'Four'), 'Zero')
+
+DAY2:
+Step1. Create a database
+
+create database newgen;
+
+Here a new DB is created. Now we shall create a table inside the DB:
+
+/* Tools -> options -> Text Editor -> SQL Transact -> On Right side select word wrap and line number */
+
+create database newgen
+
+Create Table Books(BookId char(5) Primary Key check(BookId Like 'B[0-9][0-9][0-9][0-9]'),
+BookName varchar(40) Not Null, AuthorName varchar(40) , Price SmallInt check( Price >0),
+Publish_Date smallDateTime , Publisher_Name varchar(40) Not Null,category varchar(25) , 
+BookLanguage varchar(20))
+
+Insert Into Books values('B1100','Idols','S.M. GavasKar',450,'8-May-87','Rupa','Auto Biography','English')
+
+Insert Into Books values('B1145','Three Masketiers','Alexander Duma',290,'18-June-1957','Ananda Publishers','Novel','English')
+
+Insert Into Books values('B1290','Learning C ','E. Balaguruswamy',290,'10-Oct-1995','Tata McgrawHills','Programming Language','English')
+
+Insert Into Books values('B1293','Rishtey ','Sandeep Ahlawat',610,'25-Oct-2009','Tata McgrawHills','Novel','Hindi')
+
+Insert Into Books values('B2543','Ancient Times ','Amrit Puri',450,'25-Oct-2013','BPB','Novel','Hindi')
+
+Insert Into Books values('B2521','Bay of Bengal','Anjali Saha',390,'25-Jan-2016','BPB','Novel','Bengali')
+
+Insert Into Books values('B1420','Indian Politics','Jaswant Sinha',540,'4-Apr-2012','Ananda Publishers','Story Book','Hindi')
+
+Insert Into Books values('B1497','This & That','Chetan Bhagat',540,'14-Apr-2012','Rupa','Story Book','English')
+
+Insert Into Books values('B1422','The Emergency','K. Nair',670,'9-Aug-2002','Rupa','Story Book','English')
+
+Insert Into Books values('B1424','The Tall Man','E. Bhargava',790,'16-Nov-2016','BPB','Story Book','Marathi')
+
+Insert Into Books values('B1419','Punjabi Rasoi','Khushwant Singh',670,'9-Aug-2002','Tata McgrawHills','Biography','Punjabi')
+
+Insert Into Books values('B1361','College Days','Seema Avasthi',620,'12-Sep-2010','Tata McgrawHills','Story Book','Marathi')
+
+Insert Into Books values('B1365','Sanket','asheem Dey',920,'12-Sep-2019','Ananda Publishers','Literature','Bengali')
+
+Insert Into Books values('B1366','Paar',NULL,285,'12-Feb-2007','Rupa','Auto Biography','Assamese')
+
+/* To print all the fields of all the records from the table */
+select * from books
+
+/* To print specific or few fields of all the records from the table */
+select bookname, price, category from books
+
+/* To give Alias names for the fields */
+select bookname Title, category "BOOK-SUBJECT", PUBLISHER_NAME PUBLISHER from books
+
+/*To give Alias names for the fields */
+select bookname [TITLE], category [BOOK-SUBJECT], PUBLISHER_NAME [PUBLISHER] from books
+
+/* To give Alias names for the fields */
+select bookname as TITLE, category as "BOOK-SUBJECT", PUBLISHER_NAME as PUBLISHER from books
+
+select bookname as TITLE, price from books
+
+/* create a new column in the RS. Also demonstrate the use of Arithmetic operators */
+select bookname as TITLE, price, price + 50 as NEW_PRICE from books
+
+select bookname as TITLE, PRICE, price + 50 AS NEW_PRICE, price/5 as DISCOUNT from books
+
+/* Command to get help on our table created:  sp_help books */
+
+/* To display the details of all the tables we have created in OUR DB */
+select * from sys.tables
+
+/* FILTERING: where clause*/
+select * from books where price >= 500
+
+/* Books written by Rupa Madam and price of the books are above 500*/
+select * from Books where price > 500 AND Publisher_Name = 'Rupa'
+
+/*select from where as ALL THESE ARE KEYWORDS */
+/*books publisher_name price ALL THESE ARE IDENTIFIERS*/
+/*RUPA bpb Ananada Publishers ALL THESE ARE STRING LITERALS(constant values)*/
+select * from Books where price > 500 AND Publisher_Name = 'rupa'
+
+/*Print all the books which are priced between 620 and 790*/
+select * from books where price between 620 and 790
+
+select * from books where category in('novel', 'biography')
+
+/*Print all the records(book details) where author name starts from 'A'*/
+select * from books where authorname like 'a%'
+
+select * from books
+
+/*qUERY TO SEARCH FOR NULL VALUE*/
+select * from books where AuthorName is null
+
+/*In the below query, the null is treated as a string literal and not as NULL*/
+select * from books where AuthorName='null'
+/*In the below query, the null is treated as VARIABLE and not as NULL*/
+select * from books where AuthorName=null
+
+/*The function to search for null value is ISNULL which is equivalent of NVL in Oracle*/
+select bookname, price, isnull(authorname, 'NOT ADDED') from books
+
+/*If a value of a column is NULL, then the value from the next column given in the list is taken and printed*/
+select bookid, bookname, price, coalesce(booklanguage, authorname, publisher_name, 'Not applicable') as NullAuthor from books
+
+select * from books where AuthorName is null
+
+/*Creates a new column where null valus will not be shown*/
+select books.*, coalesce(authorname, publisher_name, 'Not applicable') as Author_name from books
+
+/*To print the book details by sorting the category in alphabetical order*/
+select * from books order by category
+
+/*To display book details by sorting prices in descending order*/
+select * from books order by price desc
+
+/*To print the 1st specified number of records from the table*/
+select top 2 * from books
+
+/*To print the 1st specified Percentage number of records from the table*/
+select top 20 percent * from books
+
+/*Ternary operator in SQL Server*/
+select iif (5 < 2,'Om', 'Jenit')
+select iif (5 != 2,'Om', 'Jenit')
+
+/*The choose function selects the numbered element in the given list or else returns NULL*/
+select choose(3, 'One', 'Two', 'NewGen', 'Three', 'Four')
+
+select isnull(choose(12, 'One', 'Two', 'Three', 'Four'), 'Zero')
+
+/*To print the 1st 'n' characters of the data*/
+select bookid, left(bookname, 4) SHORT_BookName from books
+
+select bookname from books
+/*To print the data in upper case*/
+select upper(bookname) from books
+
+select bookid, lower(bookname) as "BOOK NAME " from books
+
+select bookid, upper(left(bookname, 4)) as "Book Name" from books
+
+select bookid, reverse(bookname) as REVERSE_NAME from books
+
+create table songs(song_id char(5) primary key check (song_id like '[a-z]{2}[0-9]{3}'), song_name varchar(40) not null, singer_name char(20))
+
+/*Some mistake we assumed while creating the RE*/
+insert into songs values('hi001', '    Duniya pagal hai  ', 'Mannade')
+/*Songs table to be deleted along with all the data*/
+drop table songs
+
+create table songs(song_id char(5) primary key check (song_id like '[A-Z][A-Z][0-9][0-9][0-9]'), song_name varchar(60) not null, singer_name char(20))
+
+insert into songs values('HI001', '     Duniya pagal hai  yah phir mein  ', 'Mannade')
+insert into songs values('HI002', '   Hoshwalon ko khabar kya    ', 'Jagjit Singh')
+insert into songs values('HI003', 'Ek chatur naari     ', 'Mannade-Kishore')
+insert into songs values('HI004', ' Yeh mera prem patra padhkar          ', 'Rafi')
+
+select * from songs
+
+/*To trip the leading spaces from the data*/
+select song_id as SONG_ID,  ltrim(song_name) as SONG from songs
+
+/*To trip the trailing spaces from the data*/
+select song_id as SONG_ID,  rtrim(song_name) as SONG from songs
+
+/*CONCATINATION of a field with some literal into one*/
+select song_id, song_name + 'of Hindi' as 'SONG' from songs
+
+/*CONCATINATION of 2 fields into one*/
+select song_id, singer_name + song_name as SONG from songs
+
+/*Applying the trim functions to the concatinated strings*/
+select song_id, rtrim(ltrim(singer_name + song_name)) as SONG from songs
+
+select * from books
+
+/*Date Related functions*/
+
+/*The dateAdd function is used to add 'n' number of  years or months or days*/
+select bookid, publish_date, DATEADD(year, 1, publish_date) as NEW_PUBLISH_DATE from books
+
+select bookid, publish_date, DATEADD(month, 2, publish_date) as NEW_PUBLISH_DATE from books
+
+/*To add 2.5 years, that is 30 months*/
+select bookid, publish_date, dateadd(month, 6, DATEADD(year, 2, publish_date)) as NEW_PUBLISH_DATE from books
+
+/*To add 2.5 years, that is 30 months*/
+select bookid, publish_date, DATEADD(month, 30, publish_date) as NEW_PUBLISH_DATE from books
+
+/*To add 30  months and 1 week*/
+select bookid, publish_date, dateadd(week, 1, DATEADD(month, 30, publish_date)) as NEW_PUBLISH_DATE from books
+
+/*To add 13 months and 3 days - NOT PERFECT*/
+select bookid, publish_date, dateadd(day, 33, DATEADD(year, 1, publish_date)) as NEW_PUBLISH_DATE from books
+
+/*To add 13 months and 3 days - PERFECT WAY*/
+select bookid, publish_date, dateadd(day, 3, DATEADD(month, 13, publish_date)) as NEW_PUBLISH_DATE from books
+
+/*To print the week day name in the date*/
+select bookid, publish_date, DATENAME(weekday, publish_date) as new_date from books;
+
+/*To print month name of the date*/
+select bookid, publish_date, DATENAME(month, publish_date) as new_date from books;
+
+/*To print the day number of the month*/
+select bookid, publish_date, DATENAME(day, publish_date) as new_date from books;
+
+/*To print todays date and time*/
+select getdate()
+
+select getdate() 'Todays Date and Time'
+
+select bookid, price, price/100,
+		case when price/100 = 4 then 'FOUR'
+		when price/100 = 2 then 'TWO'
+		ELSE 'OTHER' END
+from books
+/*Ceiling function gives the next integer. Floor gives the previous integer*/
+
+select ceiling(10.3), floor(10.8)
+
+select round(9.55842000000000000, 10) as VALUE, power(2, 30)
+
+select HOST_ID() as 'host-id'
+
+/*To print the minimum price from the books table*/
+select min(price) as 'MIN-PRICE' from books
+
+select max(price) as 'MAX-PRICE' from books
+
+select SUM(price) as 'MAX-PRICE' from books
+
+select AVG(price) as 'MAX-PRICE' from books
+
+/*Number of tuples in the table - Cardinality*/
+select count(*) as 'COUNT OF RECORDS' from books
+
+/*To print the number of different language books available*/
+select count(distinct booklanguage) from books
+
+select count(booklanguage) from books
+
+/*The count() doesnt count the null values*/
+select count(authorname) from books
+
+select booklanguage from books
+
+create table employee(empid integer primary key, empname varchar(30) not null, empsal float, bonus float, dept varchar(30));
+
+insert into employee values(101, 'Harish', 35700, 560, 'Defence')
+insert into employee values(102, 'Girish', 33300, 160, 'eCommerce')
+insert into employee values(103, 'Ramesh', 39000, 60, 'Aviation')
+insert into employee values(104, 'Suresh', 32000, 50, 'Mechotronics')
+insert into employee values(105, 'Akhilesh', 38000, 1560, 'IT')
+insert into employee values(106, 'Pradeep', 44000, 5600, 'Governmental')
+insert into employee values(107, 'Mahesh', 31000, 260, 'Automobile')
+insert into employee values(108, 'Madhav', 45000, 555, 'DataScience')
+
+insert into employee values(111, 'Harish', 35700, 560, 'Defence')
+insert into employee values(112, 'Girish', 33300, 160, 'eCommerce')
+insert into employee values(113, 'Ramesh', 39000, 60, 'Aviation')
+insert into employee values(114, 'Hari', 32000, 50, 'Aviation')
+insert into employee values(115, 'Vasudev', 81000, 1560, 'IT')
+insert into employee values(116, 'Krishna', 74000, 5600, 'IT')
+insert into employee values(117, 'Keshav', 77000, 260, 'Automobile')
+insert into employee values(118, 'Madhav', 65000, 555, 'IT')
+
+select * from employee
+truncate table employee
+
+select empsal from employee group by empsal
+
+/*To group the different depts available in the data*/
+select dept from employee group by dept
+
+select distinct dept from employee
+
+/*To Print the minimum salary of the IT dept*/
+select 'it' dept, min(empsal) as 'salary' from employee where dept='IT'
+
+/*To Print the max salary of the IT dept*/
+select 'Aviation' dept, max(empsal) as 'salary' from employee where dept = 'Aviation'
+
+select max(empsal) as 'Max-Salary' from employee
+select empsal from employee
+
+select max(empsal) as 'Max-Sal', dept from employee group by dept
+
+**************************************************************************************************
+DAY3 OF SQL: 28-07-2021 (DAY8 OF OUR TRAINING)
+
+To create a Table using the UI (Not using the commands)
+
+Step1. Select your DB from the Object explorer
+Step2. Right click on Table folder and select -> new -> table
+Step3. Add the column names and set the PK if required. Use the check box NOT-NULL
+Step4. Save (Use the button from tool box or press Ctrl+S) and Give table name in the Dialogue box
+Step5. Close the window
+
+Next, to add data(records) to the table:
+Step1. Right click on the table from the object explorer -> edit top 200 rows
+Step2. Add the data and then close the window (Data is saved automatically)
+
+Next, to view the data:
+Step1: Right click on the table -> select top 1000 rows 
+
+Now Create the Tables MOVIES and RATINGS
+Use either Commands or the UI
+Movies (id PK, title, director, year, length_minutes)
+Ratings(movie_id PK, rating, domestic_sales, international_sales)
+
+Movies:  101, 102, 103, 104, 105
+Ratings: 101, 102, 103, 104, 106
+
+
+create table employee_performance(empid int, rating float, primary key(empid));
+
+insert into employee_performance values(101, 4.2)
+insert into employee_performance values(102, 4.1)
+insert into employee_performance values(103, 3.2)
+insert into employee_performance values(104, 3.9)
+insert into employee_performance values(105, 3.8)
+
+insert into employee values(119, 'Manjesh', 34455, 7676, 'Telecom')
+
+select * from employee
+
+-- To impliment DML - Update command
+update employee set empsal = 40500 where empid = 119
+
+select * from employee where empname = 'Manjesh'
+
+--To delete a specific row from the table, use ID
+delete from employee where empid = 101
+
+-- When the record with specific id is not available then there wont be any error, rather we 0 ROWS AFFECTED
+delete from employee where empid = 1011
+
+select * from employee
+
+--AGGREGGATION
+
+-- To find the number of records in the table (Cardinality)
+select count(*) as Num_Of_Employee from employee
+
+-- To find the number of records in the table. (Use only Not-Null column)
+select count(empid) as Num_Of_Emps from employee
+
+-- May not count every record, because empsal may not be same for every row
+select count(distinct empsal) as Num_Of_Emps from employee
+
+-- Counts all the records because empid is unique to every tuple
+select count(distinct empid) as Num_Of_Emps from employee
+
+select * from employee
+
+select 'Telecom' dept, MIN(empsal) from employee where dept='Telecom'
+select 'IT' dept, MIN(empsal) from employee where dept='IT'
+select 'Aviation' dept, MIN(empsal) from employee where dept='Aviation'
+select 'Automobile' dept, MIN(empsal) from employee where dept='Automobile'
+
+-- Demonstration of union on all the above queries
+select 'Telecom' dept, MIN(empsal) from employee where dept='Telecom'
+union
+select 'IT' dept, MIN(empsal) from employee where dept='IT'
+union
+select 'Aviation' dept, MIN(empsal) from employee where dept='Aviation'
+union
+select 'Automobile' dept, MIN(empsal) from employee where dept='Automobile'
+
+/* GROUP BY */
+
+-- To group by employee salary (It will show all distinct salaries in order)
+select empsal from employee group by empsal
+
+-- To group by department (To display all different Depts in Order)
+select dept from employee group by dept
+
+-- To display the total salaries of each/all dept/s
+select dept, SUM(empsal) as TOTAL_SAL from employee group by dept
+
+-- To find Avg salary of each/all dept/s
+select dept, round(avg(empsal), 0) as AVG_SAL from employee group by dept
+
+-- To find the Avg salary of specific depts
+select dept, AVG(empsal) as AVG_SAL, round(AVG(empsal), 2) as AVG_SAL from employee where dept in('Defence', 'IT') group by dept
+
+-- To print minimum salary of each dept and also to print the num of employees in each dept
+select dept, min(empsal) as MIN_SAL, count(*) as NUM_OF_EMPs from employee group by dept
+
+/* HAVING CLAUSE: We use the HAVING keyword when we want to FILTER the result set got after applying GROUP BY */
+
+-- To print the dept names where only one employee is working
+select dept, count(*) as NUM_OF_EMPs from employee group by dept having COUNT(*) = 1
+
+
+-- Find the Depts except IT which have minimum salary of 25000 and No. of employees in the dept is at least 2
+SELECT DEPT, MIN(EMPSAL) AS MIN_SAL, COUNT(*) NUM_OF_EMPLOYEES FROM EMPLOYEE GROUP BY DEPT HAVING COUNT(*) > 1  and MIN(EMPSAL) > 25000 AND dept != 'IT'
+
+--
+select dept, MIN(empsal) as min_sal, COUNT(*) No_Of_Emps from employee where empname like '%a%' and dept like'A%' group  by dept
+
+/*SUB QUERIES*/
+
+select AVG(empsal) as AVG_SAL from employee
+
+-- Error in the below code: We cannot use the aggreeggate functions in the wehere clause
+select * from employee where empsal > AVG(empsal)
+
+select * from employee where empsal > (select AVG(empsal) from employee)
+
+-- To print all the employee records whose salaries are less than the avg salary
+select * from employee where empsal < (select AVG(empsal) from employee)
+
+-- In the below query there is no effect of the right side part of the AND operator
+select * from employee where empid != 105 and (select AVG(empsal) as AVG_SAL from employee where empid != 111) > (select avg(empsal) from employee where empid != 119)
+
+-- 1st most minimum salary
+select min(empsal) as MIN_SAL from employee
+
+-- 2nd minimum salary
+select min(empsal) as MIN_SAL from employee where empsal > (select MIN(empsal) from employee)
+
+-- 3rd most minimum salary
+select min(empsal) as MIN_SAL from employee where empsal > (select min(empsal) from employee where empsal > (select MIN(empsal) from employee))
+
+-- To print the least salaried employee record using sub query (that finds top 3 records w.r.t. given condition)
+select top 1 * from employee where empsal in (select top 3 empsal from employee order by empsal)
+
+-- To print the least salaried employee record using sub query 
+select top 1 * from employee order by empsal
+
+-- Find the max salaried employee
+select MAX(empsal) as max_sal from employee
+
+-- Find the second highest salary
+select MAX(empsal) as max_sal from employee where empsal < (select MAX(empsal) as max_sal from employee)
+
+-- Print the 2nd highest salaried employee name
+select empname from employee where empsal = ( select MAX(empsal) from employee where empsal < (select MAX(empsal) from employee))
+
+--
+select * from employee order by empsal desc
+
+-- To print the highest salaried record
+select * from employee where empsal = (select MAX(empsal) FROM employee)
+
+-- To print the highest salaried record
+SELECT TOP 1 * FROM employee ORDER BY empsal DESC
+
+-- To print the 2nd highest salaried employee record
+select * from employee where empsal = ( (select MAX(empsal) from employee where empsal < (select MAX(empsal) from employee)))
+
+-- To print top N records of the result set, we use LIMIT (However, its not added in sql server)
+select * from employee order by empsal desc limit 2
+
+select * from movies
+select * from ratings
+
+-- Intersection of 2 tables (sets)
+select id, title, director, rating, domestic_sales from movies INNER JOIN ratings on(movies.id = ratings.movie_id)
+
+select * from Books
+select * from employee
+
+-- Print the depts with the No. of employees working in the Depts having not equal to one employee
+select dept, MIN(empsal) as TOTAL_SAL, count(*) NUM_OF_EMPLOYEES from employee group by dept having count(*) != 1
+
+/*INSERT INTO*/ PENDING
+insert into table1(Dept, Total_Sal, Num_of_Employees) select dept, max(empsal) max_sal, COUNT(*) num_of_emps from employee group by dept
+
+SELECT MIN(EMPSAL) from employee
+/*The Exists function is used to run the outer query only if inner query returns result*/
+select * from employee where EXISTS(select * from employee where empid=101)
+
+-- To print the last record in the table in SQL Server
+select * from employee where empid in(select MAX(empid) from employee)
+
+insert into employee values(109, 'Mahadev', 59900, 11300, 'Defence')
+select * from employee
+
+select dept, round(avg(empsal), 0) as AVG_SAL from employee group by dept order by avg_sal
+
+select dept, round(avg(empsal), 0) as AVG_SAL from employee group by dept order by avg_sal desc
+
+select dept, round(avg(empsal), 0) as AVG_SAL from employee group by dept order by dept desc
+
+/*VIEWS
+A view is a STORED NAMED QUERY
+The view itself acts like a table.
+Views are often useful when frequently you want to use same types of query
+However, a new table is not created in the disk (Permanenet storage)
+*/
+select * from books
+
+-- Example to create a view
+create view mini_book_view1
+as
+	select bookid, bookname, price, booklanguage, category from books
+
+select * from mini_book_view
+
+select SUM(price) as total_price FROM mini_book_view
+
+ALTER VIEW MINI_BOOK_VIEW1
+AS
+	SELECT bookid, bookname, price from books
+
+SELECT dbo.movies.id, dbo.movies.title, dbo.movies.year, dbo.ratings.movie_id, dbo.ratings.rating, dbo.ratings.domestic_sales
+FROM     dbo.movies INNER JOIN
+                  dbo.ratings ON dbo.movies.id = dbo.ratings.movie_id
+
+
+To create a View using the UI:
+DB -> views -> Right Click -> "New View"
+	We will get the Query Designer
+	1. Design the Query (select the columns and JOIN if necessary)
+	2. Save Ctrl+S or use the save button from tool bar
+	3. Give a name to the view from the dialogue box
+
+TO RUN A VIEW USING THE UI:
+	DB -> views -> Right Click and "Select top 1000 rows"
+Or 
+In  the Query window (Editor):   select * from <viewName>
+
+
+
+
+*************************************************************************DAY4
+1. Views
+2. Stored Procedures
+3. Joins
+4. Functions
+5. Triggers
+6. Cursors
+
+STUDENT:
+
+ID		STUD_NAME	
+101		Arun
+102		Usha		
+103		Raam
+104		Raghu
+104		Lav
+
+SUBJECT:
+
+ID		SUBJECT_NAME	
+201		JAVA
+202		PYTHON			
+203		JS				
+204		C++				
+205		HTML			
+206		SQL	
+
+STUDENT_SUBJECT:
+
+STUD_ID	SUBJECT_ID
+101		201
+101		202
+101		203
+101		204	
+
+
+student:
+id		name	subjects
+1		arun	phy, che, math
+2		anu		cs, bio, math
+
+student:
+id		name	s1		s2		s3
+1		Arun	Phy		Chem	Math
+2		Anu		Chem	Bio		Math
+
+student		name	subject
+1			Arun	Math
+1			Arun	Chem
+1			Arun	Phy
+2
+2
+2
+3
+3
+3
+
+STUDENT:
+
+ID		STUD_NAME	Dept_ID
+101		Arun		201
+102		Usha		202
+103		Raam		201
+104		Raghu		202
+104		Lav			203
+
+DEPT:
+
+ID		DEPT_NAME	SUBJECT_ID
+201		CS			301
+202		IT			302
+203		Mech		303
+204		Civil		304
+205		EC			305
+206		EE			306
+
+SUBJECT:
+
+ID		S1		s2		s3		s4		s5		s6
+301		java	fafl	DSA		OOAD	DP		TB
+
+Tables:
+The collection of money at the gaming zone on date basis:
+zone_collection: col_id(PK), trans_date, amount 
+
+Player personal details along with wallet balance are stored in this table:
+guest_base: guest_id(PK), guest_name, guest_code(UK) CHECK(A000), balance_amount
+
+The recharge related trasactions are stored:
+guest_recharge: recharge_id(PK), guest_id(FK), recharge_date, recharge_amount
+
+Each game related transaction details are stored:
+guest_tran: tran_id(PK), guest_id(FK), tran_date, play_charge
+
+
+Key: (which have almost unique values and it is used for searching purposes) 
+PK: One of the Column which is a key which can uniquely identify a tuple. However, with the Industry standards, it is mandatory for a PK to satisfy the CONSTRAINTS: unique, not null
+Alternatively - Auto increment, seed, check
+
+FK: A PK of a table used in another table for refernces is a FK
+UK: unique column (Ph No., email, address, ID Nos.)
+
+CREATE DATABASE GAMEZONE1
+USE GAMEZONE1
+
+create table zone_collection( col_id int identity(1, 1) primary key, tran_date datetime not null default getdate(), amount float not null default 0);
+
+sp_help zone_collection
+
+-- Here it is error because in the insert command, we must provide at least one value.
+insert into zone_collection values();
+
+-- Successfully inserted a row
+insert into zone_collection(amount) values(100);
+
+select * from zone_collection
+
+-- Deletes all the content of the table
+delete from zone_collection
+
+insert into zone_collection(amount) values(0);
+
+/*The delete command deletes only the table data and not the meta data and the identity data*/
+insert into zone_collection(amount) values(500);
+
+/*The truncate command deletes not only the table data but also the identity data*/
+truncate table zone_collection
+
+select * from zone_collection
+
+/* drop table command deletes all the data of the table: The Rows, the Identity data and also the meta data and any other data */
+
+create table guest_base (guest_id int identity(1, 1) primary key, guest_name varchar(50) not null default '', guest_code varchar(4) not null unique check(guest_code like'A[0-9][0-9][0-9]'), balance_amount float);
+
+sp_help guest_base
+
+alter table guest_base alter column balance_amount float not null
+
+--This will not run because the balance_amount cannot be empty
+insert into guest_base(guest_name, guest_code) values('Mahesh', 'A001');
+
+--So lets give a default amount, so that there is no need of giving value to the amount in the insert command
+alter table guest_base add default 0 for balance_amount
+
+select * from guest_base
+
+insert into guest_base(guest_name, guest_code) values('Mahesh', 'A001');
+insert into guest_base(guest_name, guest_code) values('Nithin', 'A002');
+insert into guest_base(guest_name, guest_code) values('Manoj', 'A004');
+
+drop table guest_base
+
+create table guest_base(guest_id int identity (1,1) primary key, guest_name varchar(50) not null default '', guest_code varchar(4) not null unique check(guest_code like 'A[0-9][0-9][0-9]'), balance_amount float not null default 0)
+
+sp_help guest_base
+
+insert into guest_base(guest_name, guest_code) values('Mahesh', 'A001')
+select * from guest_base
+
+delete from guest_base
+
+insert into guest_base(guest_name, guest_code) values('Mahesh', 'A001')
+
+truncate table guest_base
+insert into guest_base(guest_name, guest_code) values('Mahesh', 'A001')
+
+create table guest_recharge(recharge_id int identity(1,1) primary key, guest_id int foreign key (guest_id) references guest_base, recharge_date datetime not null default getdate(), recharge_amount float not null default 0)
+
+sp_help guest_recharge
+
+-- This below command runs successfully only if there is a row in gust_base with id 1
+insert into guest_recharge(guest_id, recharge_amount) values (1, 500)
+
+select * from guest_recharge 
+select * from guest_base
+
+-- This did not work because there is no tuple in guest_base with guest_id 2
+insert into guest_recharge(guest_id, recharge_amount) values (2, 500)
+
+-- Cannot truncate guest_base because rows from other table are referencing to some data in this table
+truncate table guest_base
+
+-- Successfully truncated because no other table is referencing to this table
+truncate table guest_recharge
+
+-- We can delete rows from guest_base but cannot truncate it when it is being referred
+delete from guest_base
+
+-- To reset the identity seed
+dbcc checkident('guest_base', reseed, 0)
+
+create table guest_tran(tran_id int identity(1,1) primary key, guest_id int foreign key (guest_id) references guest_base, tran_date datetime not null default getdate(), play_charge float not null default 0)
+sp_help guest_tran
+
+select * from zone_collection
+select * from guest_base
+select * from guest_recharge
+select * from guest_tran
+
+truncate TABLE zone_collection
+truncate TABLE guest_base
+truncate TABLE guest_recharge
+truncate TABLE guest_tran
+
+insert into guest_base(guest_name, guest_code, balance_amount) values('Nithin', 'A001', 0)
+delete from guest_base
+
+select isnull(max(guest_id)+1, 1) from guest_base
+select * from guest_base
+-------------------------------------------------------
+JOINS:
+
+/*
+Consider A and B as the left and right tables respectively.
+Cross Join: Cartesian product (N rows of A * M rows of B)
+Inner Join/Equi Join: A intersection B  (2)
+Left Outer Join: A - B + 2
+Right Outer Join: B - A + 2
+Full Outer Join: A + B - 2 (The intersection part is present Only once)
+*/
+-------------------------------------------------------
+DAY10 NOTES
+
+/*
+FIRST DAY OF DB PROJECT GAMING_ZONE
+	We created the 4 tables:
+		1. zone_collection
+		2. guest_base
+		3. guest_recharge
+		4. guest_tran
+	We created the SP AddGuest
+SECOND DAY OF DB PROJECT GAMING_ZONE
+	1. TRANSACTIONS
+	2. FUNCTIONS
+	3. COMPLETE OTHER SP OF THE PROJECT
+	4. USE TRIGGERS TO ENHANCE THE PROJECT WORKING
+	5. USE VIEWS AND ALSO LEARN THE NEED OF JOINS
+*/
+
+ALTER PROCEDURE AddGuest
+	@guest_name VARCHAR(500), 	
+	@initial_recharge_amount float
+AS 
+BEGIN
+	DECLARE @guest_code VARCHAR(4)
+	DECLARE @guest_id int
+	SET @guest_code = dbo.generate_guest_code()
+	BEGIN TRANSACTION;
+		/* 2. insert -> guest_base */
+		INSERT INTO guest_base(guest_name, guest_code) VALUES(@guest_name, @guest_code)
+		
+		/* 3. insert -> guest_recharge  */
+		SELECT @guest_id = SCOPE_IDENTITY()
+		INSERT INTO guest_recharge(guest_id, recharge_amount) VALUES(@guest_id, @initial_recharge_amount);
+		
+		/* 4. update -> guest_base for balance_amount */
+		UPDATE guest_base 
+		SET balance_amount = balance_amount + @initial_recharge_amount
+		WHERE guest_id = @guest_id
+		IF 
+		(SELECT COUNT(*) FROM zone_collection 
+			WHERE DATEADD(dd, DATEDIFF(dd, 0, tran_date), 0) = DATEADD(dd, DATEDIFF(dd, 0, GETDATE()), 0)
+		) = 0 
+		BEGIN
+			INSERT INTO zone_collection(amount) VALUES(@initial_recharge_amount);	
+		END
+		ELSE
+		BEGIN
+			UPDATE zone_collection SET amount = amount + @initial_recharge_amount
+			WHERE DATEADD(dd, DATEDIFF(dd, 0, tran_date), 0) = DATEADD(dd, DATEDIFF(dd, 0, GETDATE()), 0); 
+		END;
+	COMMIT;
+END
+GO
+-- End of SP
+
+alter FUNCTION generate_guest_code()
+RETURNS varchar(4)
+AS
+BEGIN
+	declare @last_id int
+	DECLARE @guest_code varchar(4)
+	SELECT @last_id = isnull(max(guest_id)+1,1)  from guest_base; /* Query and assignment */		
+	SET @guest_code = CAST(@last_id as varchar(4))	
+	SET @guest_code = 'A' + RIGHT('000', 3-LEN(@guest_code)) + @guest_code
+	RETURN @guest_code
+END
+
+-- To create a user defined DT
+CREATE TYPE NEWGEN FROM INT;
+
+select dbo.bigoftwo(5, 10) as Big_Num, dbo.bigoftwo(15, 10) as Big_Num
+
+/* 2ND SP DORECHARGE
+	1. insert -> guest_recharge
+	2. update -> guest_base for balance_amount
+	3. update -> zone_collection for collection_amlount
+*/
+
+create procedure do_recharge
+	--parameters
+	@guest_id int,
+	@recharge_amount float
+	as
+	begin
+	begin transaction
+		update guest_base set balance_amount = balance_amount + @recharge_amount where guest_id = @guest_id
+		-- update -> zone_collection for collection_amount
+		IF 
+		(SELECT COUNT(*) FROM zone_collection 
+			WHERE DATEADD(dd, DATEDIFF(dd, 0, tran_date), 0) = DATEADD(dd, DATEDIFF(dd, 0, GETDATE()), 0)
+		) = 0 
+		BEGIN
+			INSERT INTO zone_collection(amount) VALUES(@recharge_amount);	
+		END
+		ELSE
+		BEGIN
+			UPDATE zone_collection SET amount = amount + @recharge_amount
+			WHERE DATEADD(dd, DATEDIFF(dd, 0, tran_date), 0) = DATEADD(dd, DATEDIFF(dd, 0, GETDATE()), 0) 
+		END
+	commit
+end
+GO
+
+SELECT * FROM zone_collection
+SELECT * FROM guest_base
+SELECT * FROM guest_recharge
+SELECT * FROM guest_tran
+
+exec AddGuest 'Nithin', 500
+
+/* Function to find biggest of 2 numbers */
+alter function BIGOFTWO(@FIRSTNUM newgen, @SECONDNUM newgen)
+RETURNS newgen
+as
+begin
+	declare @bignum newgen
+	if @FIRSTNUM > @SECONDNUM
+			set @bignum = @FIRSTNUM
+	else
+		begin
+			set @bignum = @SECONDNUM
+		end
+	return @bignum
+end
+
+---------------------------------------------------------------------------
+VIEWS
+---------------------------------------------------------------------------
+create view collection_recharge
+as
+	select
+		cast(datediff(dd, 0, recharge_date) as datetime) tran_date, sum(recharge_amount) as Amount from guest_recharge group by cast(datediff(dd, 0, recharge_date) as datetime)
+
+select * from collection_recharge
+select * from zone_collection
+
+create view guest_recharge_details
+as
+	select B.guest_id, guest_code, guest_name, recharge_date, recharge_amount from guest_base as B INNER JOIN  guest_recharge as R ON(B.guest_id = R.guest_id)
+
+select * from guest_recharge_details
+select guest_name, recharge_amount from guest_recharge_details
+
+-----------------------------------------------------------------------------------------
+Begin transaction and commit
+-----------------------------------------------------------------------------------------
+1. It acts like LOCK and avoids any interruption of other INSTANCES accessing the table.
+Thus it makes sure that there is no simultaneous access of tables from different sources
+
+2. It helps us in achieving the real Life Business requirement.
+That is, for a user getting membership in the gaming zone is one transaction.
+However, in the DB, we have to write (insert / update) into multiple tables. If in case any one of the query fails to complete, then all other queries completed will be UN DONE - Rolled Back.
+
+Thus it helps us in implementing the real life scenarios.
+------------------------------------------------------------------------------------------
+
+declare @from_date datetime
+declare @to_date datetime
+
+set @from_date = '2021-03-23 20:30'
+set @to_date = '2021-03-28 20:30'
+
+set @from_date = DATEDIFF(dd, 0, @from_date)
+set @to_date = DATEDIFF(dd, 0, @to_date)
+
+set @to_date = DATEADD(MS, -3, dateadd(d, 1, @to_date))
+select @from_date, @to_date
+
+select @from_date
+
+set @to_date = datediff(dd, 0, @to_date)
+select @to_date
+
+declare @num int
+set @num = datediff(dd, 0, getdate())
+select @num
+------------------------------------------------------------------------------------------
+SIMPLIFIED VERSION OF THE PROCEDURES AND TRIGGER
+------------------------------------------------------------------------------------------
+ALTER PROCEDURE AddGuest
+	@guest_name VARCHAR(500), 	
+	@initial_recharge_amount float
+AS 
+BEGIN
+	DECLARE @guest_code VARCHAR(4)
+	DECLARE @guest_id int
+	SET @guest_code = dbo.generate_guest_code()
+	BEGIN TRANSACTION;
+		/* 2. insert -> guest_base */
+		INSERT INTO guest_base(guest_name, guest_code) VALUES(@guest_name, @guest_code)
+		
+		SELECT @guest_id = SCOPE_IDENTITY()
+	exec do_recharge @guest_id, @initial_recharge_amount
+	COMMIT;
+END
+GO
+
+alter procedure do_recharge
+	--parameters
+	@guest_id int,
+	@recharge_amount float
+	as
+	begin
+	begin transaction
+	/* 3. insert -> guest_recharge  */
+
+		INSERT INTO guest_recharge(guest_id, recharge_amount) VALUES(@guest_id, @recharge_amount);
+		--exec topup_wallet @guest_id, @recharge_amount
+		-- Trigger runs this proc
+	commit;
+end
+GO
+
+create procedure topup_wallet
+	--parameters
+	@guest_id int,
+	@recharge_amount float
+	as
+	begin
+	begin transaction
+		
+		/* 4. update -> guest_base for balance_amount */
+		UPDATE guest_base 
+		SET balance_amount = balance_amount + @recharge_amount
+		WHERE guest_id = @guest_id
+		IF 
+		(SELECT COUNT(*) FROM zone_collection 
+			WHERE DATEADD(dd, DATEDIFF(dd, 0, tran_date), 0) = DATEADD(dd, DATEDIFF(dd, 0, GETDATE()), 0)
+		) = 0 
+		BEGIN
+			INSERT INTO zone_collection(amount) VALUES(@recharge_amount);	
+		END
+		ELSE
+		BEGIN
+			UPDATE zone_collection SET amount = amount + @recharge_amount
+			WHERE DATEADD(dd, DATEDIFF(dd, 0, tran_date), 0) = DATEADD(dd, DATEDIFF(dd, 0, GETDATE()), 0); 
+		END;
+		commit;
+end
+GO
+
+
+create trigger tr_topup_wallet on guest_recharge
+after insert
+as
+begin
+	declare @guest_id int
+	declare @recharge_amount float
+	select @guest_id = guest_id, @recharge_amount = recharge_amount from inserted;
+
+	exec topup_wallet @guest_id, @recharge_amount
+end
+--------------------------------------------------------------------------------------------
+Do display all the objects of the DB use the command:
+select * from sys.objects
+
+Do display all the trigger objects of the DB use the command:
+select * from sys.objects where type = 'TR'
+
+Do display all the procediures objects of the DB use the command:
+select * from sys.objects where type = 'P'
+
+TR - Trigger
+P  - Procedures
+F  - functions
+PK - primary key
+U  - User Tables
+----------------------------------------------------------------------------------------------
+
+https://www.c-sharpcorner.com/UploadFile/sairevoori/cursor-in-sql-server/
+
+Cursor In SQL Server
+
+-- An Example
+	DECLARE @recharge_amount float;
+	DECLARE @collection_amount float;
+	DECLARE cur_guest_recharge CURSOR 
+				FAST_FORWARD 
+					FOR  
+		Select recharge_amount 
+		From guest_recharge 
+		WHERE DATEDIFF(DD,0,recharge_date) = DATEDIFF(DD,0,getdate());
+
+	SET @collection_amount = 0;
+	Open cur_guest_recharge;  
+	FETCH NEXT FROM cur_guest_recharge INTO @recharge_amount  
+	WHILE @@FETCH_STATUS = 0
+		BEGIN  
+			SET @collection_amount = @collection_amount + @recharge_amount
+			FETCH NEXT FROM cur_guest_recharge INTO @recharge_amount  
+		END  
+	  
+	CLOSE cur_guest_recharge  
+	DEALLOCATE cur_guest_recharge  
+
+	SELECT @collection_amount
+	
+	SELECT amount 
+	from zone_collection 
+	where DATEDIFF(DD,0,tran_date) = DATEDIFF(DD,0,getdate());
+	
+	SELECT ISNULL(SUM(recharge_amount),0) 
+	from guest_recharge   
+	WHERE DATEDIFF(DD,0,recharge_date) = DATEDIFF(DD,0,getdate());
+-- An Example
+
+
+@@fetch_status  is the current status of the cursor pointer
+0 means end of the file
+
+@@identity is the current id generated from the identity()
+It is alternative to scope_identity()
+
+---------------------------------------------------------------------------------------
+CURSORS
+---------------------------------------------------------------------------------------
+DECLARE @recharge_amount float;
+	DECLARE @collection_amount float;
+	DECLARE cur_guest_recharge CURSOR -- No @ is used
+				FAST_FORWARD -- type of cursor
+					FOR  
+		Select recharge_amount 
+		From guest_recharge 
+		WHERE DATEDIFF(DD,0,recharge_date) = DATEDIFF(DD,0,getdate());
+
+	SET @collection_amount = 0;
+	Open cur_guest_recharge;  -- cursor working starts
+	FETCH NEXT FROM cur_guest_recharge INTO @recharge_amount  
+	WHILE @@FETCH_STATUS = 0 -- system variables starts with @@
+		BEGIN  
+			SET @collection_amount = @collection_amount + @recharge_amount
+			FETCH NEXT FROM cur_guest_recharge INTO @recharge_amount  
+		END  
+	  
+	CLOSE cur_guest_recharge  -- cursor working ends here
+	DEALLOCATE cur_guest_recharge  -- delete from memory
+
+	SELECT @collection_amount -- output of the cursor
+-- To re check the output is correct or not, lets do it with our previous ways
+	SELECT amount 
+	from zone_collection 
+	where DATEDIFF(DD,0,tran_date) = DATEDIFF(DD,0,getdate());
+	
+	SELECT ISNULL(SUM(recharge_amount),0) 
+	from guest_recharge   
+	WHERE DATEDIFF(DD,0,recharge_date) = DATEDIFF(DD,0,getdate());
+------------------------------------------------------------------------------------------------
+	DECLARE @recharge_amount float;
+	DECLARE @guest_id int;
+	DECLARE @recharge_date DATETIME;
+	DECLARE @recharge_id int;
+	DECLARE cur_guest_recharge CURSOR -- No @ is used
+				FAST_FORWARD -- type of cursor
+					FOR  
+		Select recharge_id, guest_id, recharge_date, recharge_amount 
+		From guest_recharge 
+		WHERE DATEDIFF(DD,0,recharge_date) = DATEDIFF(DD,0,getdate());
+
+	Open cur_guest_recharge;  -- cursor working starts
+	FETCH NEXT FROM cur_guest_recharge INTO @recharge_id, @guest_id, @recharge_date, @recharge_amount 
+	WHILE @@FETCH_STATUS = 0 -- system variables starts with @@
+		BEGIN  
+			insert into new_table(recharge_id, guest_id, recharge_date, recharge_amount)
+				values (@recharge_id, @guest_id, @recharge_date, @recharge_amount);
+				FETCH NEXT FROM cur_guest_recharge INTO @recharge_id, @guest_id, @recharge_date, @recharge_amount 
+		END  
+	CLOSE cur_guest_recharge  -- cursor working ends here
+	DEALLOCATE cur_guest_recharge  -- delete from memory
+
+create table new_table(recharge_id int, guest_id int, recharge_date datetime, recharge_amount float)
+
+select * from new_table
+----------------------------------------------------------------------------
+1. We designed the project
+2. Built the tabbles (PK, identity(), FK, Normalization)
+3. We 1st learnt to write procedures
+4. We added Functions (2 functions: generate_guest_code(), check_balance_availability() )
+5. We added triggers
+6. We wrote many procedures for various operations
+7. We used user defined DTs
+8. We simplified the procedures and other code
+9. We learnt Cursor
+10.We practiced several real life assignments on the project
