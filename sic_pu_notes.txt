@@ -531,3 +531,28 @@ Quick Sort
 
 CLASS_SIZE = 50
 total_training_amount = training_fee * CLASS_SIZE
+
+-------------------------------------
+SESSION-11 03-07-2025 THURSDAY
+
+employee:
+	id, name, designation, phone_number, salary, commission, years_of_experience, technology
+
+id				int			primary key auto_increment
+name			varchar(30)	not null
+designation		varchar(30)	
+phone_number	bigint		unique
+salary			float		
+commission		float		default(0)
+years_of_experience tinyint	
+technology		varchar(30)	not null
+
+create database nithin_db;
+create table employees();
+
+insert into employees()
+20 rows/tuples 
+5 rows must have all values
+5 rows do not add some of the values
+5 rows do not add all the values that we can skip
+5 rows as you wish

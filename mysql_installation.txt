@@ -6,7 +6,7 @@ Steps to Download MySql:
 -> No thanks start my download
 Note: Download the Latest version (8.0.3) and the Bigger Sized File (330 MB or so)
 
-Steps to Install MySQL:
+STEPS TO INSTALL MYSQL:
 Choose Setup type as Custom -> Click Next
 MySql Server + Mysql WorkBench + MySql Shell (Drag all these to right)
 Do not select the check box -> Click Next
