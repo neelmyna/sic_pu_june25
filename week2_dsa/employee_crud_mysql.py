@@ -40,7 +40,23 @@ def create_table():
     except:
         print('Table creation failed')
 
+def read_all_employees():
+    query = 'select * from employees'
+    connection = connect_db()
+    try:
+        cursor = connection.cursor()
+        cursor.execute(query)
+        rows = cursor.fetchAll()
+        for row in rows:
+            print(row)
+        print('All rows retrived')
+        
+        cursor.close()
+        disconnect_db(connection)
+    except:
+        print('Rows retrival failed')
 
 connection = connect_db()
-# connection.close() # to disconnect the DB
+create_table()
 disconnect_db(connection)
+# connection.close() # to disconnect the DB
