@@ -563,3 +563,5 @@ Read/Retrieve one/all	get  	(with id or without)
 Update					put		(with id)
 Delete					delete	(with id)
 
+Chapter2 Assessment Link:
+https://docs.google.com/forms/d/1ZD-UzOZW4RbdvV4h4k_UoCxmQaLfadbOjnSdwsItV2o/edit

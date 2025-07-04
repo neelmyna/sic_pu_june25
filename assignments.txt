@@ -70,3 +70,15 @@ Bucket Sort, Radix Sort, Heap Sort
 FLask-MySQL/Mongo
 NumPy, Pandas, Matplotlip and seaborn
 Project (Hackathon ???)
+
+Linked List Problems:(Create using OOP/Class)
+1. Implement Queue using SLL and DLL, insert at rear delete from front
+2. Implement Stack using SLL, insert and delete from front
+3. Implement Stack using DLL, insert and delete from rear
+4. Reverse a SLL
+5. Merge 2 sorted SLLs into one sorted SLL
+6. Check if 2 SLL converges at some point or not
+
+Other Problems:
+1. Impletent Circular Queue using an Array/List
+2. Create a Matrix of (M, N) coordinates and print the Matrix in Spiral format

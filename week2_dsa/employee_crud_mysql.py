@@ -50,13 +50,79 @@ def read_all_employees():
         for row in rows:
             print(row)
         print('All rows retrived')
-        
         cursor.close()
         disconnect_db(connection)
     except:
         print('Rows retrival failed')
 
-connection = connect_db()
-create_table()
-disconnect_db(connection)
-# connection.close() # to disconnect the DB
+def search_employee():
+    id = int(input('Enter Id of the employee to search: '))
+    query = f'select * from employees where id = {id}'
+    connection = connect_db()
+    try:
+        cursor = connection.cursor()
+        cursor.execute(query)
+        rows = cursor.fetchall()
+        for row in rows:
+            print(row)
+        print('All rows retrived')
+        cursor.close()
+        disconnect_db(connection)
+    except:
+        print('Rows retrival failed')
+
+def read_employee_details():
+    name = input('Enter employee name: ')
+    designation = input('Enter employee designation: ')
+    phone_number = int(input('Enter employee phone number: '))
+    salary = float(input('Enter employee salary: '))
+    commission = float(input('Enter employee commission: '))
+    years_of_experience = input('Enter employee years of experience: ')
+    technology = input('Enter employee technology: ')
+    return (name, designation, phone_number, salary, commission, years_of_experience, technology)  
+
+def insert_employee():
+    employee = read_employee_details()
+    query = 'insert in to employees(name, designation, phone_number, salary, commission, years_of_experience, technology) values(%s, %s, %s, %s, %s, %s, %s)'
+    try:
+        connection = connect_db()
+        cursor = connection.cursor()
+        value = cursor.execute((query, employee))
+        cursor.close()
+        disconnect_db()
+        if value == 1:
+            print('Row inserted')
+        else:
+            print('Row insertion failed')
+    except:
+        print('Row insertion failed')
+
+def update_employee():
+    salary = float(input('Enter employee salary: '))
+    years_of_experience = input('Enter employee years of experience: ')
+    id = int(input('Enter id of the employee to be updated: '))
+    query = f'update employees set years_of_experience = {years_of_experience}, salary = {salary} where id = {id}'
+    try:
+        connection = connect_db()
+        cursor = connection.cursor()
+        count = cursor.execute(query)
+        if count == 0:
+            print(f'Employee with id = {id} not found')
+        else:
+            print(f'Employee with id = {id} updated')
+    except:
+        print('Employee update failed')
+
+def delete_employee():
+    id = int(input('Enter id of the employee to be deleted: '))
+    query = f'delete from employees where id = {id}'
+    try:
+        connection = connect_db()
+        cursor = connection.cursor()
+        count = cursor.execute(query)
+        if count == 0:
+            print(f'Employee with id = {id} not found')
+        else:
+            print(f'Employee with id = {id} deleted')
+    except:
+        print('Employee delete failed')
