@@ -82,3 +82,8 @@ Linked List Problems:(Create using OOP/Class)
 Other Problems:
 1. Impletent Circular Queue using an Array/List
 2. Create a Matrix of (M, N) coordinates and print the Matrix in Spiral format
+
+Week3
+*** 1. Create a Singleton class in Pyhton
+Singleton is a class to which only one object can be created
+

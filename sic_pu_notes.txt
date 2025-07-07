@@ -565,3 +565,77 @@ Delete					delete	(with id)
 
 Chapter2 Assessment Link:
 https://docs.google.com/forms/d/1ZD-UzOZW4RbdvV4h4k_UoCxmQaLfadbOjnSdwsItV2o/edit
+
+---------------------------------------------------------------
+OBJECT ORIENTED PROGRAMMING CONCEPTS:
+Inheritance: 
+polymorphism:
+abstraction:
+encapsulation:
+
+super()
+private members using _ (underscore)
+inherit in Python 
+class Derived (Base):
+
+Parent most class in Python Obj
+There is no compile time in Python. Hence no question of static polymorphism (function over loading)
+
+When a Function is called:
+Prologue
+Business logic
+Epilogue
+
+static member:
+
+class Cubical:
+	str printer
+	water_dispencer
+	def __init__(self):
+		chair
+		mug
+		computer
+		drawer
+
+	@static
+	def get_printer(cls):
+		return printer
+
+-----------------------------------------------------------------------------
+Tree:
+-> TREE is a DS
+-> Non Linear DS
+-> ACYCLIC DS (All PATHs in the DS are unique)
+-> The start/entry point of a Tree is called as ROOT
+-> Synonym for Tree is HIERARCHICAL DS
+Example: File System (Random Tree)
+-> BINARY TREE is a Tree which has a maximum (at most) of 2 CHILD NODES for every possible NODE in the Tree.
+-> The Root Node of the Tree is said to be at a LEVEL 1. Thus its immediate child node is at a LEVEL 2 and so on.
+The maximum possible Level in a Tree is said be DEPTH or HEIGHT of the Tree.
+In a Binary Tree of a Height N, we can have maximum of (2 power N) - 1 nodes.
+TRAVERSAL in a Tree is when we move from the current node to one of its immediate child node.
+A Tree with exactly or almost 2N-1 nodes is said to be COMPLETE BINARY TREE.
+The 2 child nodes of a node in a binary tree are said to be LEFT-CHILD and RIGHT-CHILD
+The Tree we can traverse strating from the Left-Child Node is said to be LEFT SUB-TREE and thus we can have Right Sub-Tree
+In a Complete Binary tree (BT) every traversal will isolate or remove 50% of the search area.
+If in a BT every node has exactly Zero or Two child nodes only, then such a BT is said to be STRICTLY BT.
+If in a BT, the data is ARRANGED in such way that data of the left child of every node is smaller than its own data (data of Parent node) and data of the right child node is greater than or equal to its own data, then such a BT is called as BINARY SEARCH TREE (BST).
+In a BST if the number of nodes is very small than 2N-1 (where N is tree height) then such a tree is said be UNBALANCED TREE. Conversly balanced tree and perfectly balanced is COMPLETE BST or BBST.
+The highest level in a tree is the HEIGHT of the tree.
+A node with  no child nodes is said to be LEAF NODE (Brahmachari node)
+While traversing a BT when ever we reach a new node, it itself can be considered as Root and the nodes that can be reached from it as nodes of the tree. Thus to perform any operation on a BT, we always Traverse and while traversing (for traversal) we can apply the solution RECURSSIVELY.
+Traversal exactly is to reach every node in the Tree exactly Once.
+If you traverse the BT in the order Left-Root-Right (LR`R) then it is said to be In-Order traversal.
+If you traverse the BT in the order Root-Left-Right (R`LR) then it is said to be In-Order traversal.
+If you traverse the BT in the order Left-Right-Root (LRR`) then it is said to be In-Order traversal.
+A new node is always added into the BST as Leaf Node.
+
+Balancing a BST
+Self balancing BST
+Contructing a BST using 2 traversals 
+CRUD operations
+
+Deleting a node from a BST:
+1. node with 0 child nodes 
+2. node with 1 child nodes 
+3. node with 2 child nodes
