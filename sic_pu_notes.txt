@@ -92,6 +92,14 @@ $ git push origin main
 ---------------------------------------------
 PYTHON
 
+Python is very easy to read and understand.
+It is written as similar to every day human life language.
+
+Pyhton code:
+if 4 in [1, 2, 3, 4]: print('There is 4')
+Interpreted as:
+if there is 4 among 1, 2, 3 and 4, print 'There is 4'
+
 In every language, there 2 stages of a program (Compile time and runtime)
 
 C/C++:
@@ -639,3 +647,7 @@ Deleting a node from a BST:
 1. node with 0 child nodes 
 2. node with 1 child nodes 
 3. node with 2 child nodes
+--------------------------------------------------------------------
+SESSION-14  08-07-2025
+
+https://docs.google.com/forms/d/1J2g0nOomI3mav_t2LzcTLgtID6Ne1KNHCt5oLullvQE/edit
