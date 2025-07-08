@@ -651,3 +651,53 @@ Deleting a node from a BST:
 SESSION-14  08-07-2025
 
 https://docs.google.com/forms/d/1J2g0nOomI3mav_t2LzcTLgtID6Ne1KNHCt5oLullvQE/edit
+
+def my_function(param1, param2 = 10):
+    pass
+
+def my_function2(param1 = 10, param2):
+    pass
+
+my_function(10)
+my_function2(10)
+-----------------------
+def my_function(y):
+	def inner_function(x):
+		return x + y   # return x + 5
+	return inner_function
+
+closure = my_function(5)
+print(closure(10)) # outputs 15
+
+int num = 10;
+int* ptr = NULL;
+ptr = &num;
+
+float my_func(int, char); // function declaration
+
+float (*fp)(int, char); // function pointer declaration
+fp = &my_func
+
+A pointer of a specific DT can point any variable of that DT
+A function pointer of a specific prototype(SIGNATURE) can point to any function of that particular signature.
+----------------------------------------------------
+Deletion of a node in a BST:
+1. If the node to be deleted is leaf node:
+	Make the respective link of the Parent node of the node being deleted None.
+2. If node to be deleted has one child
+	Replace the child node of the node being deleted with itself.
+3. If node to be deleted has 2 children
+	Make the right child of the node being deleted, the right child of its parent (Thus the right grand child become right child). The right child of the node being deleted replaces itself.
+	And the left child node (and its descendents(sub tree)) becomes the left child of the left most child of its right child.
+4. What is we are deleting the root itself (when it has 2 child nodes) ???
+-------------------------------------------------------
+Must be done:
+closure, lambda, Hashing (session15)
+Problem Solving: backtracking, greedy, dynamic programming (session16)
+numpy pandas and matplotlib seaborn (Optionally DB) (session18-20)
+PROJECT (session20-23)
+Optional:
+radix sort, heap sort, bucket sort, AVL Tree (session17)
+flask with mongo or Mysql
+(Graph Algorithms: DFS, BFS, Djiktras, N-Queens, Travel Slalesman)
+packages/modules: os (file handling), sys, math, tkinter, pickle
