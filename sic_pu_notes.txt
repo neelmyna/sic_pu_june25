@@ -691,6 +691,47 @@ Deletion of a node in a BST:
 	And the left child node (and its descendents(sub tree)) becomes the left child of the left most child of its right child.
 4. What is we are deleting the root itself (when it has 2 child nodes) ???
 -------------------------------------------------------
+PDB: Python debugger
+Debugging is the skill of tracing the logic.
+Tracing the logic is to halt the execution of the program at specified instructions and cheking the state of the program.
+We do this by checking the values of the variables at certain specific instruction in the code.
+For example, we set a break point at a certain instruction inside a loop and check the value of a particular variable to make sure it is changing its value as expected.
+
+What we can achive via debugging:
+1. We can check the values of the variables at any given point of time during Debugging
+2. We can print the stack (call stack)
+3. We can apply break points
+4. We can apply check points
+5. Match points
+6. set points
+7. jump into a function (step)
+8. move to next instruction (next)
+
+Command To run a python scrpit (program) in debug mode:
+python -m pdb your_script_name.py
+
+alternatively we can use the module pdb:
+import pdb
+pdb.set_trace()
+
+import pdb
+pdb.set_trace()
+
+def check_palindrome(number): # call by value
+    reverse_number = 0
+    while number != 0:
+        remainder_digit = number % 10
+        number = number // 10
+        reverse_number = reverse_number * 10 + remainder_digit
+    return reverse_number
+
+input_number = int(input('Enter a number to check if it is Palindroime: '))
+reverse_number = check_palindrome(input_number)
+if reverse_number == input_number:
+    print('Palindrome')
+else:
+    print('Not a Palindrome')
+-------------------------------------------------------
 import numpy as np
 
 array1 = np.zeros(3)
@@ -719,8 +760,9 @@ array2 = np.zeros((1, 4))
 array3 = np.zeros((2, 5))
 
 print(array1[4]) # IndexError
-print(array1[0][0]) # SyntaxError array2 is not 2D
+print(array1[0][0]) # SyntaxError array1 is not 2D array
 print(array2[2][0]) # IndexError
+print(array2[1][0]) # IndexError
 print(array3[3][3]) # IndexError
 --------------------------------------------
 import numpy as np
@@ -742,6 +784,9 @@ print(array1)
 array2 = np.full((1,5), 10)
 # Here array2 is still a ndarray
 print(array2)
+
+array1 = np.full((2, 4), 5, dtype=int)
+array1 = np.full((2, 4), 5, dtype=np.float64)
 ------------------------------------------------
 import numpy as np
 # arange()
@@ -790,7 +835,10 @@ arr = arr.reshape(3, 3)
 print(arr, '\n')
 
 # Reshape back to the original size
-arr = arr.reshape(9)
+arr = arr.reshape(9) # generates 1D array
+print(arr)
+
+arr = arr.reshape(1, 9) # generates 2D array
 print(arr)
 
 arr = arr.reshape(2, 5) # ValueError
@@ -820,9 +868,9 @@ print(arr)
 -------------------------------------------------------
 import numpy as np
 
-arr1 = np.arange(1, 10)
+arr1 = np.arange(1, 10) #arange always generates 1D array
 arr2 = np.arange(2, 25, 2)
-arr3 = arr1.reshape(3, -1)
+arr3 = arr1.reshape(3, -1) # Reshape generates 1D, 2D and 3D arrays and so on
 arr4 = arr2.reshape(4, -1)
 arr5 = arr2.reshape(2, -1)
 arr6 = arr2.reshape(3, -1)
@@ -873,6 +921,16 @@ matrix2 = np.array([[3, 4], [3, 5], [2, 6]])
 matrix3 = np.dot(matrix1, matrix2)
 
 print('Matrix3=\n', matrix3)
+(r1*c1, r1*c2)
+(r2*c1, r2*c2)
+
+(3*3 + 4*3 + 5*2), (3*4 + 4*5 + 5*6)
+(2*3 + 6*3 + 9*2), (2*4 + 6*5 + 9*6)
+
+(9+12+10), (12+20+30)
+(6+18+18), (8+30+54)
+[ (31, 62)
+  (42, 92) ]
 ---------------------------------------------
 import numpy as np
 
@@ -937,8 +995,6 @@ array.array stores elements of same type only.
 "duration" : 3.25, "fare" : 9200, "id" : 1}
 
 ---------------------------------------------------------------
-DAY14 13-11-2024 WEDNESDAY
-
 import numpy as np
 def f(x, y):
 	return 10 * x + y
@@ -986,9 +1042,7 @@ my_array[[0, 1, -1], :] = 0 #For 1st row and last row, set all elements to 0
 #After:
 print(f'After:\n {my_array}')
 ---------------------------------------------------
-Greedy Technique
 
-https://www.hackerrank.com/challenges/greedy-florist/problem
 
 ---------------------------------------------------
 5 3
@@ -1135,8 +1189,6 @@ merged_list.extend(list2[j:])
 
 print(merged_list)
 -------------------------------------------
-DAY15 THURSDAY 14-11-2024
-
 Harry-Potter Problem
 
 Read N (Number of gold coins)
@@ -1222,74 +1274,6 @@ for i in range(n):
     elif prime_numbers[i] == 7:
         print('0 1')
 ----------------------------------------------------------
-import sys
-
-class Node:
-    def __init__(self):
-        self.left  = None
-        self.data  = 0
-        self.right = None
-
-class BST:
-    def __init__(self):
-        self.root = None
-        print('An empty BST is created')
-
-    def add_node(self, node_data):
-        new_node = Node() # created a new node
-        new_node.data = node_data
-
-        if self.root is None:
-            self.root = new_node
-            return
-        
-        temp1 = self.root
-        temp2 = None
-
-        while temp1 != None:
-            temp2 = temp1
-            if new_node.data < temp1.data:
-                temp1 = temp1.left
-            else:
-                temp1 = temp1.right
-        if new_node.data < temp2.data:
-            temp2.left = new_node
-        else:
-            temp2.right = new_node
-
-    def get_height(self, root):
-        if root == None:
-            return 0 # When tree is empty
-        left_height = self.get_height(root.left)
-        right_height = self.get_height(root.right)
-        return max(left_height, right_height) + 1
-    
-    def inorder(self, root):
-        if root == None:
-            return
-        self.inorder(root.left)
-        print(root.data, end='  ')
-        self.inorder(root.right)
-
-def create_tree(bst):
-    number_of_nodes = int(input('Enter number of nodes: '))
-    node_values = []
-    print(f'Enter {number_of_nodes} values of the nodes')
-    for i in range(number_of_nodes):
-        node_values.append(int(input()))
-        bst.add_node(node_values[-1])
-
-def run_app(bst):
-    create_tree(bst)
-    print('The BST is')
-    bst.inorder(bst.root)
-    print('\nHeight of the BST is', bst.get_height(bst.root))
-
-bst = BST()
-run_app(bst)
----------------------------------------------------------
-DAY16 15-11-2024 FRIDAY
-
 1. Infix to Postfix Program
 Where all operators are of same precedence.
 
@@ -1387,3 +1371,6 @@ flask with mongo or Mysql
 (Graph Algorithms: DFS, BFS, Djiktras, N-Queens, Travel Slalesman)
 packages/modules: os (file handling), sys, math, tkinter, pickle
 ----------------------------------------------------------------
+Greedy Technique
+
+https://www.hackerrank.com/challenges/greedy-florist/problem
