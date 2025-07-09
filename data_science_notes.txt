@@ -1,0 +1,1025 @@
+program1.py
+
+import numpy as np
+import scipy
+
+array = np.array([[1, 1, 3, 3, 4, 4, 4, 5, 7, 7, 8, 9, 12]])
+
+mean   = np.mean(array)
+median = np.median(array)
+mode   = scipy.mode(array)
+
+print(f'Mean = ', mean)
+print(f'Median = ', median)
+print(f'Mode = ', mode)
+--------------------------------
+program2.py
+
+import numpy as np
+
+array1 = np.array([[1, 2], [3, 4]]) 
+array2 = np.array([[1, 2], [3, 4]]) 
+
+print(array1 == array2) # Does element wise comparison and returns truth value for every comparison which is again stored in the respective sized np array
+
+comparison = (array1 == array2)
+equal_arrays = comparison.all() # Here all the truth values of the inferred np array is taken and if all are True then it returns True, else False.
+
+print(equal_arrays)
+--------------------------------
+program3.py
+
+import numpy as np
+
+# Problem1: Finding indices where spendings are greater than 100
+
+# Explanation: Using np.where() to find indices where the condition is met
+
+week_spendings = np.array([50, 120, 30, 40, 200, 90, 300])
+high_spend = np.where(spendings > 100)
+print(high_spenders) # Output: Indices where the values are greater than 100
+--------------------------------
+program4.py
+# In a np array of spendings of the week, find the highest spending.
+
+import numpy as np
+week_spendings = np.array([50, 120, 30, 40, 200, 90, 300])
+highest_spending = max(week_spendings)
+print(high_spendings)
+-------------------------------------------------------
+program5.py
+# In a np array of spendings of the week, find the highest spending and the day.
+
+import numpy as np
+week_spendings = np.array([50, 120, 30, 40, 200, 90, 300])
+index = 1
+big_spending = week_spendings[0]
+index = np.argmax(week_spendings)
+days = {1:'mon', 2'tue', 3:'wed', 4:'thus', 5'fri', 6:'sat', 7:'sun'}
+print(big_spending, days[index])
+
+'''
+for i in range(len(week_spendings)):
+	if week_spendings[i] > big_spending:
+		big_spending = week_spendings[i]
+		index = i
+'''
+-------------------------------------------------------
+program6.py
+# Replacing values less than 50 with 0 in an array
+
+# Explanation: Using np.where() to replace values meeting the condition
+
+expenses = np.array([20, 60, 5, 80, 45, 90])
+modified_expenses = np.where(expenses < 50, 0, expenses)
+print(modified_expenses)  # Output: [ 0 60  0 80  0 90]
+-------------------------------------------------------
+Program7.py
+
+#Generating random floating-point numbers between 0 and 1
+
+# Explanation: Using np.random.rand() to create a random array of given shape
+
+random_data = np.random.rand(3, 4) # Creates a 3x4 array with random values
+print(random_data)
+-------------------------------------------------------
+program8.py
+
+import math
+
+user_number = int(input('Enter a number of your choice between [0 and 9]: '))
+system_number = math.random(10)
+if system_number == user_number:
+	print('CrorePati')
+else:
+	print('RoadPati')
+-------------------------------------------------------
+program9.py
+
+import pandas as pd
+
+def read_excel_file():
+    #Define the path to the Excel file
+    file_path = './students.xlsx'
+
+    # Read the Excel file into a pandas DataFrame
+    df = pd.read_excel(file_path)
+
+	# Display the first few rows of the DataFrame
+    print(df.count())
+    print(df.head())
+    print(df.tail())
+
+def read_excel_file1():
+    file_path = './students.xlsx'
+    df = pd.read_excel(file_path)
+    for index, row in df.iterrows():
+        print(row[0], '  ', row[1])
+
+def read_excel_file2():
+    file_path = './students.xlsx'
+    df = pd.read_excel(file_path)
+    for row in df.iterrows():
+       print(row[1][0], row[1][1])
+------------------------------------------------------------
+program10.py
+
+#Difference between np.arange() and np.linspace()
+
+# Explanation: np.arange() generates values with a fixed step, while np.linspace() generates a set number of equally spaced values
+
+sequence_arange = np.arange(1, 10, 3)  # Generates values from 1 to 10 with a step of 3
+sequence_linspace = np.linspace(0, 100, 5)  # Generates 5 equally spaced values between 0 and 100
+print("Using arange:", sequence_arange)
+print("Using linspace:", sequence_linspace)
+------------------------------------------------------------
+program11.py
+
+Output of np.arange(1, 10, 3)
+
+# Explanation: np.arange() generates numbers starting at 1, stopping before 10, with step size 3
+
+sequence = np.arange(1, 10, 3)
+print(sequence)  # Output: [ 1  4  7]
+------------------------------------------------------------
+program11.py
+
+# Generating 23 equally spaced values between 0 and 100
+
+# Explanation: Using np.linspace() to generate specified number of values in a range
+
+values = np.linspace(0, 100, 23)
+print("Generated values:", values)
+print("Total count:", len(values))
+------------------------------------------------------------
+program12.py
+
+# Creating a DataFrame
+
+# Explanation: Using pandas to create a DataFrame from a dictionary
+
+import pandas as pd
+data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35],
+        'Salary': [50000, 60000, 70000]}
+df = pd.DataFrame(data)
+print(df)
+------------------------------------------------------------
+program13.py
+
+# Reading a CSV file and checking for missing values
+
+# Explanation: Using pd.read_csv() to load data and checking for missing values using isnull()
+
+df = pd.read_csv('data.csv')  # Reads the CSV file
+df.head()  # Displays the first 5 rows
+print(df.isnull().sum())  # Counts missing values in each column
+------------------------------------------------------------
+program14.py
+
+# Filtering rows where Salary > 50000
+
+# Explanation: Using boolean indexing to filter rows based on Salary column
+
+high_salary = df[df['Salary'] > 50000]  # Filters rows based on Salary
+print(high_salary)
+------------------------------------------
+program15.py
+
+# Sorting data by Salary in descending order
+
+# Explanation: Using sort_values() to arrange rows based on Salary
+
+df_sorted = df.sort_values(by='Salary', ascending=False)
+print(df_sorted)
+------------------------------------------------------------
+program16.py
+
+Grouping data by Age and calculating mean Salary
+
+# Explanation: Using groupby() to aggregate data and compute mean salary
+
+grouped = df.groupby('Age')['Salary'].mean() 
+# Groups by Age and calculates mean salary
+print(grouped)
+
+select avg(salary) as Avg_Salary from employees group by age;
+------------------------------------------------------------
+program17.py
+
+# Creating a DataFrame from a dictionary
+
+# Explanation: Creating a DataFrame using a dictionary with multiple columns
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie'],
+    'Age': [25, 30, 35],
+    'City': ['New York', 'Los Angeles', 'Chicago']
+}
+df = pd.DataFrame(data)  # Converts dictionary into a DataFrame
+print(df)
+------------------------------------------------------------
+program18.py
+
+# Checking for missing values in a DataFrame
+
+# Explanation: Using isnull() to check for missing values and count occurrences
+
+df = pd.DataFrame({
+    'Name': ['Alice', 'Bob', None],
+    'Age': [25, None, 35],
+    'City': ['New York', 'Los Angeles', 'Chicago']
+})
+print(df.isnull())  # Identifies missing values
+print(df.isnull().sum())  # Counts missing values per column
+------------------------------------------------------------
+program19.py
+
+Selecting a single column from a DataFrame
+
+# Explanation: Accessing specific columns from the DataFrame
+
+print(df['Name'])  # Access column using dictionary-style indexing
+print(df.Age)      # Access column using dot notation
+------------------------------------------------------------
+program20.py
+
+np_array_data = np.array([[1, 2, 3, 4, 5,], [0, 2, 4, 6, 8], [1, 3, 5, 7, 9], [2, 3, 5, 7, 11], [11, 13, 17, 19, 23]], int)
+
+print(np_array_data[:, 3]
+print(np_array_data[1:4, 3]
+print(np_array_data[:, 2:3]
+print(np_array_data[1:, 1:4]
+------------------------------------------------------------
+program21.py
+
+# Filtering rows in Pandas based on a condition
+
+# Explanation: Using boolean indexing to filter rows where Age > 25
+
+filtered_df = df[df1['Age'] > 25]  # Selects rows where Age > 25
+print(filtered_df)
+------------------------------------------------------------
+program22.py
+
+# Grouping data in a DataFrame and applying aggregate functions
+
+# Explanation: Using groupby() and agg() to perform multiple aggregations on grouped data
+
+data = {
+    'Department': ['IT', 'HR', 'IT', 'HR', 'IT'],
+    'Salary': [60000, 55000, 70000, 58000, 75000]
+}
+
+df = pd.DataFrame(data)
+
+# Grouping by Department and calculating mean, sum, and max salary
+grouped_df = df.groupby('Department').agg({'Salary': ['mean', 'sum', 'max']})  
+print(grouped_df)
+
+select department, avg(salary) as avg_salary from employees groupby dept having dept in['teaching', 'non-teaching']
+------------------------------------------------------------
+program23.py
+# LINE PLOT
+# Problem Statement: Visualizing a sine wave using a line plot.
+# Question: How does a sine wave behave over a continuous range of values?
+
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+import pandas as pd
+from mpl_toolkits.mplot3d import Axes3D  # Importing 3D plotting module
+
+x = np.linspace(0, 10, 100)  # Generating 100 points between 0 and 10
+y = np.sin(x)  # Sine function
+
+plt.plot(x, y, label="Sine Wave")  # Plot sine wave
+plt.xlabel("X-axis")  # Label for x-axis
+plt.ylabel("Y-axis")  # Label for y-axis
+plt.title("Line Plot")  # Title of the plot
+plt.legend()  # Display legend
+plt.show()  # Show the plot
+
+------------------------------------------------------------
+program24.py
+
+# SCATTER PLOT
+# Problem Statement: Understanding the correlation between two variables.
+# Question: What pattern can we observe in the scatter plot of randomly generated values?
+
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+import pandas as pd
+from mpl_toolkits.mplot3d import Axes3D  # Importing 3D plotting module
+
+x = np.random.rand(50)
+y = np.random.rand(50)
+
+plt.scatter(x, y, color='red', marker='o')
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+plt.title("Scatter Plot")
+plt.show()
+------------------------------------------------------------
+program25.py
+
+BAR PLOT
+# Problem Statement: Comparing categorical data using a bar chart.
+# Question: Which category has the highest value in the given dataset?
+
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+import pandas as pd
+from mpl_toolkits.mplot3d import Axes3D  # Importing 3D plotting module
+
+categories = ['A', 'B', 'C', 'D']
+values = [10, 20, 15, 25]
+
+plt.bar(categories, values, color=['blue', 'green', 'red', 'purple'])
+plt.xlabel("Categories")
+plt.ylabel("Values")
+plt.title("Bar Chart")
+plt.show()
+------------------------------------------------------------
+program26.py
+
+import numpy as np
+
+my_array = np.zeros((8, 8), dtype = int)
+#my_array[1::2, ::2] = 8
+#Starting from row-index-1 and there after, for all alternatives rows, and for all columns from index 0 and there after alternative columns, replace the cells with value 8
+my_array[::2, 1::2] = 1
+# Odd indexed-rows Even Indexed-Columns
+print(my_array)
+----------------------------------------------
+program27.py
+
+import numpy as np
+
+# nan is not a number
+
+print(0 * np.nan)
+print(np.nan == np.nan)
+print(np.inf > np.nan)
+print(np.nan - np.nan)
+print(np.nan in set([np.nan]))
+print(0.3 == 3 * 0.1)
+-------------------------------------------------
+program28.py
+
+list1 = [2, 3, 5]
+
+string = ' '.join(map(str, list1)) # convert a list of items of type other than str into a string
+print(string)
+print(type(string))
+
+list2 = ['23', '55', '67']
+string = ' '.join(list2) 
+print(string)
+-------------------------------------------------
+program29.py
+
+# Create a checkerboard 8x8 matrix using the tile function 
+import numpy as np
+
+#my_matrix = np.array([[0,1],[1,0]])
+#print(my_matrix)
+
+chess_board = np.tile( np.array([[1, 0],[0, 1]]), (4,4))
+# chess_board = np.tile( np.array([['*', ' '],[' ', '*']]), (4,4))
+#print('\n', chess_board)
+
+list1 = []
+for array in chess_board:
+    list1 = list(array)
+    string = ' '.join(map(str, list1))
+    print(string)
+------------------------------------------------
+program30.py
+
+# Normalize a 5x5 random matrix
+import numpy as np
+
+my_array = np.random.random((5,5))
+#print(my_array)
+
+values = my_array - np.mean (my_array)
+print('\n', values)
+
+values = np.std (my_array)
+print('\n', values)
+
+my_array = (my_array - np.mean (my_array)) / (np.std (my_array))
+print(my_array)
+
+------------------------------------------------------------
+program31.py
+
+# HORIZONTAL BAR PLOT
+# Problem Statement: Displaying categorical data with long labels in a horizontal format.
+# Question: Which category has the highest value in the horizontal bar chart?
+
+
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+import pandas as pd
+from mpl_toolkits.mplot3d import Axes3D  # Importing 3D plotting module
+
+categories = ['A', 'B', 'C', 'D']
+values = [10, 20, 15, 25]
+
+plt.barh(categories, values, color='orange')
+plt.xlabel("Values")
+plt.ylabel("Categories")
+plt.title("Horizontal Bar Chart")
+plt.show()
+------------------------------------------------------------
+program32.py
+
+# HISTOGRAM
+# Problem Statement: Analyzing the frequency distribution of normally distributed data.
+# Question: How is the data distributed across different bins?
+
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+import pandas as pd
+from mpl_toolkits.mplot3d import Axes3D  # Importing 3D plotting module
+
+data = np.random.randn(1000)
+
+plt.hist(data, bins=30, color='green', edgecolor='black')
+plt.xlabel("Value")
+plt.ylabel("Frequency")
+plt.title("Histogram")
+plt.show()
+------------------------------------------------------------
+program33.py
+
+LINE PLOT
+# Problem Statement: Visualizing a sine wave using a line plot.
+# Question: How does a sine wave behave over a continuous range of values?
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Generate 100 points between 0 and 10
+x = np.linspace(0, 10, 100)  
+# Compute sine function values
+y = np.sin(x)  
+
+# Plot sine wave
+plt.plot(x, y, label="Sine Wave")  
+plt.xlabel("X-axis")  # Label for x-axis
+plt.ylabel("Y-axis")  # Label for y-axis
+plt.title("Line Plot")  # Title of the plot
+plt.legend()  # Display legend
+plt.show()  # Show the plot
+---------------------------------------------------------
+program34.py
+
+# SCATTER PLOT
+# Problem Statement: Understanding the correlation between two variables.
+# Question: What pattern can we observe in the scatter plot of randomly generated values?
+
+# Generate 50 random values for x and y
+x = np.random.rand(50)
+y = np.random.rand(50)
+
+# Create scatter plot
+plt.scatter(x, y, color='red', marker='o')
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+plt.title("Scatter Plot")
+plt.show()
+------------------------------------------------------------
+program35.py
+
+# BAR PLOT
+# Problem Statement: Comparing categorical data using a bar chart.
+# Question: Which category has the highest value in the given dataset?
+
+# Define categories and their corresponding values
+categories = ['A', 'B', 'C', 'D']
+values = [10, 20, 15, 25]
+
+# Create bar chart
+plt.bar(categories, values, color=['blue', 'green', 'red', 'purple'])
+plt.xlabel("Categories")
+plt.ylabel("Values")
+plt.title("Bar Chart")
+plt.show()
+------------------------------------------------------------
+program36.py
+
+# HORIZONTAL BAR PLOT
+# Problem Statement: Displaying categorical data with long labels in a horizontal format.
+# Question: Which category has the highest value in the horizontal bar chart?
+
+# Create horizontal bar chart
+plt.barh(categories, values, color='orange')
+plt.xlabel("Values")
+plt.ylabel("Categories")
+plt.title("Horizontal Bar Chart")
+plt.show()
+------------------------------------------------------------
+program37.py
+
+# HISTOGRAM
+# Problem Statement: Analyzing the frequency distribution of normally distributed data.
+# Question: How is the data distributed across different bins?
+
+# Generate normally distributed random data
+data = np.random.randn(1000)
+
+# Create histogram with 30 bins
+plt.hist(data, bins=30, color='green', edgecolor='black')
+plt.xlabel("Value")
+plt.ylabel("Frequency")
+plt.title("Histogram")
+plt.show()
+------------------------------------------------------------
+program38.py
+
+# PIE CHART
+# Problem Statement: Representing the market share of different brands.
+# Question: Which brand has the largest market share?
+
+# Define sizes and labels for pie chart
+sizes = [30, 20, 25, 25]
+labels = ['A', 'B', 'C', 'D']
+colors = ['blue', 'red', 'green', 'purple']
+
+# Create pie chart
+plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=140)
+plt.title("Pie Chart")
+plt.show()
+------------------------------------------------------------
+program39.py
+
+# BOX PLOT
+# Problem Statement: Displaying data distribution and outliers using a box plot.
+# Question: Which category has the highest spread in the dataset?
+
+# Generate random data for 4 categories
+data = [np.random.randn(100) for _ in range(4)]
+
+# Create box plot
+plt.boxplot(data, patch_artist=True)
+plt.xlabel("Category")
+plt.ylabel("Values")
+plt.title("Box Plot")
+plt.show()
+------------------------------------------------------------
+program39.py
+
+# VIOLIN PLOT
+# Problem Statement: Comparing multiple distributions using a violin plot.
+# Question: How does the density of data differ across categories?
+
+# Create violin plot
+plt.violinplot(data)
+plt.xlabel("Category")
+plt.ylabel("Values")
+plt.title("Violin Plot")
+plt.show()
+------------------------------------------------------------
+program40.py
+
+# 3D SCATTER PLOT
+# Problem Statement: Visualizing relationships between three variables in a 3D space.
+# Question: How are the three random variables distributed in the 3D space?
+
+from mpl_toolkits.mplot3d import Axes3D
+
+# Generate 50 random values for x, y, and z
+x = np.random.rand(50)
+y = np.random.rand(50)
+z = np.random.rand(50)
+
+# Create 3D figure and axis
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+# Create 3D scatter plot
+ax.scatter(x, y, z, color='red')
+ax.set_xlabel("X-axis")
+ax.set_ylabel("Y-axis")
+ax.set_zlabel("Z-axis")
+ax.set_title("3D Scatter Plot")
+plt.show()
+------------------------------------------------------------
+program41.py
+
+# HEATMAP
+# Problem Statement: Understanding data distribution using a heatmap.
+# Question: What areas in the matrix have the highest intensity values?
+
+import seaborn as sns
+
+data = np.random.rand(10,10)  # Generate a 10x10 matrix of random values
+
+# Create heatmap
+plt.imshow(data, cmap='coolwarm', interpolation='nearest')
+plt.colorbar()
+plt.title("Heatmap")
+plt.show()
+------------------------------------------------------------
+program42.py
+
+# SEABORN PAIR PLOT
+# Problem Statement: Analyzing relationships between multiple stock market variables.
+# Question: How do different variables relate to each other in the dataset?
+
+data_dict = {
+    "total_bill": np.random.uniform(5, 50, 100),
+    "tip": np.random.uniform(1, 10, 100),
+    "sex": np.random.choice(["Male", "Female"], 100),
+    "smoker": np.random.choice(["Yes", "No"], 100),
+    "day": np.random.choice(["Thur", "Fri", "Sat", "Sun"], 100),
+    "time": np.random.choice(["Lunch", "Dinner"], 100),
+    "size": np.random.randint(1, 6, 100)
+}
+
+# Convert dictionary to DataFrame
+data_df = pd.DataFrame(data_dict)
+
+# Create pair plot using seaborn
+sns.pairplot(data_df, hue="sex")
+plt.title("Pair Plot")
+plt.show()
+------------------------------------------------------------
+program43.py
+
+# SEABORN HEATMAP
+# Problem Statement: Understanding correlations between different financial factors.
+# Question: Which two variables have the highest positive correlation?
+
+# Compute correlation matrix
+corr = data_df.corr()
+
+# Create heatmap with correlation values
+sns.heatmap(corr, annot=True, cmap="coolwarm", linewidths=0.5)
+plt.title("Heatmap")
+plt.show()
+
+------------------------------------------------------------
+import numpy as np
+
+array1 = np.zeros(3)
+print(f'Array1 = {array1}')
+
+array2 = np.zeros((1, 4))
+print(f'Array2 = {array2}')
+
+array3 = np.zeros((2, 5))
+print(f'Array3 = {array3}')
+---------------------------------------------
+import numpy as np
+
+array1 = np.zeros(3)
+array2 = np.zeros((1, 4))
+array3 = np.zeros((2, 5))
+
+print(array1[0], array1[2])
+print(array2[0][0], array2[0][3])
+print(array3[1][0], array3[1][3])
+-------------------------------------------------
+import numpy as np
+
+array1 = np.zeros(3)
+array2 = np.zeros((1, 4))
+array3 = np.zeros((2, 5))
+
+print(array1[4]) # IndexError
+print(array1[0][0]) # SyntaxError array2 is not 2D
+print(array2[2][0]) # IndexError
+print(array3[3][3]) # IndexError
+--------------------------------------------
+import numpy as np
+
+array1 = np.zeros(3)
+array2 = np.zeros((1, 4))
+array3 = np.zeros((2, 5))
+
+print(type(array1))
+print(type(array2))
+print(type(array1[0]))
+print(type(array2[0]))
+print(type(array2[0][0]))
+----------------------------------------------
+import numpy as np
+
+array1 = np.full((2, 4), 5)
+print(array1)
+array2 = np.full((1,5), 10)
+# Here array2 is still a ndarray
+print(array2)
+------------------------------------------------
+import numpy as np
+# arange()
+
+array1 = np.arange(10)
+array2 = np.arange(10, 20)
+array3 = np.arange(10, 30, 3)
+
+print(type(array1))
+print(array1)
+print(array2)
+print(array3)
+------------------------------------------------------
+import numpy as np
+# ones()
+
+array1 = np.ones(10)
+array2 = np.ones((2, 8))
+array3 = np.ones((3, 5))
+
+print(type(array1))
+print(array1)
+print(array2)
+print(array3)
+---------------------------------------------
+import numpy as np
+
+vector = np.arange(5)
+print('Vector shape:', vector.shape)
+
+matrix = np.ones([3, 2])
+print('Matrix:', matrix)
+print('Matrix shape:', matrix.shape)
+
+tensor = np.zeros([2, 3, 3])
+print('Tensor:', tensor)
+print("Tensor shape:", tensor.shape)
+-------------------------------------------------
+import numpy as np
+
+arr = np.arange(1, 10)
+print(arr, '\n')
+
+# Reshape to 3x3 matrix
+arr = arr.reshape(3, 3)
+print(arr, '\n')
+
+# Reshape back to the original size
+arr = arr.reshape(9)
+print(arr)
+
+arr = arr.reshape(2, 5) # ValueError
+print(arr)
+-----------------------------------------------------
+import numpy as np
+
+arr1 = np.arange(12)
+
+arr2 = arr1.reshape(2, 6)
+arr3 = arr1.reshape(6, 2)
+arr4 = arr1.reshape(3, 4)
+arr5 = arr1.reshape(12, 1)
+arr6 = arr1.reshape(4, 3)
+
+print('Arr1:\n', arr1)
+print('Arr2:\n', arr2)
+print('Arr3:\n', arr3)
+print('Arr4:\n', arr4)
+print('Arr5:\n', arr5)
+print('Arr6:\n', arr6)
+-------------------------------------------------------
+import numpy as np
+
+arr = np.arange(1, 10).reshape(3, -1) # Here python infers/decides the number of columns by itself.
+print(arr)
+-------------------------------------------------------
+import numpy as np
+
+arr1 = np.arange(1, 10)
+arr2 = np.arange(2, 25, 2)
+arr3 = arr1.reshape(3, -1)
+arr4 = arr2.reshape(4, -1)
+arr5 = arr2.reshape(2, -1)
+arr6 = arr2.reshape(3, -1)
+arr7 = arr2.reshape(-1, 4) # Numpy predicts and fixes number of rows
+arr8 = arr2.reshape(-1, -1) #ValueError. Can only specify one unknown dimension
+
+print('Arr1:\n', arr1)
+print('Arr2:\n', arr2)
+print('Arr3:\n', arr3)
+print('Arr4:\n', arr4)
+print('Arr5:\n', arr5)
+print('Arr6:\n', arr6)
+print('Arr7:\n', arr7)
+print('Arr8:\n', arr8)
+---------------------------------------------------------
+import numpy as np
+
+array1 = np.array([1, 3, 5, 0, 2, 3, 4, 5, 13, 17, 23, 29])
+print(array1.shape)
+print(type(array1))
+print(array1)
+---------------------------------------
+import numpy as np
+
+array1 = np.array([1, 3, 5, 0, 2, 3, 4, 5, 13, 17, 23, 29])
+
+array1.shape = (6, 2)
+print(array1.shape)
+print(array1)
+
+array1.shape = (3, 4)
+print(array1.shape)
+print(array1)
+
+array1.shape = (4, 3)
+print(array1.shape)
+print(array1)
+
+#array1.shape = (4, 2) # Error New shape of the array must consist of same number of elements as that of original array
+#print(array1.shape)
+#print(array1)
+-------------------------------------------------
+import numpy as np
+
+matrix1 = np.array([[3, 4, 5], [2, 6, 9]])
+matrix2 = np.array([[3, 4], [3, 5], [2, 6]])
+
+matrix3 = np.dot(matrix1, matrix2)
+
+print('Matrix3=\n', matrix3)
+---------------------------------------------
+import numpy as np
+
+array = np.array([2, 4, 6, 8, 9, 19])
+
+array2 = array + 5 # Broadcasting. Adding a scalar quantity to every element of the array
+
+print(array)
+print(array2)
+------------------------------------
+import numpy as np
+
+array = np.array([[2, 4, 6, 8], [9, 19, 4, 10]])
+
+array2 = array + 5 # Broadcasting. Adding a scalar quantity to every element of the array
+
+print(array)
+print(array2)
+--------------------------------------
+import numpy as np
+
+matrix1 = np.array([[3, 3, 4], [2, 3, 9]])
+matrix2 = np.array([[2, 5, 4], [2, 3, 19]])
+
+sum_matrix = matrix1 + matrix2
+difference_matrix = matrix1 - matrix2
+product_matrix = matrix1 * matrix2
+quotient_matrix = matrix1 / matrix2
+
+print(sum_matrix)
+print(difference_matrix)
+print(product_matrix)
+print(quotient_matrix)
+------------------------------------------
+import numpy as np
+import scipy
+
+array = np.array([[1, 1, 3, 3, 4, 4, 4, 5, 7, 7, 8, 9, 12]])
+
+mean   = np.mean(array)
+median = np.median(array)
+mode   = scipy.mode(array)
+
+print(f'Mean = ', mean)
+print(f'Median = ', median)
+print(f'Mode = ', mode)
+---------------------------------------------
+num = 50
+
+while(num < 50):
+	# do something
+	pass
+else:
+	# do something else
+	pass
+---------------------------------------------
+To enforce elements of same type to encapsulated, we must use array from the module array
+array.array stores elements of same type only.
+-----------------------------------------------------
+
+{"airline" : "akasa", "source" : "chennai", "destination" : "jaipur", 
+"duration" : 3.25, "fare" : 9200, "id" : 1}
+
+---------------------------------------------------------------
+DAY14 13-11-2024 WEDNESDAY
+
+import numpy as np
+def f(x, y):
+	return 10 * x + y
+
+my_aaray = np.fromfunction(f, (5, 4), dtype = int)
+print(my_aaray)
+------------------------------------------------------
+import numpy as np
+def f(x, y):
+	return 10 * x + y
+
+my_aaray = np.fromfunction(f, (5, 4), dtype = int)
+
+# Slicing the Numpy Arrays:
+print(my_aaray[2, 3]) # my_array[2][3]
+print(my_aaray[0:5, 1]) # From Row-1 to Row-5, print the 2nd element
+print(my_aaray[ : , 1]) # From all rows, print 2nd element
+print(my_aaray[1:3, : ]) # From Row-2 to Row-3, print all elements
+-------------------------------------------------------
+import numpy as np
+
+import numpy as np
+def f(x, y):
+	return 10 * x + y
+
+my_array = np.fromfunction(f, (5, 4), dtype = int)
+
+print(f'Before:\n {my_array}')
+#my_array[:, [0, -1]] = 0  #For all Rows, set 0 to 1st and last columns
+my_array[[0, -1], :] = 0 #For 1st row and last row, set all elements to 0
+
+#After:
+print(f'After:\n {my_array}')
+----------------------------------------------------
+import numpy as np
+
+import numpy as np
+def f(x, y):
+	return 10 * x + y
+
+my_array = np.fromfunction(f, (5, 4), dtype = int)
+
+my_array[[0, 1, -1], :] = 0 #For 1st row and last row, set all elements to 0
+
+#After:
+print(f'After:\n {my_array}')
+
+------------------------------------------------------------
+HACKATHON PROBLEMS:
+
+1. Car wash App
+sales:
+	{id, cust_id, date, service_id, date} Optional
+	id, customer, service, date, amount
+	
+	a. the month when we can bring in discounts
+	b. the month when we can bring surcharge
+	c. give a coupon to the valuable customer who did not turn up since over 2 months
+	d. display the monthly sales of a year
+	e. divide the day into 4 parts and display the sales using pie chart
+	
+2. Kanti Sweets
+inventory:
+	sweet_id,
+	
+	a. Which sweet sells more in a specific month
+	b. when the company revenues are highest during the year
+	c. Yearly sales data comparision
+	d. which sweet was wasted the most (sold less)
+	
+3. Kings coffee
+	types of coffee available
+	sources to buy coffee seeds
+	
+	a. From the past years of data    of buying seeds and the sales, help the cooffee shop to analyse and infer the best cofee seeds supplier.
+	b. Compare the sales of instant coffee and filter coffee
+	c. With the customer feedback, help the cooffee shop owner to know if water quantity should be reduced or increased. 
+	d. With the sales data help the owner to compare the sales of coffee with sugar, jagaury and sugar free.
+	
+4. Amount of Food being wasted in College Hostels
+(Food wastage management system)
+	The amount of food prepared
+	Amount of food consumed
+	Help how the food wastage can be brought down
+	How data can help Students who take food on plates but waste them
+	How the food being thrown can be redirected to other places
+	
+5. How Bengaluru Traffic can be de-congested with help of Data Analytics (Traffic Management system)
+
+6. Normal Delivery Percentage vs C-section Devliveries
+	Which part of the country has more C-section deliveries
+	Which hospitals have more C-Section deliveries
+	Does C-section deliveries and seasons have any relation?
+	What percentage of 2nd child birth has normal delivery when when 1st devilery was by C-section
+
+7. Data Analytics on engineering students optiing the branches
+	Which branch has more possibility of growth
+	which branch has currently the least demand
+	which branch has currently the highest demand
+	which branch is morely likely to go down in demand
+
+8. Analize the data of Indian Airlines and bring out the following: (DATA ANALYTICS ON INDIGO BUSINESS MODEL)
+	1. Top 3 sectors
+	2. Which sector in future will see more demand
+	3. Which airline is more likely to grow by market share
+
+Kaggle
+--------------------------------------------------
