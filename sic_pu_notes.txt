@@ -691,6 +691,691 @@ Deletion of a node in a BST:
 	And the left child node (and its descendents(sub tree)) becomes the left child of the left most child of its right child.
 4. What is we are deleting the root itself (when it has 2 child nodes) ???
 -------------------------------------------------------
+import numpy as np
+
+array1 = np.zeros(3)
+print(f'Array1 = {array1}')
+
+array2 = np.zeros((1, 4))
+print(f'Array2 = {array2}')
+
+array3 = np.zeros((2, 5))
+print(f'Array3 = {array3}')
+---------------------------------------------
+import numpy as np
+
+array1 = np.zeros(3)
+array2 = np.zeros((1, 4))
+array3 = np.zeros((2, 5))
+
+print(array1[0], array1[2])
+print(array2[0][0], array2[0][3])
+print(array3[1][0], array3[1][3])
+-------------------------------------------------
+import numpy as np
+
+array1 = np.zeros(3)
+array2 = np.zeros((1, 4))
+array3 = np.zeros((2, 5))
+
+print(array1[4]) # IndexError
+print(array1[0][0]) # SyntaxError array2 is not 2D
+print(array2[2][0]) # IndexError
+print(array3[3][3]) # IndexError
+--------------------------------------------
+import numpy as np
+
+array1 = np.zeros(3)
+array2 = np.zeros((1, 4))
+array3 = np.zeros((2, 5))
+
+print(type(array1))
+print(type(array2))
+print(type(array1[0]))
+print(type(array2[0]))
+print(type(array2[0][0]))
+----------------------------------------------
+import numpy as np
+
+array1 = np.full((2, 4), 5)
+print(array1)
+array2 = np.full((1,5), 10)
+# Here array2 is still a ndarray
+print(array2)
+------------------------------------------------
+import numpy as np
+# arange()
+
+array1 = np.arange(10)
+array2 = np.arange(10, 20)
+array3 = np.arange(10, 30, 3)
+
+print(type(array1))
+print(array1)
+print(array2)
+print(array3)
+------------------------------------------------------
+import numpy as np
+# ones()
+
+array1 = np.ones(10)
+array2 = np.ones((2, 8))
+array3 = np.ones((3, 5))
+
+print(type(array1))
+print(array1)
+print(array2)
+print(array3)
+---------------------------------------------
+import numpy as np
+
+vector = np.arange(5)
+print('Vector shape:', vector.shape)
+
+matrix = np.ones([3, 2])
+print('Matrix:', matrix)
+print('Matrix shape:', matrix.shape)
+
+tensor = np.zeros([2, 3, 3])
+print('Tensor:', tensor)
+print("Tensor shape:", tensor.shape)
+-------------------------------------------------
+import numpy as np
+
+arr = np.arange(1, 10)
+print(arr, '\n')
+
+# Reshape to 3x3 matrix
+arr = arr.reshape(3, 3)
+print(arr, '\n')
+
+# Reshape back to the original size
+arr = arr.reshape(9)
+print(arr)
+
+arr = arr.reshape(2, 5) # ValueError
+print(arr)
+-----------------------------------------------------
+import numpy as np
+
+arr1 = np.arange(12)
+
+arr2 = arr1.reshape(2, 6)
+arr3 = arr1.reshape(6, 2)
+arr4 = arr1.reshape(3, 4)
+arr5 = arr1.reshape(12, 1)
+arr6 = arr1.reshape(4, 3)
+
+print('Arr1:\n', arr1)
+print('Arr2:\n', arr2)
+print('Arr3:\n', arr3)
+print('Arr4:\n', arr4)
+print('Arr5:\n', arr5)
+print('Arr6:\n', arr6)
+-------------------------------------------------------
+import numpy as np
+
+arr = np.arange(1, 10).reshape(3, -1) # Here python infers/decides the number of columns by itself.
+print(arr)
+-------------------------------------------------------
+import numpy as np
+
+arr1 = np.arange(1, 10)
+arr2 = np.arange(2, 25, 2)
+arr3 = arr1.reshape(3, -1)
+arr4 = arr2.reshape(4, -1)
+arr5 = arr2.reshape(2, -1)
+arr6 = arr2.reshape(3, -1)
+arr7 = arr2.reshape(-1, 4) # Numpy predicts and fixes number of rows
+arr8 = arr2.reshape(-1, -1) #ValueError. Can only specify one unknown dimension
+
+print('Arr1:\n', arr1)
+print('Arr2:\n', arr2)
+print('Arr3:\n', arr3)
+print('Arr4:\n', arr4)
+print('Arr5:\n', arr5)
+print('Arr6:\n', arr6)
+print('Arr7:\n', arr7)
+print('Arr8:\n', arr8)
+---------------------------------------------------------
+import numpy as np
+
+array1 = np.array([1, 3, 5, 0, 2, 3, 4, 5, 13, 17, 23, 29])
+print(array1.shape)
+print(type(array1))
+print(array1)
+---------------------------------------
+import numpy as np
+
+array1 = np.array([1, 3, 5, 0, 2, 3, 4, 5, 13, 17, 23, 29])
+
+array1.shape = (6, 2)
+print(array1.shape)
+print(array1)
+
+array1.shape = (3, 4)
+print(array1.shape)
+print(array1)
+
+array1.shape = (4, 3)
+print(array1.shape)
+print(array1)
+
+#array1.shape = (4, 2) # Error New shape of the array must consist of same number of elements as that of original array
+#print(array1.shape)
+#print(array1)
+-------------------------------------------------
+import numpy as np
+
+matrix1 = np.array([[3, 4, 5], [2, 6, 9]])
+matrix2 = np.array([[3, 4], [3, 5], [2, 6]])
+
+matrix3 = np.dot(matrix1, matrix2)
+
+print('Matrix3=\n', matrix3)
+---------------------------------------------
+import numpy as np
+
+array = np.array([2, 4, 6, 8, 9, 19])
+
+array2 = array + 5 # Broadcasting. Adding a scalar quantity to every element of the array
+
+print(array)
+print(array2)
+------------------------------------
+import numpy as np
+
+array = np.array([[2, 4, 6, 8], [9, 19, 4, 10]])
+
+array2 = array + 5 # Broadcasting. Adding a scalar quantity to every element of the array
+
+print(array)
+print(array2)
+--------------------------------------
+import numpy as np
+
+matrix1 = np.array([[3, 3, 4], [2, 3, 9]])
+matrix2 = np.array([[2, 5, 4], [2, 3, 19]])
+
+sum_matrix = matrix1 + matrix2
+difference_matrix = matrix1 - matrix2
+product_matrix = matrix1 * matrix2
+quotient_matrix = matrix1 / matrix2
+
+print(sum_matrix)
+print(difference_matrix)
+print(product_matrix)
+print(quotient_matrix)
+------------------------------------------
+import numpy as np
+import scipy
+
+array = np.array([[1, 1, 3, 3, 4, 4, 4, 5, 7, 7, 8, 9, 12]])
+
+mean   = np.mean(array)
+median = np.median(array)
+mode   = scipy.mode(array)
+
+print(f'Mean = ', mean)
+print(f'Median = ', median)
+print(f'Mode = ', mode)
+---------------------------------------------
+num = 50
+
+while(num < 50):
+	# do something
+	pass
+else:
+	# do something else
+	pass
+---------------------------------------------
+To enforce elements of same type to encapsulated, we must use array from the module array
+array.array stores elements of same type only.
+-----------------------------------------------------
+
+{"airline" : "akasa", "source" : "chennai", "destination" : "jaipur", 
+"duration" : 3.25, "fare" : 9200, "id" : 1}
+
+---------------------------------------------------------------
+DAY14 13-11-2024 WEDNESDAY
+
+import numpy as np
+def f(x, y):
+	return 10 * x + y
+
+my_aaray = np.fromfunction(f, (5, 4), dtype = int)
+print(my_aaray)
+------------------------------------------------------
+import numpy as np
+def f(x, y):
+	return 10 * x + y
+
+my_aaray = np.fromfunction(f, (5, 4), dtype = int)
+
+# Slicing the Numpy Arrays:
+print(my_aaray[2, 3]) # my_array[2][3]
+print(my_aaray[0:5, 1]) # From Row-1 to Row-5, print the 2nd element
+print(my_aaray[ : , 1]) # From all rows, print 2nd element
+print(my_aaray[1:3, : ]) # From Row-2 to Row-3, print all elements
+-------------------------------------------------------
+import numpy as np
+
+import numpy as np
+def f(x, y):
+	return 10 * x + y
+
+my_array = np.fromfunction(f, (5, 4), dtype = int)
+
+print(f'Before:\n {my_array}')
+#my_array[:, [0, -1]] = 0  #For all Rows, set 0 to 1st and last columns
+my_array[[0, -1], :] = 0 #For 1st row and last row, set all elements to 0
+
+#After:
+print(f'After:\n {my_array}')
+----------------------------------------------------
+import numpy as np
+
+import numpy as np
+def f(x, y):
+	return 10 * x + y
+
+my_array = np.fromfunction(f, (5, 4), dtype = int)
+
+my_array[[0, 1, -1], :] = 0 #For 1st row and last row, set all elements to 0
+
+#After:
+print(f'After:\n {my_array}')
+---------------------------------------------------
+Greedy Technique
+
+https://www.hackerrank.com/challenges/greedy-florist/problem
+
+---------------------------------------------------
+5 3
+1 3 5 7 9
+
+9  7  5  3  1
+
+b1 = 9 * (0+1) = 9
+b2 = 7 * (0+1) = 7
+b3 = [5 * (0+1)] + [3 * (1+1)] + [1 * (1+1)] = 5+6+2=13
+total price = 9 + 7 + 13 = 29
+------------------------------------
+b1 = 9 * (0+1) = 9
+b2 = [7 * (0+1)] + [5 * (1+1)] = 7+10 = 17
+b3 = [3 * (0+1)] + [1 * (1+1)] = 3+ 2 =  5
+total price = 9 + 17 + 5 = 31
+---------------------------------------
+b1 = [9 * (0+1)] + [7 * (1+1)] + [5 * (1+1)] = 9 + 14 + 10 = 33
+b2 = [3 * (0+1)] = 3
+b3 = [1 * (0+1)] = 1
+total price = 33 + 3 + 1 = 37
+------------------------------------------
+b1 = [9 * (0+1)] + [7 * (1+1)] +  = 9 + 14 + 10 = 33
+b2 = [5 * (1+1)] + [3 * (1+1)] = 3
+b3 = [1 * (0+1)] = 1
+
+total_price = [9 * (0+1)] + [7 * (0+1)] + [5 * (0+1)] + [3 * (1+1)] + [1 * (1+1)]
+total_price = 1 + 5 + 6 + 9 + 14 = 29
+
+-----------------------------
+def get_minimum_cost(k, costs):
+	costs.sort(reverse=True)
+	total_min_cost = 0
+	n = len(costs)
+	for i in range(n):
+		total_min_cost += (i // k + 1) * costs[i]
+
+	return total_min_cost
+
+print( get_minimum_cost(3, [9, 7, 5, 3, 1]))
+------------------------------------
+Minimum numbers of coins for gievn amount and given denominations:
+
+def get_minimum_coins(amount, denominations):
+	denominations.sort(reverse=True)
+	number_of_coins = 0
+	n = len(denominations)
+	i = 0
+	while amount > 0:
+		number_of_coins += amount // denominations[i]
+		amount = amount % denominations[i]
+		i += 1
+	return number_of_coins
+
+print( get_minimum_coins(88, [1, 2, 5, 20]))
+-------------------------------------------------------
+import numpy as np
+
+my_array = np.zeros((8, 8), dtype = int)
+#my_array[1::2, ::2] = 8
+#Starting from row-index-1 and there after, for all alternatives rows, and for all columns from index 0 and there after alternative columns, replace the cells with value 8
+my_array[::2, 1::2] = 1
+# Odd indexed-rows Even Indexed-Columns
+print(my_array)
+----------------------------------------------
+import numpy as np
+
+# nan is not a number
+
+print(0 * np.nan)
+print(np.nan == np.nan)
+print(np.inf > np.nan)
+print(np.nan - np.nan)
+print(np.nan in set([np.nan]))
+print(0.3 == 3 * 0.1)
+-------------------------------------------------
+list1 = [2, 3, 5]
+
+string = ' '.join(map(str, list1)) # convert a list of items of tyep other than str into a string
+print(string)
+print(type(string))
+
+list2 = ['23', '55', '67']
+string = ' '.join(list2) 
+print(string)
+-------------------------------------------------
+# Create a checkerboard 8x8 matrix using the tile function 
+import numpy as np
+
+#my_matrix = np.array([[0,1],[1,0]])
+#print(my_matrix)
+
+chess_board = np.tile( np.array([[1, 0],[0, 1]]), (4,4))
+# chess_board = np.tile( np.array([['*', ' '],[' ', '*']]), (4,4))
+#print('\n', chess_board)
+
+list1 = []
+for array in chess_board:
+    list1 = list(array)
+    string = ' '.join(map(str, list1))
+    print(string)
+------------------------------------------------
+# Normalize a 5x5 random matrix
+import numpy as np
+
+my_array = np.random.random((5,5))
+#print(my_array)
+
+values = my_array - np.mean (my_array)
+print('\n', values)
+
+values = np.std (my_array)
+print('\n', values)
+
+my_array = (my_array - np.mean (my_array)) / (np.std (my_array))
+print(my_array)
+-----------------------------------------------------------------
+def read_heights(section):
+    m = int(input(f'Enter number of girls of section-{section}: '))
+    heights = []
+    print(f'Enter {m} heights of girls of Section-{section}: ')
+    for i in range(m):
+        heights.append(int(input()))
+    return heights
+
+list1 = read_heights('A')
+list2 = read_heights('B')
+
+list1.sort()
+list2.sort()
+merged_list = list()
+
+j = 0
+i = 0
+while i < len(list1) and j < len(list2):
+    if list1[i] < list2[j]:
+        merged_list.append(list1[i])
+        i += 1
+    else:
+        merged_list.append(list2[j])
+        j += 1
+merged_list.extend(list1[i:])
+merged_list.extend(list2[j:])
+
+print(merged_list)
+-------------------------------------------
+DAY15 THURSDAY 14-11-2024
+
+Harry-Potter Problem
+
+Read N (Number of gold coins)
+List of N intergers (specifying value of N Gold coins)
+Read Q (The Number instructions each of which is either HARRY or REMOVE
+Read X (The value at which the Monk will go to sleep)
+
+Monk goes to sleep: The sum of gold coins in Monk's bag (Stack)
+Print X as O/P
+
+'''
+Read N (Number of gold coins)
+List of N intergers (specifying value of N Gold coins)
+Read Q (The Number instructions each of which is either HARRY or REMOVE
+Read X (The value at which the Monk will go to sleep)
+
+Monk goes to sleep: The sum of gold coins in Monk's bag (Stack)
+Print X as O/P
+'''
+
+n = int(input('Enter number of Gold coins: '))
+coin_values = []
+
+print(f'Enter values of {n} Gold coins')
+for i in range(n):
+    coin_values.append(int(input()))
+
+q = int(input('Enter number of instructions: '))
+instructions = list()
+
+print(f'Enter the {q} instructions')
+for i in range(q):
+    instructions.append(input().strip().lower())
+
+x = int(input('Enter value of X: '))
+
+monk_stack = []
+condition_met = False
+
+print(coin_values, '\n', instructions)
+
+j = 0
+for i in range(0, q):
+    if instructions[i] == 'harry' and i < len(coin_values):
+        monk_stack.append(coin_values[j])
+        j += 1
+    elif instructions[i] == 'remove':
+        monk_stack.pop()
+    if sum(monk_stack) == x:
+        condition_met = True
+        break #break the loop
+
+if condition_met:
+    print(f'Number of coins = {len(monk_stack)}')
+else:
+    print('-1')
+------------------------------------------------------------
+a = int(input('Enter value of a: '))
+b = int(input('Enter value of b: '))
+m = int(input('Enter value of m: '))
+
+a_power_b = a ** b
+
+remainder = a_power_b - m * (a_power_b // m)
+
+print(f'Remainder = {remainder}')
+--------------------------------------------------------
+n = int(input('Enter number of test cases: '))
+
+prime_numbers = []
+
+print(f'Enter {n} number of PRime numbers')
+for i in range(n):
+    prime_numbers.append(int(input()))
+
+for i in range(n):
+    if prime_numbers[i] == 2:
+        print('0 0')
+    elif prime_numbers[i] == 3:
+        print('1 0')
+    elif prime_numbers[i] == 5:
+        print('1 1')
+    elif prime_numbers[i] == 7:
+        print('0 1')
+----------------------------------------------------------
+import sys
+
+class Node:
+    def __init__(self):
+        self.left  = None
+        self.data  = 0
+        self.right = None
+
+class BST:
+    def __init__(self):
+        self.root = None
+        print('An empty BST is created')
+
+    def add_node(self, node_data):
+        new_node = Node() # created a new node
+        new_node.data = node_data
+
+        if self.root is None:
+            self.root = new_node
+            return
+        
+        temp1 = self.root
+        temp2 = None
+
+        while temp1 != None:
+            temp2 = temp1
+            if new_node.data < temp1.data:
+                temp1 = temp1.left
+            else:
+                temp1 = temp1.right
+        if new_node.data < temp2.data:
+            temp2.left = new_node
+        else:
+            temp2.right = new_node
+
+    def get_height(self, root):
+        if root == None:
+            return 0 # When tree is empty
+        left_height = self.get_height(root.left)
+        right_height = self.get_height(root.right)
+        return max(left_height, right_height) + 1
+    
+    def inorder(self, root):
+        if root == None:
+            return
+        self.inorder(root.left)
+        print(root.data, end='  ')
+        self.inorder(root.right)
+
+def create_tree(bst):
+    number_of_nodes = int(input('Enter number of nodes: '))
+    node_values = []
+    print(f'Enter {number_of_nodes} values of the nodes')
+    for i in range(number_of_nodes):
+        node_values.append(int(input()))
+        bst.add_node(node_values[-1])
+
+def run_app(bst):
+    create_tree(bst)
+    print('The BST is')
+    bst.inorder(bst.root)
+    print('\nHeight of the BST is', bst.get_height(bst.root))
+
+bst = BST()
+run_app(bst)
+---------------------------------------------------------
+DAY16 15-11-2024 FRIDAY
+
+1. Infix to Postfix Program
+Where all operators are of same precedence.
+
+2. Infix to Postfix Program
+Where operators are of different precedence.
+
+3. Infix to Postfix Program
+Where operators are of different precedence and we use paranthesis to override the precedence of operators.
+
+input_str = a - b + c
+
+present_char = c
+
+stk: a b -
+operator: +
+
+postfix_str = a b - c +
+
+i = 0
+until input_str has character:   # a - b + c
+	if i == 0:
+		stk = input_str[i]
+		i++
+	else:
+		stk=post
+		post=''
+	operator = input_str[i]
+	i++
+	present_char = input_str[i]
+	i++
+	postfix_str = stk + present_char + operator
+	stk = ''
+	present_char = ''
+	operator = ''
+	
+itr=1, i=0
+	stk = a
+	i=1
+	opr= -
+	i=2
+	char=b
+	i=3
+	post=a b -
+	stk=char=opr=''
+itr=2, i=3
+	stk=a b -
+	post=''
+	opr=+
+	i=4
+	char=c
+	i=5
+	post= ab-c+
+	
+a+b-c+m
+ab+ - c + m
+ab+c- + m
+ab+c-m+
+----------------
+infix_expr = input('Enter the infix notation expression: ')
+
+i               = 0
+stk             = ''
+postfix_expr    = ''
+present_char    = ''
+operator        = ''
+
+for char in infix_expr:
+	if i == len(infix_expr):
+		break
+	if i == 0:
+		stk = infix_expr[i]
+		i += 1
+	else:
+		stk = postfix_expr
+		postfix_expr = ''
+	operator = infix_expr[i]
+	i += 1
+	present_char = infix_expr[i]
+	i += 1
+	postfix_expr = stk + present_char + operator
+	stk = ''
+	present_char = ''
+	operator = ''
+
+print(f'Postfix Expression = {postfix_expr}')
+-------------------------------------------------------
 Must be done:
 closure, lambda, Hashing (session15)
 Problem Solving: backtracking, greedy, dynamic programming (session16)
@@ -701,3 +1386,4 @@ radix sort, heap sort, bucket sort, AVL Tree (session17)
 flask with mongo or Mysql
 (Graph Algorithms: DFS, BFS, Djiktras, N-Queens, Travel Slalesman)
 packages/modules: os (file handling), sys, math, tkinter, pickle
+----------------------------------------------------------------
