@@ -40,7 +40,7 @@ class Db_operations:
 
     def create_table(self):
         connection = self.connect_db()
-        query = "create table IF NOT EXISTS persons(id int primary key auto_increment, name varchar(32) not null, gender char check(gender in('m','M', 'f','F')), location varchar(32), dob date);"
+        query = "create table IF NOT EXISTS people(id int primary key auto_increment, name varchar(32) not null, gender char check(gender in('m','M', 'f','F')), location varchar(32), dob date);"
         cursor = connection.cursor()
         cursor.execute(query)
         cursor.close()
@@ -55,7 +55,7 @@ class Db_operations:
         return (name, gender, location, dob)
 
     def insert_row(self, person):
-        query = 'insert into persons(name, gender, location, dob) values(%s, %s, %s, %s);'
+        query = 'insert into people(name, gender, location, dob) values(%s, %s, %s, %s);'
         person_tuple = (person.name, person.gender, person.location, person.dob)
         connection = self.connect_db()
         cursor = connection.cursor()
@@ -67,17 +67,17 @@ class Db_operations:
         return id
 
     def update_row(self, data):
-        query = f'update persons set name = %s, gender = %s, location = %s, dob = %s where id = %s'
+        query = f'update people set name = %s, gender = %s, location = %s, dob = %s where id = %s'
         connection = self.connect_db()
         cursor = connection.cursor()
         cursor.execute(query, data)
-        connection.commit()
+        connection.commit() # important
         cursor.close()
         self.disconnect_db(connection)
 
     def delete_row(self, id):
         #id = int(input('Enter Id of the person to delete: '))
-        query = f'delete from persons where id = {id}'
+        query = f'delete from people where id = {id}'
         connection = self.connect_db()
         cursor = connection.cursor()
         count = cursor.execute(query)
@@ -92,7 +92,7 @@ class Db_operations:
     def search_row(self, id):
         row = None
         #id = int(input('Enter Id of the person to search: '))
-        query = f'select * from persons where id = {id}'
+        query = f'select * from people where id = {id}'
         connection = self.connect_db()
         cursor = connection.cursor()
         count = cursor.execute(query)
@@ -107,7 +107,7 @@ class Db_operations:
         return row
 
     def list_all_rows(self):
-        query = 'select * from persons;'
+        query = 'select * from people;'
         try:
             connection = self.connect_db()
             cursor = connection.cursor()
@@ -125,7 +125,7 @@ class Db_operations:
             print('Error in reading rows')
 
     def get_latest_row_id(self):
-        query = 'select max(id) from persons;'
+        query = 'select max(id) from people;'
         connection = self.connect_db()
         cursor = connection.cursor()
         cursor.execute(query)
