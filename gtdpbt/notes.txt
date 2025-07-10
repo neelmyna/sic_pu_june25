@@ -1,0 +1,153 @@
+Detailed Notes on Recursion:
+    1. Definition:
+        - Recursion is a method 
+          where the solution is given to a problem 
+          depends on solutions to smaller instances of the same problem.
+        - A recursive function is a function that calls itself, either directly or indirectly.
+
+    2. Structure of a Recursive Function:
+        - Base Case: 
+          The condition under which the recursion ends. 
+          Prevents overflow of recursion.
+        - Recursive Case: 
+          The part where the function calls itself 
+          with a simpler or smaller input.
+
+    3. How Recursion Works:
+        - Each recursive call adds a new frame to the call stack.
+        - When the base case is reached, the stack unwinds as each function call returns.
+
+    4. Types of Recursion:
+        - Direct Recursion: 
+          A function calls itself directly.
+        - Indirect Recursion: 
+          A function calls another function, which eventually calls the first function.
+        - Tail Recursion: 
+          The recursive call is the last operation in the function. 
+          Some languages optimize tail recursion to avoid stack overflow.
+
+    5. Advantages:
+        - Simplifies code for problems 
+          that have a recursive structure 
+          (e.g., tree/graph traversal, divide and conquer algorithms).
+        - Can make code more readable and 
+          easier to maintain.
+
+    6. Disadvantages:
+        - Can lead to high memory usage due to call stack growth.
+        - May be less efficient
+          than iterative solutions for some problems.
+        - Risk of stack overflow 
+          if the base case is not reached or recursion is too deep.
+
+    7. Common Uses:
+        - Mathematical computations (Fibonacci numbers).
+        - Data structures (traversing trees, graphs).
+        - Algorithms (quick sort, merge sort).
+
+    8. Example (Factorial):
+        python
+        def factorial(n):
+            if n == 0 or n == 1:  # Base case
+                return 1
+            else:
+                return n * factorial(n - 1)  # Recursive case
+
+    9. Tips for Writing Recursive Functions:
+        - Always define a clear base case.
+        - Ensure each recursive call progresses toward the base case.
+        - Consider the maximum recursion depth and stack limitations.
+        - Test with small inputs first to verify correctness.
+
+    10. Recursion vs Iteration:
+        - Recursion uses function calls and 
+          the call stack; 
+          iteration uses loops.
+        - Some problems are naturally recursive, 
+          while others are more efficiently solved with iteration.
+
+Detailed Notes on Backtracking:
+    1. Definition:
+        - Backtracking is a general algorithmic technique for solving problems incrementally, by trying partial solutions and 
+          then abandoning them if they do not lead to a valid solution.
+        - It systematically searches for a solution to a problem 
+          among all available options.
+
+    2. Structure of a Backtracking Algorithm:
+        - Choose: Make a choice from available options.
+        - Constraint: Check if the current choice leads to a valid solution (satisfies constraints).
+        - Explore: Recursively explore further choices.
+        - Unchoose (Backtrack): Undo the last choice and try another option.
+
+    3. How Backtracking Works:
+        - The algorithm builds candidates for the solution step by step.
+        - If a candidate fails to satisfy the constraints, 
+          the algorithm backtracks to the previous step and 
+          tries a different option.
+        - This process continues until all possibilities are explored or a solution is found.
+
+    4. Applications:
+        - Solving puzzles 
+          (e.g., Sudoku, N-Queens problem).
+        - Combinatorial problems 
+          (e.g., permutations, combinations, subset sum).
+        - Constraint satisfaction problems 
+          (e.g., crosswords, map coloring).
+
+    5. Advantages:
+        - Finds all possible solutions (if required).
+        - Can be more efficient than brute-force search 
+          by pruning invalid paths early.
+
+    6. Disadvantages:
+        - Can be slow for large problem spaces due to exponential time complexity.
+        - May require significant memory for deep recursion or large state spaces.
+
+    7. Example (N-Queens Problem):
+        def solve_n_queens(n):
+            def is_safe(board, row, col):
+                for i in range(row):
+                    if board[i] == col or \
+                        board[i] - i == col - row or \
+                        board[i] + i == col + row:
+                        return False
+                return True
+
+            def solve(row, board, solutions):
+                if row == n:
+                    solutions.append(board[:])
+                    return
+                for col in range(n):
+                    if is_safe(board, row, col):
+                        board[row] = col
+                        solve(row + 1, board, solutions)
+                        board[row] = -1  # Backtrack
+
+            solutions = []
+            solve(0, [-1] * n, solutions)
+            return solutions
+
+    8. Tips for Writing Backtracking Algorithms:
+        - Clearly define the constraints and base case.
+        - Use pruning to eliminate invalid candidates early.
+        - Keep track of the current state and undo changes when backtracking.
+        - Test with small inputs to verify correctness.
+
+    9. Backtracking vs Recursion:
+        - Backtracking is often implemented using recursion, 
+          but not all recursive algorithms use backtracking.
+        - Backtracking specifically involves undoing choices and 
+          exploring alternative paths when a constraint is violated.
+-----------------------------------------------------------------
+Greedy Technique:
+coins = [1, 2, 5, 10, 20]
+
+temp = n
+i = 1
+number_of_coins = 0
+while temp != 0:
+    number_of_coins += temp // coins[-i]
+    temp = temp % coins[-i]
+    i += 1
+
+n= 96 / 59 / 63

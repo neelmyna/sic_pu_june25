@@ -1374,3 +1374,5 @@ packages/modules: os (file handling), sys, math, tkinter, pickle
 Greedy Technique
 
 https://www.hackerrank.com/challenges/greedy-florist/problem
+
+https://docs.google.com/forms/d/1FGdHztEiiQwnIKWTeqqVO8a0kpVj8HvnXzi9BaU7erQ/edit
