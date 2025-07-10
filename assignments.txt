@@ -86,4 +86,15 @@ Other Problems:
 Week3
 *** 1. Create a Singleton class in Pyhton
 Singleton is a class to which only one object can be created
-
+---------------------------------------
+Recursion and Backtracking Problems:
+1.[1]"Tower of Hanoi Solver", "Write a recursive function to solve the Tower of Hanoi problem for N disks and print the sequence of moves.", "Easy", "LeetCode, HackerRank, Amazon"
+2.[2] "Fibonacci Sequence Generator", "Implement a recursive function to generate the Nth Fibonacci number. Optimize it using memoization.", "Easy", "HackerEarth, Google"
+3.[3] "Factorial Calculation", "Write a recursive function to compute the factorial of a given number N.", "Easy", "CodeSignal, Microsoft"
+4.[4] "N-Queens Problem", "Given an integer N, place N queens on an N×N chessboard so that no two queens threaten each other. Print all possible solutions.", "Medium", "LeetCode, Facebook"
+5.[5] "Sudoku Solver", "Implement a backtracking algorithm to solve a given 9x9 Sudoku puzzle.", "Medium", "GeeksforGeeks, Google"
+6.[9] "Permutations of a String", "Generate all possible permutations of a given string using recursion and backtracking.", "Easy", "HackerRank, Google"
+7.[10] "Subset Sum Problem", "Given a set of integers, determine if there is a subset whose sum equals a given target using recursion.", "Medium", "GeeksforGeeks, Amazon"
+8.[11] "Combination Sum", "Find all unique combinations in an array where the numbers sum to a target. Each number may be used unlimited times. Use recursion and backtracking.", "Medium", "LeetCode, Microsoft"
+9.[12] "Palindrome Partitioning", "Partition a string such that every substring is a palindrome. Return all possible palindrome partitioning using recursion and backtracking.", "Medium", "LeetCode, Facebook"
+10.[14] "Generate Parentheses", "Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses using recursion.", "Medium", "LeetCode, Google"

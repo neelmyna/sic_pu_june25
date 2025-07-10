@@ -151,3 +151,164 @@ while temp != 0:
     i += 1
 
 n= 96 / 59 / 63
+------------------------------------------
+HASHING:
+
+Hash Table:
+    - A hash table is a data structure that stores key-value pairs.
+    - It uses a hash function 
+      to compute an index (hash code) into an array of buckets or slots, 
+      from which the desired value can be found.
+    - Operations: Insert, Delete, Search (all average O(1) time complexity).
+    - Collisions (when two keys hash to the same index) are 
+      handled using techniques like chaining 
+      (linked lists at each bucket) or 
+      open addressing (probing for next available slot).
+    - Hash tables are widely used 
+      for implementing associative arrays, 
+      database indexing, and caches.
+
+Hash Map:
+    - A hash map is a specific implementation of a hash table that maps keys to values.
+    - In many programming languages (e.g., Java, C++), "HashMap" is a built-in class.
+    - Keys must be unique; values can be duplicated.
+    - Not thread-safe by default (e.g., Java's HashMap), but thread-safe variants exist (e.g., ConcurrentHashMap).
+    - Provides fast lookups, insertions, and deletions.
+
+Hash Set:
+    - A hash set is a data structure that stores unique elements, using a hash table internally.
+    - Only stores keys (no associated values).
+    - Used to test membership (whether an element exists) efficiently.
+    - Operations: Add, Remove, Contains (all average O(1) time complexity).
+    - In many languages, "HashSet" is a built-in class (e.g., Java, C#).
+
+Summary:
+    - Hash Table: General concept for key-value storage using hashing.
+    - Hash Map: Key-value implementation of a hash table.
+    - Hash Set: Stores unique elements using a hash table.
+
+Collision Resolution Techniques in Hashing:
+    - Collisions occur when two keys hash to the same index in a hash table.
+    - Common techniques to handle collisions:
+        1. Chaining:
+            - Each bucket contains a linked list (or another data structure) of entries.
+            - All elements that hash to the same index are stored in the list.
+            - Simple to implement; performance degrades if many collisions occur.
+        2. Open Addressing:
+            - All elements are stored within the hash table array itself.
+            - When a collision occurs, the algorithm searches for the next available slot.
+            - Methods include:
+                a. Linear Probing: Check the next slot sequentially.
+                b. Quadratic Probing: Check slots at increasing quadratic intervals.
+                c. Double Hashing: Use a second hash function to determine the step size.
+        3. Other Techniques:
+            - Cuckoo Hashing: Uses multiple hash functions and relocates existing keys.
+            - Robin Hood Hashing: Balances probe sequence lengths to minimize variance.
+    - The choice of technique affects performance, memory usage, and implementation complexity.
+
+Java Example: Implementing a Simple Hash Table
+    Below is a basic implementation of a hash table in Java using chaining for collision resolution:
+
+    ```java
+    import java.util.LinkedList;
+
+    class HashTable<K, V> {
+        private static class Entry<K, V> {
+            K key;
+            V value;
+            Entry(K key, V value) {
+                this.key = key;
+                this.value = value;
+            }
+        }
+
+        private final int SIZE = 16;
+        private LinkedList<Entry<K, V>>[] table;
+
+        @SuppressWarnings("unchecked")
+        public HashTable() {
+            table = new LinkedList[SIZE];
+            for (int i = 0; i < SIZE; i++) {
+                table[i] = new LinkedList<>();
+            }
+        }
+
+        private int hash(K key) {
+            return Math.abs(key.hashCode()) % SIZE;
+        }
+
+        public void put(K key, V value) {
+            int index = hash(key);
+            for (Entry<K, V> entry : table[index]) {
+                if (entry.key.equals(key)) {
+                    entry.value = value;
+                    return;
+                }
+            }
+            table[index].add(new Entry<>(key, value));
+        }
+
+        public V get(K key) {
+            int index = hash(key);
+            for (Entry<K, V> entry : table[index]) {
+                if (entry.key.equals(key)) {
+                    return entry.value;
+                }
+            }
+            return null;
+        }
+
+        public void remove(K key) {
+            int index = hash(key);
+            table[index].removeIf(entry -> entry.key.equals(key));
+        }
+    }
+
+    // Example usage:
+    public class Main {
+        public static void main(String[] args) {
+            HashTable<String, Integer> hashTable = new HashTable<>();
+            hashTable.put("apple", 1);
+            hashTable.put("banana", 2);
+            hashTable.put("orange", 3);
+
+            System.out.println(hashTable.get("banana")); // Output: 2
+
+            hashTable.remove("banana");
+            System.out.println(hashTable.get("banana")); // Output: null
+        }
+    }
+    ```
+
+    Explanation:
+    - The `HashTable` class uses an array of linked lists to handle collisions (chaining).
+    - The `put` method adds or updates key-value pairs.
+    - The `get` method retrieves the value for a given key.
+    - The `remove` method deletes a key-value pair.
+    - The example in `Main` demonstrates basic usage.
+
+In Java, a hash function converts an object (like a String or Integer) 
+into an integer value called a hash code. 
+This hash code is used to determine 
+where to store or find the object 
+in hash-based data structures 
+(like `HashMap` or your `HashTable`).
+
+How it works:
+    - Every Java object has a `hashCode()` method (inherited from `Object`).
+    - For built-in types (like `String`, `Integer`), 
+    Java provides efficient `hashCode()` implementations.
+    - The hash code is usually further processed 
+    (e.g., using modulo with the array size) 
+    to find the correct index in the underlying array.
+
+Example:
+    ```java
+    String key = "apple";
+    int hash = key.hashCode(); // Generates a hash code for "apple"
+    int index = Math.abs(hash) % array.length; // Maps hash to a valid array index
+    ```
+
+Key points:
+    - Good hash functions distribute keys evenly to minimize collisions.
+--------------------------------------------------------------------------
