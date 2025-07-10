@@ -1378,7 +1378,7 @@ https://www.hackerrank.com/challenges/greedy-florist/problem
 https://docs.google.com/forms/d/1FGdHztEiiQwnIKWTeqqVO8a0kpVj8HvnXzi9BaU7erQ/edit
 
 ---------------------------------------------------
-Extract digits from strings
+Extract digits from strings (Extract the numbers present in the string)
 import re
 
 data = ["abc123", "hello2024", "no digits", "zip007"]
@@ -1396,6 +1396,10 @@ data = ["Hello123", "A@B#C", "Clean_text", "X Y Z"]
 # Remove all non-alphabetic characters
 cleaned = list(map(lambda s: re.sub(r'[^a-zA-Z]', '', s), data))
 print(cleaned)  # ['Hello', 'ABC', 'Cleantext', 'XYZ']
+
+# Capitalize the whole word if it starts with a vowel
+vowel_caps = list(map(lambda w: re.sub(r'^[aeiou](\w+)', w.upper(), w), words))
+print(vowel_caps)
 ------------------------------------
 Convert all email addresses to domain names
 
@@ -1418,9 +1422,7 @@ vowel_caps = list(map(lambda w: re.sub(r'^[aeiou]', lambda m: m.group(0).upper()
 print(vowel_caps)  # ['Apple', 'banana', 'Orange', 'grape', 'Umbrella']
 -------------------------------------------
 Replace multiple spaces with a single space
-python
-Copy
-Edit
+
 import re
 
 texts = ["Hello   World", "Python    is great", "No extra   spaces please"]
