@@ -1,0 +1,120 @@
+"Word Search II",
+"Given a 2D board and a list of words, find all words in the board using Trie.", 
+"Hard", 
+"LeetCode"
+
+----------------------------------
+Problem Title:
+Word Search II
+
+Problem Description:
+Given a 2D board of characters and a list of words from the dictionary, find all words in the board. Each word must be constructed from letters of sequentially adjacent cells, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once in a word. You are required to use a Trie data structure to optimize the search.
+
+Input Format:
+- The first line contains two integers m and n, representing the number of rows and columns of the board.
+- The next m lines each contain n lowercase letters, representing the board.
+- The next line contains an integer k, the number of words.
+- The following k lines each contain a word consisting of lowercase letters.
+
+Output Format:
+- Print all words from the given list that can be found in the board, one per line, in any order.
+
+Constraints:
+- 1 <= m, n <= 12
+- 1 <= k <= 3000
+- 1 <= length of each word <= 12
+- All characters are lowercase English letters.
+
+Sample Input:
+4 4
+o a a n
+e t a e
+i h k r
+i f l v
+4
+oath
+pea
+eat
+rain
+
+Sample Output:
+oath
+eat
+
+Explanation:
+"oath" and "eat" can be found in the board following the adjacency rules. "pea" and "rain" cannot be formed.
+
+Difficulty:
+Hard
+
+Five Test Cases:
+Test Case 1:
+Input:
+2 2
+a b
+c d
+2
+ab
+cd
+Output:
+ab
+cd
+
+Test Case 2:
+Input:
+3 3
+a b c
+d e f
+g h i
+3
+abc
+aei
+beh
+Output:
+abc
+aei
+beh
+
+Test Case 3:
+Input:
+4 4
+o a a n
+e t a e
+i h k r
+i f l v
+4
+oath
+pea
+eat
+rain
+Output:
+oath
+eat
+
+Test Case 4:
+Input:
+1 5
+a b c d e
+2
+abcde
+edcba
+Output:
+abcde
+edcba
+
+Test Case 5:
+Input:
+3 4
+a b c d
+e f g h
+i j k l
+3
+afk
+bfj
+cfi
+Output:
+afk
+bfj
+cfi
+
+----------------------------------

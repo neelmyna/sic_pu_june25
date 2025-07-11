@@ -1,0 +1,82 @@
+"AVL Tree Rotations", 
+"Demonstrate all four types of rotations (LL, RR, LR, RL) in an AVL tree with code.", 
+"Easy", 
+"HackerEarth, Microsoft"
+
+----------------------------------
+
+Problem Title: AVL Tree Rotations
+
+Problem Description:
+An AVL tree is a self-balancing binary search tree where the difference between heights of left and right subtrees cannot be more than one for all nodes. To maintain this property after insertion or deletion, the tree may require rotations. There are four types of rotations: Left-Left (LL), Right-Right (RR), Left-Right (LR), and Right-Left (RL).
+
+Given a sequence of integers to insert into an initially empty AVL tree, implement the AVL tree insertion algorithm and demonstrate all four types of rotations (LL, RR, LR, RL) as they occur during the insertions. For each rotation performed, print the type of rotation and the value at the root of the subtree where the rotation occurs.
+
+Input Format:
+- The first line contains an integer N, the number of elements to insert.
+- The second line contains N space-separated integers, the elements to insert in order.
+
+Output Format:
+- For each rotation performed during insertions, output a line in the format:
+    <RotationType> Rotation at node <NodeValue>
+    (e.g., LL Rotation at node 30)
+- If no rotation is performed during an insertion, output nothing for that insertion.
+
+Constraints:
+1 <= N <= 100
+-10^5 <= Each element <= 10^5
+All elements are unique.
+
+Sample Input:
+7
+30 20 40 10 25 22 50
+
+Sample Output:
+LL Rotation at node 30
+LR Rotation at node 25
+
+Explanation:
+- Inserting 10 causes an LL rotation at node 30.
+- Inserting 22 causes an LR rotation at node 25.
+
+Difficulty:
+Easy
+
+Test Cases:
+Test Case 1:
+Input:
+3
+30 20 10
+Output:
+LL Rotation at node 30
+
+Test Case 2:
+Input:
+3
+10 20 30
+Output:
+RR Rotation at node 10
+
+Test Case 3:
+Input:
+4
+30 10 20 25
+Output:
+LR Rotation at node 30
+
+Test Case 4:
+Input:
+4
+10 30 20 15
+Output:
+RL Rotation at node 10
+
+Test Case 5:
+Input:
+7
+50 40 60 30 45 42 41
+Output:
+LL Rotation at node 50
+LR Rotation at node 45
+
+----------------------------------

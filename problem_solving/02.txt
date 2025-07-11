@@ -1,0 +1,80 @@
+"Delete from AVL Tree", 
+"Write a function to delete a node from an AVL tree and rebalance the tree if necessary.", 
+"Medium", 
+"GeeksforGeeks, Amazon"
+
+----------------------------------
+Problem Title: Delete a Node from an AVL Tree
+
+Problem Description:
+Given an AVL tree and a key, write a function to delete the node with the given key from the AVL tree. After deletion, ensure that the tree remains balanced according to AVL tree properties. An AVL tree is a self-balancing binary search tree where the difference between heights of left and right subtrees cannot be more than one for all nodes.
+
+Input Format:
+- The first line contains an integer N, the number of nodes in the AVL tree.
+- The second line contains N space-separated integers representing the values to be inserted into the AVL tree in the given order.
+- The third line contains an integer K, the key to be deleted from the AVL tree.
+
+Output Format:
+- Print the in-order traversal of the AVL tree after deleting the node with key K.
+
+Constraints:
+- 1 ≤ N ≤ 1000
+- -10^5 ≤ Node values, K ≤ 10^5
+- All node values are unique.
+
+Sample Input:
+7
+20 4 26 3 9 15 30
+26
+
+Sample Output:
+3 4 9 15 20 30
+
+Explanation:
+After inserting the nodes, the AVL tree is constructed. Deleting 26 and rebalancing the tree results in the in-order traversal: 3 4 9 15 20 30.
+
+Difficulty:
+Medium
+
+Test Cases:
+Test Case 1:
+Input:
+5
+10 20 30 40 50
+30
+Output:
+10 20 40 50
+
+Test Case 2:
+Input:
+6
+50 30 70 20 40 60
+50
+Output:
+20 30 40 60 70
+
+Test Case 3:
+Input:
+4
+1 2 3 4
+2
+Output:
+1 3 4
+
+Test Case 4:
+Input:
+8
+15 10 20 8 12 17 25 19
+17
+Output:
+8 10 12 15 19 20 25
+
+Test Case 5:
+Input:
+3
+100 50 150
+100
+Output:
+50 150
+
+----------------------------------

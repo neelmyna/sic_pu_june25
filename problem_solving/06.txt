@@ -1,0 +1,96 @@
+"Search in RBT", 
+"Implement a search operation for a given key in a Red-Black Tree.", 
+"Easy", 
+"HackerRank, Microsoft"
+
+----------------------------------
+Problem Title: Search in a Red-Black Tree
+
+Problem Description:
+Given a Red-Black Tree and a key, implement a function to search for the key in the tree. If the key exists in the tree, return "Found", otherwise return "Not Found". The Red-Black Tree will be provided as a set of node values and their relationships.
+
+Input Format:
+- The first line contains an integer N, the number of nodes in the Red-Black Tree.
+- The next N lines each contain three space-separated values: node_value, left_child_value, right_child_value. If a child does not exist, it is represented by -1.
+- The last line contains an integer K, the key to search for.
+
+Output Format:
+- Output "Found" if the key exists in the tree, otherwise output "Not Found".
+
+Constraints:
+- 1 <= N <= 10^4
+- -10^9 <= node_value, left_child_value, right_child_value, K <= 10^9
+- All node values are unique.
+- The tree is a valid Red-Black Tree.
+
+Sample Input:
+5
+10 5 15
+5 -1 -1
+15 12 20
+12 -1 -1
+20 -1 -1
+12
+
+Sample Output:
+Found
+
+Explanation:
+The tree contains the key 12, so the output is "Found".
+
+Difficulty:
+Easy
+
+Test Cases:
+Test Case 1:
+Input:
+3
+7 3 18
+3 -1 -1
+18 -1 -1
+18
+Output:
+Found
+
+Test Case 2:
+Input:
+3
+20 15 25
+15 -1 -1
+25 -1 -1
+10
+Output:
+Not Found
+
+Test Case 3:
+Input:
+2
+8 -1 12
+12 -1 -1
+5
+Output:
+Not Found
+
+Test Case 4:
+Input:
+1
+100 -1 -1
+100
+Output:
+Found
+
+Test Case 5:
+Input:
+7
+30 20 40
+20 10 25
+40 35 50
+10 -1 -1
+25 -1 -1
+35 -1 -1
+50 -1 -1
+45
+Output:
+Not Found
+
+----------------------------------

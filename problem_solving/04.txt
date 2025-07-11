@@ -1,0 +1,81 @@
+"Insert Node in RBT", 
+"Implement insertion operation in a Red-Black Tree and ensure all properties are maintained.", 
+"Medium", 
+"LeetCode, Amazon"
+
+----------------------------------
+Problem Title:
+Insert Node in Red-Black Tree
+
+Problem Description:
+Given an initially empty Red-Black Tree, implement the insertion operation for a Red-Black Tree. After each insertion, ensure that all Red-Black Tree properties are maintained:
+1. Every node is either red or black.
+2. The root is always black.
+3. All leaves (NIL nodes) are black.
+4. If a node is red, then both its children are black.
+5. Every path from a node to its descendant NIL nodes contains the same number of black nodes.
+
+You are required to implement the insertion function and output the in-order traversal of the tree after all insertions.
+
+Input Format:
+- The first line contains an integer n, the number of nodes to insert.
+- The second line contains n space-separated integers, the values to insert in order.
+
+Output Format:
+- Print the in-order traversal of the Red-Black Tree after all insertions, with each node's value followed by its color in parentheses ("R" for red, "B" for black), separated by spaces.
+
+Constraints:
+- 1 <= n <= 100
+- -10^5 <= value <= 10^5
+- All values are unique.
+
+Sample Input:
+5
+10 20 30 15 25
+
+Sample Output:
+10(B) 15(R) 20(B) 25(R) 30(B)
+
+Explanation:
+After inserting the nodes in the given order and performing necessary rotations and color changes, the in-order traversal with colors is as shown.
+
+Difficulty:
+Medium
+
+Test Cases:
+Test Case 1:
+Input:
+3
+5 3 7
+Output:
+3(R) 5(B) 7(R)
+
+Test Case 2:
+Input:
+4
+1 2 3 4
+Output:
+1(B) 2(B) 3(B) 4(R)
+
+Test Case 3:
+Input:
+6
+50 40 60 30 45 55
+Output:
+30(R) 40(B) 45(R) 50(B) 55(R) 60(B)
+
+Test Case 4:
+Input:
+1
+100
+Output:
+100(B)
+
+Test Case 5:
+Input:
+7
+8 18 5 15 17 25 40
+Output:
+5(B) 8(R) 15(B) 17(R) 18(B) 25(R) 40(B)
+
+----------------------------------

@@ -1,0 +1,80 @@
+"B-Tree Insertion", 
+"Implement insertion operation in a B-Tree of given order.", 
+"Medium", 
+"LeetCode, Amazon"
+
+----------------------------------
+Problem Title: B-Tree Insertion
+
+Problem Description:
+Given a B-Tree of order 'm', implement the insertion operation. A B-Tree is a self-balancing tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time. Each node in a B-Tree can have at most 'm' children and at least ⌈m/2⌉ children (except for the root). When inserting a new key, ensure the B-Tree properties are maintained, including splitting nodes as necessary.
+
+Input Format:
+- The first line contains two integers n and m, where n is the number of keys to insert, and m is the order of the B-Tree.
+- The second line contains n space-separated integers representing the keys to be inserted in order.
+
+Output Format:
+- Print the level order traversal of the B-Tree after all insertions. Each level should be printed on a new line, with keys in each node separated by spaces.
+
+Constraints:
+- 1 ≤ n ≤ 100
+- 3 ≤ m ≤ 10
+- All keys are distinct integers in the range 1 to 1000.
+
+Sample Input:
+7 3
+10 20 5 6 12 30 7
+
+Sample Output:
+6 20
+5 10 12 30
+7
+
+Explanation:
+After inserting the keys in order into a B-Tree of order 3, the tree is split as necessary and the level order traversal is printed.
+
+Difficulty:
+Medium
+
+Test Cases:
+Test Case 1:
+Input:
+5 3
+1 2 3 4 5
+Output:
+2 4
+1 3 5
+
+Test Case 2:
+Input:
+6 4
+8 9 10 11 15 20
+Output:
+9 10
+8 11 15 20
+
+Test Case 3:
+Input:
+4 3
+50 40 60 70
+Output:
+50
+40 60 70
+
+Test Case 4:
+Input:
+8 5
+5 10 15 20 25 30 35 40
+Output:
+15 30
+5 10 20 25 35 40
+
+Test Case 5:
+Input:
+3 3
+100 200 300
+Output:
+200
+100 300
+
+----------------------------------

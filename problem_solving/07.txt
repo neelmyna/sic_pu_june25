@@ -1,0 +1,132 @@
+"Implement Trie (Prefix Tree)", 
+"Design and implement a Trie with insert, search, and startsWith methods.", 
+"Medium", 
+"LeetCode"
+
+----------------------------------
+Problem Title:
+Implement Trie (Prefix Tree)
+
+Problem Description:
+A trie (pronounced as "try") or prefix tree is a tree data structure used to efficiently store and retrieve keys in a dataset of strings. You are to design and implement a Trie with the following methods:
+- insert(word): Inserts a word into the trie.
+- search(word): Returns true if the word is in the trie (i.e., was inserted before), and false otherwise.
+- startsWith(prefix): Returns true if there is any word in the trie that starts with the given prefix, and false otherwise.
+
+Input Format:
+The first line contains an integer n, the number of operations.
+Each of the next n lines contains an operation in one of the following formats:
+- "insert word"
+- "search word"
+- "startsWith prefix"
+
+Output Format:
+For each "search" and "startsWith" operation, output "true" or "false" (without quotes) on a new line.
+
+Constraints:
+- 1 <= n <= 10^4
+- 1 <= length of word/prefix <= 100
+- All words/prefixes consist of lowercase English letters only.
+
+Sample Input:
+7
+insert apple
+search apple
+search app
+startsWith app
+insert app
+search app
+search applepie
+
+Sample Output:
+true
+false
+true
+true
+false
+
+Explanation:
+- "insert apple": Inserts "apple" into the trie.
+- "search apple": Returns true because "apple" was inserted.
+- "search app": Returns false because "app" was not inserted as a word.
+- "startsWith app": Returns true because "apple" starts with "app".
+- "insert app": Inserts "app" into the trie.
+- "search app": Returns true because "app" was inserted.
+- "search applepie": Returns false because "applepie" was not inserted.
+
+Difficulty:
+Medium
+
+Five Test Cases:
+Test Case 1:
+Input:
+5
+insert banana
+search banana
+search ban
+startsWith ban
+search apple
+
+Output:
+true
+false
+true
+false
+
+Test Case 2:
+Input:
+4
+insert hello
+insert world
+search hello
+search world
+
+Output:
+true
+true
+
+Test Case 3:
+Input:
+6
+insert test
+insert testing
+search test
+search testing
+startsWith tes
+startsWith ting
+
+Output:
+true
+true
+true
+false
+
+Test Case 4:
+Input:
+3
+insert a
+search a
+startsWith a
+
+Output:
+true
+true
+
+Test Case 5:
+Input:
+7
+insert code
+insert coder
+insert coding
+search code
+search coder
+search coding
+startsWith cod
+
+Output:
+true
+true
+true
+true
+
+----------------------------------
