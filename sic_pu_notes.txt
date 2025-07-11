@@ -1428,7 +1428,4 @@ PROJECT (session20-23)
 Optional:
 radix sort, heap sort, bucket sort, AVL Tree (session17)
 flask with mongo or Mysql
-(Graph Algorithms: DFS, BFS, Djiktras, N-Queens, Travel Slalesman)
-packages/modules: os (file handling), sys, math, tkinter, pickle
-
-https://docs.google.com/spreadsheets/d/1AdRQ9UPTkxi3XbzLYMlkaVCuOKU3Y9WtjdJ10Diq3YY/edit?gid=0#gid=0
+----------------------------------------------------
