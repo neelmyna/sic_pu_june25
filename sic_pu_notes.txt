@@ -1359,17 +1359,6 @@ for char in infix_expr:
 	operator = ''
 
 print(f'Postfix Expression = {postfix_expr}')
--------------------------------------------------------
-Must be done:
-closure, lambda, Hashing (session15)
-Problem Solving: backtracking, greedy, dynamic programming (session16)
-numpy pandas and matplotlib seaborn (Optionally DB) (session18-20)
-PROJECT (session20-23)
-Optional:
-radix sort, heap sort, bucket sort, AVL Tree (session17)
-flask with mongo or Mysql
-(Graph Algorithms: DFS, BFS, Djiktras, N-Queens, Travel Slalesman)
-packages/modules: os (file handling), sys, math, tkinter, pickle
 ----------------------------------------------------------------
 Greedy Technique
 
@@ -1430,3 +1419,16 @@ texts = ["Hello   World", "Python    is great", "No extra   spaces please"]
 # Normalize spaces
 normalized = list(map(lambda t: re.sub(r'\s+', ' ', t), texts))
 print(normalized)  # ['Hello World', 'Python is great', 'No extra spaces please']
+-------------------------------------------------------
+Must be done:
+closure, lambda, Hashing (session15)
+Problem Solving: backtracking, greedy, dynamic programming (session16)
+numpy pandas and matplotlib seaborn (Optionally DB) (session18-20)
+PROJECT (session20-23)
+Optional:
+radix sort, heap sort, bucket sort, AVL Tree (session17)
+flask with mongo or Mysql
+(Graph Algorithms: DFS, BFS, Djiktras, N-Queens, Travel Slalesman)
+packages/modules: os (file handling), sys, math, tkinter, pickle
+
+https://docs.google.com/spreadsheets/d/1AdRQ9UPTkxi3XbzLYMlkaVCuOKU3Y9WtjdJ10Diq3YY/edit?gid=0#gid=0

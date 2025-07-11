@@ -135,4 +135,4 @@ class Db_operations:
         return id[0]
 
 oprs = Db_operations()
-oprs.get_latest_row_id()
+#oprs.get_latest_row_id()
