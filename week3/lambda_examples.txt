@@ -1,0 +1,222 @@
+1. Sorting a List of Dictionaries by a Specific Key 꼬
+In data processing, you often have a list of dictionaries that you need to sort based on the value of a specific key. A lambda function provides a clean and inline way to specify the sorting key.
+
+from pprint import pprint
+
+people = [
+    {'name': 'Alice', 'age': 30, 'city': 'New York'},
+    {'name': 'Bob', 'age': 25, 'city': 'Los Angeles'},
+    {'name': 'Charlie', 'age': 35, 'city': 'Chicago'}
+]
+
+# Sort by age
+people.sort(key=lambda person: person['age'])
+pprint(people)
+
+# Sort by name
+people.sort(key=lambda person: person['name'])
+pprint(people)
+----------------------------------------------------------------
+2. Grouping Data with itertools.groupby
+Grouping data based on a certain criterion is a common task. The itertools.groupby() function is perfect for this, and it often uses a lambda function to specify the grouping key.
+
+from itertools import groupby
+
+data = [
+    {'name': 'Laptop', 'category': 'Electronics', 'price': 1200},
+    {'name': 'T-shirt', 'category': 'Apparel', 'price': 25},
+    {'name': 'Mouse', 'category': 'Electronics', 'price': 50},
+    {'name': 'Jeans', 'category': 'Apparel', 'price': 80}
+]
+
+# First, sort the data by the key you want to group by
+data.sort(key=lambda x: x['category'])
+
+# Group by category
+grouped_data = {key: list(group) for key, group in groupby(data, key=lambda x: x['category'])}
+
+for category, items in grouped_data.items():
+    print(f"Category: {category}")
+    for item in items:
+        print(f"  - {item['name']}: ${item['price']}")
+--------------------------------------------------------
+Here are 10 examples of complex lambda functions that solve real-life problems, ranging from data manipulation to custom sorting and beyond.
+
+1. Sorting a List of Dictionaries by a Specific Key 꼬
+In data processing, you often have a list of dictionaries that you need to sort based on the value of a specific key. A lambda function provides a clean and inline way to specify the sorting key.
+
+Python
+
+from pprint import pprint
+
+people = [
+    {'name': 'Alice', 'age': 30, 'city': 'New York'},
+    {'name': 'Bob', 'age': 25, 'city': 'Los Angeles'},
+    {'name': 'Charlie', 'age': 35, 'city': 'Chicago'}
+]
+
+# Sort by age
+people.sort(key=lambda person: person['age'])
+pprint(people)
+
+# Sort by name
+people.sort(key=lambda person: person['name'])
+pprint(people)
+Explanation:
+The sort() method takes a key argument, which is a function that returns a value to sort by. The lambda lambda person: person['age'] takes a dictionary person and returns its 'age' value, which is then used for the sorting comparison.
+
+2. Grouping Data with itertools.groupby
+Grouping data based on a certain criterion is a common task. The itertools.groupby() function is perfect for this, and it often uses a lambda function to specify the grouping key.
+
+Python
+
+from itertools import groupby
+
+data = [
+    {'name': 'Laptop', 'category': 'Electronics', 'price': 1200},
+    {'name': 'T-shirt', 'category': 'Apparel', 'price': 25},
+    {'name': 'Mouse', 'category': 'Electronics', 'price': 50},
+    {'name': 'Jeans', 'category': 'Apparel', 'price': 80}
+]
+
+# First, sort the data by the key you want to group by
+data.sort(key=lambda x: x['category'])
+
+# Group by category
+grouped_data = {key: list(group) for key, group in groupby(data, key=lambda x: x['category'])}
+
+for category, items in grouped_data.items():
+    print(f"Category: {category}")
+    for item in items:
+        print(f"  - {item['name']}: ${item['price']}")
+Explanation:
+itertools.groupby() groups consecutive elements that have the same key. The lambda lambda x: x['category'] tells groupby to use the 'category' field as the key for grouping. It's crucial to sort the data by the same key before grouping.
+
+3. Creating a Custom Higher-Order Function
+You can define a function that returns a lambda, effectively creating a function factory. This is useful for creating specialized functions on the fly.
+
+Python
+
+def power_factory(exponent):
+    """Returns a function that raises a number to the given exponent."""
+    return lambda base: base ** exponent
+
+# Create a function that squares a number
+square = power_factory(2)
+# Create a function that cubes a number
+cube = power_factory(3)
+
+print(f"5 squared is: {square(5)}")
+print(f"5 cubed is: {cube(5)}")
+-------------------------------------------------
+Here are 10 examples of complex lambda functions that solve real-life problems, ranging from data manipulation to custom sorting and beyond.
+
+1. Sorting a List of Dictionaries by a Specific Key 꼬
+In data processing, you often have a list of dictionaries that you need to sort based on the value of a specific key. A lambda function provides a clean and inline way to specify the sorting key.
+
+Python
+
+from pprint import pprint
+
+people = [
+    {'name': 'Alice', 'age': 30, 'city': 'New York'},
+    {'name': 'Bob', 'age': 25, 'city': 'Los Angeles'},
+    {'name': 'Charlie', 'age': 35, 'city': 'Chicago'}
+]
+
+# Sort by age
+people.sort(key=lambda person: person['age'])
+pprint(people)
+
+# Sort by name
+people.sort(key=lambda person: person['name'])
+pprint(people)
+Explanation:
+The sort() method takes a key argument, which is a function that returns a value to sort by. The lambda lambda person: person['age'] takes a dictionary person and returns its 'age' value, which is then used for the sorting comparison.
+
+2. Grouping Data with itertools.groupby
+Grouping data based on a certain criterion is a common task. The itertools.groupby() function is perfect for this, and it often uses a lambda function to specify the grouping key.
+
+Python
+
+from itertools import groupby
+
+data = [
+    {'name': 'Laptop', 'category': 'Electronics', 'price': 1200},
+    {'name': 'T-shirt', 'category': 'Apparel', 'price': 25},
+    {'name': 'Mouse', 'category': 'Electronics', 'price': 50},
+    {'name': 'Jeans', 'category': 'Apparel', 'price': 80}
+]
+
+# First, sort the data by the key you want to group by
+data.sort(key=lambda x: x['category'])
+
+# Group by category
+grouped_data = {key: list(group) for key, group in groupby(data, key=lambda x: x['category'])}
+
+for category, items in grouped_data.items():
+    print(f"Category: {category}")
+    for item in items:
+        print(f"  - {item['name']}: ${item['price']}")
+Explanation:
+itertools.groupby() groups consecutive elements that have the same key. The lambda lambda x: x['category'] tells groupby to use the 'category' field as the key for grouping. It's crucial to sort the data by the same key before grouping.
+
+3. Creating a Custom Higher-Order Function
+You can define a function that returns a lambda, effectively creating a function factory. This is useful for creating specialized functions on the fly.
+
+Python
+
+def power_factory(exponent):
+    """Returns a function that raises a number to the given exponent."""
+    return lambda base: base ** exponent
+
+# Create a function that squares a number
+square = power_factory(2)
+# Create a function that cubes a number
+cube = power_factory(3)
+
+print(f"5 squared is: {square(5)}")
+print(f"5 cubed is: {cube(5)}")
+Explanation:
+The power_factory function takes an exponent and returns a lambda function. This returned lambda takes a base and calculates base ** exponent. This allows for the creation of custom power functions without defining a new named function for each exponent.
+
+4. Asynchronous Programming with Callbacks
+In asynchronous programming, you often use callbacks that are executed once an operation completes. Lambdas are perfect for defining short, one-off callback functions.
+
+Python
+
+import asyncio
+
+async def fetch_data(url):
+    print(f"Fetching data from {url}...")
+    # Simulate a network request
+    await asyncio.sleep(2)
+    return f"Data from {url}"
+
+async def main():
+    # Define a callback to process the data
+    process_data = lambda result: print(f"Processing result: {result.upper()}")
+
+    data = await fetch_data("https://example.com")
+    process_data(data)
+
+asyncio.run(main())
+------------------------------------------------------
+5. Filtering with a Dynamic Condition
+Lambda functions can be used with the filter() function to selectively extract elements from a list based on a condition that might change at runtime.
+
+Python
+
+products = [
+    {'name': 'Keyboard', 'price': 75, 'in_stock': True},
+    {'name': 'Monitor', 'price': 300, 'in_stock': False},
+    {'name': 'Webcam', 'price': 100, 'in_stock': True}
+]
+
+min_price = 80
+
+# Filter for products that are in stock and above a minimum price
+available_and_pricy = list(filter(lambda p: p['in_stock'] and p['price'] > min_price, products))
+
+print(available_and_pricy)
+-----------------------------------------------
