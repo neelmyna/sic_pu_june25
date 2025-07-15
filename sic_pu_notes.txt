@@ -1420,17 +1420,8 @@ texts = ["Hello   World", "Python    is great", "No extra   spaces please"]
 normalized = list(map(lambda t: re.sub(r'\s+', ' ', t), texts))
 print(normalized)  # ['Hello World', 'Python is great', 'No extra spaces please']
 -------------------------------------------------------
-Must be done:
-closure, lambda, Hashing (session15)
-Problem Solving: backtracking, greedy, dynamic programming (session16)
-numpy pandas and matplotlib seaborn (Optionally DB) (session18-20)
-PROJECT (session20-23)
-Optional:
-radix sort, heap sort, bucket sort, AVL Tree (session17)
-flask with mongo or Mysql
-----------------------------------------------------
+PROJECT DEVELOPMENT
 SESSION-19 MONDAY 14-07-2025
-
 Problem Statement (Abstract)
 Index
 Description 	  (Detailed)
@@ -1451,5 +1442,45 @@ Read and Print the .csv file using os module libraries
 Most Important Git Repo Link for your preparation for Placement Preparation
 https://github.com/gmaheswaranmca/au-guvi
 
+Flask and Django Notes and Code:
+https://github.com/gmaheswaranmca/2024kitscse
+
 Chapter5 Assessment Link:
 https://docs.google.com/forms/d/1DmEP0lLygBF8YovshvTsn8dp-dPkv8qpqm-NSmZwZdo/edit
+
+Chapter6 Assessment Link:
+
+-------------------------------------------------------------------------
+groupby
+Lot of rows/objects present in a table
+student data
+
+Group the students on their location
+ONCE THE ROWS ARE GROUPED, WE CAN PERFORM ACTIONS ONLY THE GROUPS.
+ONCE THE ROWS OF A TABLE GROUPED WE CANNOT PERFORM ACTIONS ON INDIVIDUAL ROW OF THE TABLE.
+Examples: I may wish to know the count of students from each group.
+I may wisht o know the average marks of each group of students
+I may wish to know the total salary being paid to the groups of employees such as developers, testers, hr etc.
+
+I may wish to know the names of the employees with highest salary from each dept of the college ????
+
+Group the employees on dept and print the depts with number of employees more than 100 or less than 20
+-------------------------------------------------------------------------
+RULES FOR HACKATHON:
+1. Maximum of 9 Project Statements are allowed.
+2. Each Project must be taken by at least 4 students.
+3. A project can be taken by maximumof 5 students.
+4. A minimum of 4 and upto 6 data analysis must be demonstrated.
+5. The projects must be submitted only afetr 12 pm on Wednesday 17th
+6. The projects must be submitted before 4 pm on Wednesday 17th
+7. The hackathon folder must be present inside the repo created for the SIC training.
+8. The G-sheet will be made available for write operation to add the links by the student.
+9. The Implemnetation of the same project by 4 to 5 students must be different. For this, the students implementing the same project can discuss the analysis and other features being implemneted and can distribute the BR (business requirements) yourselves.
+10. Making choice of the problem statement and the features is solely left to students.
+11. Once the features being implemented are finalised, student must 1st create the Detailed Problem Statement.
+12. The MENU (UI) too should be different for the same project being implemented.
+-----------------------------------------------------------
+PENDING TOPICS:
+Problem Solving: backtracking, dynamic programming
+pandas and matplotlib seaborn
+radix sort, heap sort, bucket sort, AVL Tree AND Sort
