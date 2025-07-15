@@ -1030,3 +1030,12 @@ inventory:
 
 Kaggle
 --------------------------------------------------
+PROJECT NAMES:
+Car Wash App
+Kanti Sweets
+Kings Coffee
+Food Wastage Management
+Bengaluru Traffic Management
+Normal vs C-Section
+Engineering Branches
+Indigo Airline Routes
