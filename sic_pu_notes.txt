@@ -1450,3 +1450,6 @@ Read and Print the .csv file using os module libraries
 
 Most Important Git Repo Link for your preparation for Placement Preparation
 https://github.com/gmaheswaranmca/au-guvi
+
+Chapter5 Assessment Link:
+https://docs.google.com/forms/d/1DmEP0lLygBF8YovshvTsn8dp-dPkv8qpqm-NSmZwZdo/edit
