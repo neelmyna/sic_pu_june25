@@ -1,8 +1,10 @@
-import numpy as np
-# Replacing values less than 50 with 0 in an array
+import matplotlib.pyplot as plt
 
-# Explanation: Using np.where() to replace values meeting the condition
+sizes = [30, 20, 25, 25]
+labels = ['A', 'B', 'C', 'D']
+colors = ['blue', 'red', 'green', 'purple']
 
-expenses = np.array([20, 60, 5, 80, 45, 90])
-modified_expenses = np.where(expenses < 50, 0, expenses)
-print(modified_expenses)  # Output: [ 0 60  0 80  0 90]
+# Create pie chart
+plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=140)
+plt.title("Pie Chart")
+plt.show()

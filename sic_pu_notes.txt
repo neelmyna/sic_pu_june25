@@ -1442,3 +1442,11 @@ Code & explanation (comments, definitions, explanation)
 O/P screenshots
 Closure (Brief of the project)
 Bibliography
+--------------------------------------------------
+Store data in Python Dict
+Covert it into pandas DF
+Store the DF into .csv file
+Read and Print the .csv file using os module libraries
+
+Most Important Git Repo Link for your preparation for Placement Preparation
+https://github.com/gmaheswaranmca/au-guvi

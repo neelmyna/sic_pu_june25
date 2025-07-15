@@ -1021,5 +1021,10 @@ inventory:
 	2. Which sector in future will see more demand
 	3. Which airline is more likely to grow by market share
 
+
+9. How Indigo Airlines are coming up with New Routes? What Data and What Data Analysis is helping them to arrive at the introduction of the new Routes.
+
+10. 
+
 Kaggle
 --------------------------------------------------
