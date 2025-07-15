@@ -1449,6 +1449,12 @@ Chapter5 Assessment Link:
 https://docs.google.com/forms/d/1DmEP0lLygBF8YovshvTsn8dp-dPkv8qpqm-NSmZwZdo/edit
 
 Chapter6 Assessment Link:
+https://docs.google.com/forms/d/1AE7guZKFx_Ev7ZEASUCDbVarESP3Et6ImWnxacCkIOA/edit
+
+Chapter7 Assessment Link:
+
+
+Chapter8 Assessment Link:
 
 -------------------------------------------------------------------------
 groupby
@@ -1484,3 +1490,18 @@ PENDING TOPICS:
 Problem Solving: backtracking, dynamic programming
 pandas and matplotlib seaborn
 radix sort, heap sort, bucket sort, AVL Tree AND Sort
+
+In an object like:
+
+trainer {
+	'name': 'nithin',
+	'technology': 'python'
+}
+
+This is called as json.
+Now we say,
+console.log(trainer) # object with 2 fields
+console.log(trainer.name)
+trainer['location'] = 'mysuru'
+console.log(trainer) # we get an object with 3 fields
+-------------------------------

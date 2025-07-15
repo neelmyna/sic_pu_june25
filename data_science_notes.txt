@@ -258,6 +258,7 @@ program21.py
 # Explanation: Using boolean indexing to filter rows where Age > 25
 
 filtered_df = df[df1['Age'] > 25]  # Selects rows where Age > 25
+# SQL: select * from students where age > 25;
 print(filtered_df)
 ------------------------------------------------------------
 program22.py
@@ -267,18 +268,20 @@ program22.py
 # Explanation: Using groupby() and agg() to perform multiple aggregations on grouped data
 
 data = {
-    'Department': ['IT', 'HR', 'IT', 'HR', 'IT'],
-    'Salary': [60000, 55000, 70000, 58000, 75000]
+    'Department': ['IT', 'HR', 'IT', 'HR', 'IT', 'testing', 'testing', 'IT'],
+    'Salary': [60000, 55000, 70000, 58000, 75000, 66000, 88000, 94000]
 }
 
 df = pd.DataFrame(data)
 
 # Grouping by Department and calculating mean, sum, and max salary
 grouped_df = df.groupby('Department').agg({'Salary': ['mean', 'sum', 'max']})  
+# select department, avg(salary) as avg_salary, sum(salary) as total_salary, max(salary) as max_salary from employeees group by department;
 print(grouped_df)
 
-select department, avg(salary) as avg_salary from employees groupby dept having dept in['teaching', 'non-teaching']
+# select department, avg(salary) as avg_salary from employees groupby dept having dept in['teaching', 'non-teaching'] 
 ------------------------------------------------------------
+VISUALIZATION:
 program23.py
 # LINE PLOT
 # Problem Statement: Visualizing a sine wave using a line plot.
@@ -299,7 +302,6 @@ plt.ylabel("Y-axis")  # Label for y-axis
 plt.title("Line Plot")  # Title of the plot
 plt.legend()  # Display legend
 plt.show()  # Show the plot
-
 ------------------------------------------------------------
 program24.py
 
