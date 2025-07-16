@@ -963,6 +963,30 @@ my_array[[0, 1, -1], :] = 0 #For 1st row and last row, set all elements to 0
 
 #After:
 print(f'After:\n {my_array}')
+------------------------------------------------------------
+BACKTRACKIING:
+Backtracking is a general algorithmic technique used to solve problems incrementally, building up candidate solutions and abandoning a candidate ("backtracking") as soon as it is determined that it cannot possibly lead to a valid solution.
+
+Core Idea of Backtracking:
+It tries out all possible options and "backs out" of wrong paths as soon as it realizes that they cannot lead to a solution.
+
+Terminologies to Remember:
+Term				Description
+Decision Tree		The recursive branching structure of choices.
+State Space			All possible states (partial or complete solutions).
+Constraint			Rules that define valid solutions.
+Feasible/Valid State	A state that satisfies all constraints so far.
+Pruning				Skipping invalid or redundant branches to reduce work.
+Backtracking		Reverting the last decision and trying a new path.
+Recursive Call		Each level of recursion tries one step forward.
+Base Case			The condition when a valid complete solution is found.
+
+How It Works – Step by Step
+Choose: 			Pick an option for the current step.
+Constraint Check: 	Check if the current state is valid.
+Explore: 			Move on to the next step recursively.
+Backtrack: 			If the solution fails later, revert the current step and try another option.
+
 
 ------------------------------------------------------------
 HACKATHON PROBLEMS:
@@ -1039,3 +1063,41 @@ Bengaluru Traffic Management
 Normal vs C-Section
 Engineering Branches
 Indigo Airline Routes
+Musical Instruments Rental App
+Nyka Store Data Analysis App
+Dmart Sales Data Analysis App
+Petrol vs Electric Scooters Data Analysis
+--------------------------------------------
+RULES FOR HACKATHON:
+1. Maximum of 9 Project Statements are allowed.
+2. Each Project must be taken by at least 4 students.
+3. A project can be taken by maximumof 5 students.
+4. A minimum of 4 and upto 6 data analysis must be demonstrated.
+5. The projects must be submitted only afetr 12 pm on Wednesday 17th
+6. The projects must be submitted before 4 pm on Wednesday 17th
+7. The hackathon folder must be present inside the repo created for the SIC training.
+8. The G-sheet will be made available for write operation to add the links by the student.
+9. The Implemnetation of the same project by 4 to 5 students must be different. For this, the students implementing the same project can discuss the analysis and other features being implemneted and can distribute the BR (business requirements) yourselves.
+10. Making choice of the problem statement and the features is solely left to students.
+11. Once the features being implemented are finalised, student must 1st create the Detailed Problem Statement.
+12. The MENU (UI) too should be different for the same project being implemented.
+-----------------------------------------------------------
+PENDING TOPICS:
+Problem Solving: backtracking, dynamic programming
+pandas and matplotlib seaborn
+radix sort, heap sort, bucket sort, AVL Tree AND Sort
+
+In an object like:
+
+trainer {
+	'name': 'nithin',
+	'technology': 'python'
+}
+
+This is called as json.
+Now we say,
+console.log(trainer) # object with 2 fields
+console.log(trainer.name)
+trainer['location'] = 'mysuru'
+console.log(trainer) # we get an object with 3 fields
+-------------------------------

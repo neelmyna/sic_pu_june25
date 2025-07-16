@@ -1422,11 +1422,12 @@ print(normalized)  # ['Hello World', 'Python is great', 'No extra spaces please'
 -------------------------------------------------------
 PROJECT DEVELOPMENT
 SESSION-19 MONDAY 14-07-2025
-Problem Statement (Abstract)
+Topic Name
+Problem Statement (in abstract)
 Index
 Description 	  (Detailed)
-Data with in the problem and relevant info and the O/P and purpose and outcome and benefits.
-Plan
+Data with in the problem and relevant info and the O/P, purpose and outcome and benefits.
+Solution Plan
 Design (Diagrams)
 Implemnetation
 Code & explanation (comments, definitions, explanation)
@@ -1456,6 +1457,9 @@ Chapter7 Assessment Link:
 
 Chapter8 Assessment Link:
 
+
+Feedback Link:
+https://docs.google.com/forms/d/10eeCRMlxaN7Eol5dqxs0egScYvxviYnb16sfHE46DxI/edit
 -------------------------------------------------------------------------
 groupby
 Lot of rows/objects present in a table
@@ -1472,36 +1476,4 @@ I may wish to know the names of the employees with highest salary from each dept
 
 Group the employees on dept and print the depts with number of employees more than 100 or less than 20
 -------------------------------------------------------------------------
-RULES FOR HACKATHON:
-1. Maximum of 9 Project Statements are allowed.
-2. Each Project must be taken by at least 4 students.
-3. A project can be taken by maximumof 5 students.
-4. A minimum of 4 and upto 6 data analysis must be demonstrated.
-5. The projects must be submitted only afetr 12 pm on Wednesday 17th
-6. The projects must be submitted before 4 pm on Wednesday 17th
-7. The hackathon folder must be present inside the repo created for the SIC training.
-8. The G-sheet will be made available for write operation to add the links by the student.
-9. The Implemnetation of the same project by 4 to 5 students must be different. For this, the students implementing the same project can discuss the analysis and other features being implemneted and can distribute the BR (business requirements) yourselves.
-10. Making choice of the problem statement and the features is solely left to students.
-11. Once the features being implemented are finalised, student must 1st create the Detailed Problem Statement.
-12. The MENU (UI) too should be different for the same project being implemented.
------------------------------------------------------------
-PENDING TOPICS:
-Problem Solving: backtracking, dynamic programming
-pandas and matplotlib seaborn
-radix sort, heap sort, bucket sort, AVL Tree AND Sort
 
-In an object like:
-
-trainer {
-	'name': 'nithin',
-	'technology': 'python'
-}
-
-This is called as json.
-Now we say,
-console.log(trainer) # object with 2 fields
-console.log(trainer.name)
-trainer['location'] = 'mysuru'
-console.log(trainer) # we get an object with 3 fields
--------------------------------

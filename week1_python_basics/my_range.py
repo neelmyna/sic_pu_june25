@@ -1,6 +1,6 @@
 def my_range(*args):
     i = 0
-    while i < len(args):
+    while i < len(args): # check the data in the tuple are integers
         if type(args[i]) is not int:
             raise TypeError
         i += 1
@@ -10,7 +10,7 @@ def my_range(*args):
         i = 0
         while i < args[0]:
             yield i
-            i += 1
+            i += 1 # default increment is 1
     elif len(args) == 2:
         i = args[0]
         while i < args[1]:

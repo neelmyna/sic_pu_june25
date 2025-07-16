@@ -1,15 +1,29 @@
-import matplotlib.pyplot as plt
-import numpy as np
-import seaborn as sns
-import pandas as pd
-from mpl_toolkits.mplot3d import Axes3D  # Importing 3D plotting module
+'''
+fruits1 = {1:"apple", 2:"banana", 3:"cherry"}
+fruits = ("apple", "banana", "cherry")
+myit = iter(fruits)
+print(next(myit))
+print(next(myit))
+print(next(myit))
 
-fruits = ['Mango', 'Apple', 'Banana', 'Grapes']
-sales = [10, 20, 15, 25]
+print(type(myit))
 
-plt.bar(fruits, sales, color=['blue', 'green', 'red', 'purple'])
-plt.xlabel("Fruits")
-plt.ylabel("Sales (lakh rupees)")
-plt.legend()
-plt.title("Bar Chart")
-plt.show()
+for i in range(len(fruits)):
+    print(i+1, fruits[i+1])
+
+for fruit in fruits:
+    print(key, value)
+'''
+vegetables = ['brinjal', 'onion', 'capsicum', 'ladies-finger' , 'tomato']
+
+for vegetable in vegetables:
+    print(vegetable)
+print('--------------------------------')
+itr = iter(vegetables)
+while True:
+    try:
+        print(next(itr))
+    except:
+        print(end='')
+        break
+
