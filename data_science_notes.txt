@@ -965,7 +965,8 @@ my_array[[0, 1, -1], :] = 0 #For 1st row and last row, set all elements to 0
 print(f'After:\n {my_array}')
 ------------------------------------------------------------
 BACKTRACKIING:
-Backtracking is a general algorithmic technique used to solve problems incrementally, building up candidate solutions and abandoning a candidate ("backtracking") as soon as it is determined that it cannot possibly lead to a valid solution.
+Backtracking 
+as it is determined that it cannot possibly lead to a valid solution.
 
 Core Idea of Backtracking:
 It tries out all possible options and "backs out" of wrong paths as soon as it realizes that they cannot lead to a solution.
@@ -987,6 +988,47 @@ Constraint Check: 	Check if the current state is valid.
 Explore: 			Move on to the next step recursively.
 Backtrack: 			If the solution fails later, revert the current step and try another option.
 
+def solve_n_queens(n): # places the Queen in the current Row
+    def is_safe(row, col): # Check if the current cell in the Matrix is feasible to place the Queen
+        # Check column
+        for i in range(row):
+            if board[i] == col:
+                return False
+        # Check diagonal (top-left)
+        for i, j in zip(range(row - 1, -1, -1), range(col - 1, -1, -1)):
+            if board[i] == j:
+                return False
+        # Check diagonal (top-right)
+        for i, j in zip(range(row - 1, -1, -1), range(col + 1, n)):
+            if board[i] == j:
+                return False
+        return True
+
+    def backtrack(row): # move to previous state of the solution
+        if row == n: # Check if finding the solution is completed (If we have reached all the rows in the Matrix)
+            result.append(board[:])
+            return
+        for col in range(n):
+            if is_safe(row, col): # if queen can be placed in the present cell in the matrix
+                board[row] = col # place the Queen (numbered) in the cell
+                backtrack(row + 1) # move to the next row
+
+    result = []
+    board = [-1] * n
+    backtrack(0)
+    return result
+
+def print_solutions(solutions):
+    for sol in solutions: # Print Q (the position of queen in the row)
+        for i in sol:
+            print("." * i + "Q" + "." * (len(sol) - i - 1))
+        print()
+
+# Example usage:
+n = 4   # For 4 rows and 4 columns
+solutions = solve_n_queens(n) # solutions is the matrix with thye queens placed in it
+print(f"Total solutions for {n}-Queens: {len(solutions)}\n")
+print_solutions(solutions)
 
 ------------------------------------------------------------
 HACKATHON PROBLEMS:
@@ -1101,3 +1143,11 @@ console.log(trainer.name)
 trainer['location'] = 'mysuru'
 console.log(trainer) # we get an object with 3 fields
 -------------------------------
+App DEVELOPMENT
+Course Content (diagrams, problem statements, assessments, code, documentation)
+Co-Trainer  (Co-ordinator)
+
+Content Creation (Posters, Video Editing)
+adbutha.nithin  travel business
+mtd.nithin 		training business
+uncle.dance
